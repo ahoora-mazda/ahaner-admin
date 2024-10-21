@@ -1,0 +1,95 @@
+import React, { useState } from "react";
+import Input from "../../components/form/components/input";
+import Btn from "../../components/form/components/button";
+import CheckBox from "../../components/form/components/checkbox";
+import { Link, useNavigate } from "react-router-dom";
+import { usePost } from "../../hooks";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { AuthProps } from "../../types/auth";
+import { useDispatch } from "react-redux";
+import { login, setPayment } from "../../features/user";
+const schema = yup
+  .object({
+    name: yup.string().required("نام کاربری اجباری است"),
+    password: yup.string().required("رمز عبور اجباری است"),
+  })
+  .required();
+
+const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<AuthProps>({
+    resolver: yupResolver(schema),
+  });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [, , send, loading] = usePost({
+    route: "/login",
+    redirect: {
+      status: true,
+      action: data => {
+        navigate("/");
+        dispatch(login({ token: data.token }));
+      },
+    },
+    setError: ob => {
+      if (ob) {
+        Object.keys(ob).forEach(key => {
+          setError(key, { message: ob[key][0] });
+        });
+      }
+    },
+    errorAction: (response, body) => {
+      if (+response?.response?.status === 318) {
+        dispatch(
+          setPayment({
+            id: response?.response?.data?.data?.id,
+            name: body.name,
+            password: body.password,
+            amount_membership_fee:
+              response?.response?.data?.data?.amount_membership_fee,
+          })
+        );
+        navigate(`/payment`);
+      }
+    },
+  });
+  const onSubmit = (data: AuthProps) => send({ ...data });
+  return (
+    <div>
+      <div>
+        <h3 className="font-bold	text-2xl	my-4 w-[300px] ">خوش آمدید!</h3>
+      </div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          label="نام کاربری"
+          props={{
+            ...register("name" as const),
+          }}
+          error={errors.name}
+        />
+        <Input
+          type="password"
+          label="رمز عبور"
+          props={{
+            ...register("password" as const),
+          }}
+          error={errors.password}
+        />
+        <Btn
+          text="ورود"
+          type="submit"
+          loading={loading.send}
+          classNames="bg-primary mt-6 hover:bg-subPrimary text-white w-full justify-center  px-6 py-2 "
+        />
+      </form>
+    </div>
+  );
+};
+
+export default Login;

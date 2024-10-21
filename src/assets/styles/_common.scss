@@ -1,0 +1,66 @@
+.modal-backdrop {
+  -webkit-backdrop-filter: blur(2px) !important;
+  backdrop-filter: blur(2px) !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  min-height: 100vh;
+  z-index: 99999999;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Morabba;
+}
+* {
+  font-family: Dana;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.number {
+  font-family: KalamehWebFaNum;
+}
+* {
+  @apply number;
+}
+body {
+  color: #2a3547;
+  overflow-x: hidden;
+}
+
+.card-wrapper-shadow {
+  box-shadow: rgb(145 158 171 / 30%) 0px 0px 2px 0px,
+    rgb(145 158 171 / 12%) 0px 12px 24px -4px;
+  background-image: none;
+}
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #5d87ff #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 9px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #5d87ff;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:read-only {
+  opacity: 0.8;
+}

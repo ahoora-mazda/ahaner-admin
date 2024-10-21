@@ -1,0 +1,23 @@
+.date-picker {
+  @apply flex flex-col;
+  &[data-error="true"] {
+    input {
+      --tw-border-opacity: 1 !important;
+      border-color: rgb(250 137 107 / var(--tw-border-opacity)) !important;
+    }
+  }
+  input {
+    @apply border border-borderSidebar px-4 py-3 rounded-lg;
+  }
+}
+.css-1vq0npf {
+  border-radius: 999999px !important;
+}
+.css-137m4ck {
+  border-radius: 0.5rem !important;
+}
+.rmdp-container {
+  input {
+    width: 100%;
+  }
+}

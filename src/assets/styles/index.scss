@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "../fonts/dana/style.scss";
+@import "../fonts/morabba/style.scss";
+@import "../fonts/number/style.css";
+@import "./boxShadows";
+@import "./common";
+@import "./antd";
+@import "./date-picker";

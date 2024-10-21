@@ -1,0 +1,12 @@
+.badge-component {
+  //   @apply flex items-center justify-center;
+  span {
+    @apply text-[12px] w-fit px-2 h-[20px] flex items-center justify-center;
+  }
+  .success {
+    @apply bg-[#E6FFFA] text-[12px] text-[#13DEB9];
+  }
+  .error {
+    @apply bg-[#FBF2EF] text-[12px] text-[#FA896B];
+  }
+}

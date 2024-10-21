@@ -1,0 +1,11 @@
+.body-factor {
+  min-height: 100vh;
+  background-color: #fff;
+  .print-layout {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 6px;
+    background-color: #fff;
+    padding-inline: 24px;
+  }
+}
