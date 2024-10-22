@@ -7,7 +7,7 @@ const TextArea = ({
   props,
   error,
   wrapperClassName = "",
-  onChange = e => {},
+  onChange = (e) => {},
   optional,
   value,
 }: TextAreaProps) => {
@@ -21,10 +21,8 @@ const TextArea = ({
         <>
           <label className="text-sm	font-semibold mb-1 text-right">
             {label}
-            {optional && (
-              <span className="text-xs font-normal mx-1 !text-primary">
-                (اختیاری)
-              </span>
+            {!optional && (
+              <span className="text-xs font-normal mx-1 text-red-800">*</span>
             )}
           </label>
         </>
@@ -35,7 +33,7 @@ const TextArea = ({
       <textarea
         value={value}
         rows={5}
-        onChange={e => onChange(e)}
+        onChange={(e) => onChange(e)}
         {...props}
         className={`${
           error?.message ? "!border-red" : "border-borderSidebar"

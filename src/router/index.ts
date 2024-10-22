@@ -46,6 +46,9 @@ import ProductCreate from "../pages/product/create";
 import ProductList from "../pages/product/list";
 import ProductUpdate from "../pages/product/update";
 import Profile from "../pages/profile";
+import PropertyCreate from "../pages/property/create";
+import PropertyList from "../pages/property/list";
+import PropertyUpdate from "../pages/property/update";
 import SettingPage from "../pages/settings";
 import TeamCreate from "../pages/team/create";
 import TeamList from "../pages/team/list";
@@ -441,6 +444,26 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/team-list/:id",
+  },
+  // Teams Page End
+  // Teams Page Start
+  {
+    component: PropertyCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/property-create",
+  },
+  {
+    component: PropertyList,
+    user: true,
+    layout: MainLayout,
+    path: "/property-list",
+  },
+  {
+    component: PropertyUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/property-list/:id",
   },
   // Teams Page End
 ];

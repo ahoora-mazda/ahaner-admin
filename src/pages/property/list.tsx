@@ -1,13 +1,13 @@
 import CustomTable from "../../components/table";
 
-const GroupList = () => {
+const PropertyList = () => {
   return (
     <>
       <CustomTable
-        add="/group-create"
-        title="لیست گروه ها"
-        subTitle="گروه ها"
-        api={{ route: "/admin/groups" }}
+        add="/property-create"
+        title="لیست ویژگی محصول"
+        subTitle="ویژگی محصول"
+        api={{ route: "/admin/properties" }}
         sort={(state) => {
           return {
             ...state,
@@ -34,13 +34,13 @@ const GroupList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/group-list/:id",
+                route: "/property-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/groups",
+                route: "/admin/properties",
                 accessKey: "cheque_remove",
               },
             ],
@@ -51,4 +51,4 @@ const GroupList = () => {
   );
 };
 
-export default GroupList;
+export default PropertyList;

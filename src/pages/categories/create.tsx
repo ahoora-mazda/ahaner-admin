@@ -53,7 +53,6 @@ const CategoryCreate = () => {
           api: {
             keys: ["categories"],
             sort: (state) => {
-              console.log({ state });
               return state.categories.map((ele: any) => {
                 return {
                   value: ele.value,

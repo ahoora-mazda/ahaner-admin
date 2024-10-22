@@ -25,10 +25,8 @@ const Input = ({
         <>
           <label className="text-sm	font-semibold mb-1 text-right">
             {label}
-            {optional && (
-              <span className="text-xs font-normal mx-1 text-primary">
-                (اختیاری)
-              </span>
+            {!optional && (
+              <span className="text-xs font-normal mx-1 text-red-800">*</span>
             )}
           </label>
         </>

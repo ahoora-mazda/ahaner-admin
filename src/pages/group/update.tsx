@@ -25,35 +25,80 @@ const GroupUpdate = () => {
         },
       ]}
       update={true}
+      sortUpdate={(state) => {
+        return {
+          ...state,
+          seo: {
+            title: state.title_seo,
+            description: state.description_seo,
+            schema: state.schema,
+          },
+        };
+      }}
       sortGet={(state) => {
         return {
           ...state,
-          product_id: state.group_products.map((ele: any) => +ele.product_id),
+          title_seo: state.seo?.title,
+          description_seo: state.seo?.description,
+          schema: state.seo?.schema,
         };
       }}
       elements={[
         {
           label: "عنوان",
-          name: "title",
+          name: "name",
           validation: yup.string().required("عنوان اجباری است"),
           type: "input",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-        },
-        {
-          label: "توضیحات",
-          name: "description",
-          validation: yup.string().required("توضیحات اجباری است"),
-          type: "editor",
           cardKey: "1",
           col: "col-span-12",
         },
         {
-          label: "تصویر",
-          name: "image",
-          validation: yup.mixed().required("تصویر اجباری است"),
-          type: "fileUploader",
+          type: "selectApi",
+          label: "دسته بندی",
+          name: "category_id",
+          validation: yup.string().required("دسته بندی اجباری است"),
+
+          api: {
+            keys: ["categories"],
+            sort: (state) => {
+              return state.categories.map((ele: any) => {
+                return {
+                  value: ele.value,
+                  label: ele.label,
+                };
+              });
+            },
+          },
+          col: "col-span-12",
           cardKey: "1",
+        },
+        {
+          name: "description",
+          label: "توضیحات",
+          cardKey: "1",
+          type: "editor",
+          col: "col-span-12",
+        },
+        {
+          name: "title_seo",
+          label: "عنوان صفحه",
+          type: "input",
+          cardKey: "1",
+          col: "col-span-12",
+        },
+        {
+          name: "description_seo",
+          label: "توضیحات صفحه",
+          type: "textarea",
+          cardKey: "1",
+          col: "col-span-12",
+        },
+
+        {
+          name: "schema",
+          label: "schema",
+          cardKey: "1",
+          type: "textarea",
           col: "col-span-12",
         },
       ]}

@@ -1,4 +1,4 @@
-import { AudioFilled, GroupOutlined } from "@ant-design/icons";
+import { AudioFilled, GroupOutlined, PropertySafetyFilled } from "@ant-design/icons";
 import { uniqueId } from "lodash";
 import {
   Aperture,
@@ -151,6 +151,27 @@ export const Menuitems: MenuitemProps[] = [
         title: "لیست",
         icon: Point,
         href: "/group-list",
+        accessKey: ["normal-doc-list"],
+      },
+    ],
+  },
+  {
+    id: uniqueId(),
+    title: "ویژگی های محصول",
+    icon: PropertySafetyFilled,
+    children: [
+      {
+        id: uniqueId(),
+        title: "افزودن",
+        icon: Point,
+        href: "/property-create",
+        accessKey: ["doc-create"],
+      },
+      {
+        id: uniqueId(),
+        title: "لیست",
+        icon: Point,
+        href: "/property-list",
         accessKey: ["normal-doc-list"],
       },
     ],
