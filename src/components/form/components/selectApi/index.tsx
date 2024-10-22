@@ -9,7 +9,7 @@ interface Props {
   onBlur?: (op: any) => void;
   value: any;
   api: {
-    route: string;
+    keys: string[];
     sort: (state: any) => {};
   };
   depend?: {
@@ -42,18 +42,12 @@ const SelectApi = ({
   const [options, setOptions] = useState<any>([]);
   const getOptions = async () => {
     setLoading(true);
-    const { data } = await API.get(
-      api?.route.replace(":id", dependValue()) || "",
-      {
-        params: depend
-          ? {
-              [depend.key]: dependValue(),
-            }
-          : {},
-      }
-    );
+    const { data } = await API.post("/admin/requirements", {
+      keys: api.keys,
+    });
+    console.log({ data });
     if (typeof api.sort === "function") {
-      setOptions(api.sort(data));
+      setOptions(api.sort(data.data));
     }
     setLoading(false);
   };
@@ -102,7 +96,7 @@ const SelectApi = ({
         value={value}
         onBlur={onBlur}
         optionFilterProp="label"
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           if (e.code === "Enter" && onEnter) {
             onEnter();
           }

@@ -5,8 +5,8 @@ const GroupList = () => {
     <>
       <CustomTable
         add="/group-create"
-        title="لیست کشور ها"
-        subTitle="کشور ها"
+        title="لیست گروه ها"
+        subTitle="گروه ها"
         api={{ route: "/admin/groups" }}
         sort={state => {
           return {

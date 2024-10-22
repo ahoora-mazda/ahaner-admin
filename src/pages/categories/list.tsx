@@ -27,7 +27,7 @@ const CategoriesList = () => {
             type: "image",
           },
           {
-            key: "title",
+            key: "name",
             title: "عنوان",
             filterType: "input",
             keyFilter: "text",

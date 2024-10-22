@@ -52,7 +52,7 @@ export interface FormElement {
   wrapperClassName?: string;
   cardKey?: string;
   api?: {
-    route: string;
+    keys: string[];
     sort: (state: any) => {};
   };
   depend?: {
@@ -73,6 +73,7 @@ export interface FormElement {
   classNames?: string;
   defaultValue?: any;
   route?: string;
+  help?: string;
 }
 export interface Card {
   title: string;

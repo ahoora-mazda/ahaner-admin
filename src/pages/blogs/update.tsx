@@ -25,7 +25,7 @@ const BlogUpdate = () => {
           key: "1",
         },
       ]}
-      sortUpdate={state => {
+      sortUpdate={(state) => {
         return {
           ...state,
           seo: {
@@ -36,11 +36,9 @@ const BlogUpdate = () => {
         };
       }}
       update={true}
-      sortGet={state => {
+      sortGet={(state) => {
         return {
           ...state,
-          page_id : state.pages.map((ele : any) => ele.id),
-          blog_id : state.blogs.map((ele : any) => ele.id),
           title_s: state?.seo?.title,
           schema: state?.seo?.schema,
           desc_s: state?.seo?.description,
@@ -71,6 +69,7 @@ const BlogUpdate = () => {
           cardKey: "1",
           col: "col-span-12 md:col-span-6",
         },
+
         {
           label: "دسته بندی",
           name: "category_id",
@@ -79,52 +78,25 @@ const BlogUpdate = () => {
           cardKey: "1",
           col: "col-span-12 md:col-span-6",
           api: {
-            route: "/admin/blogs/create",
-            sort: state => {
+            keys: ["categories"],
+            sort: (state) => {
+              console.log({ state });
               return state.map((ele: any) => {
                 return {
                   value: ele.id,
-                  label: ele.title,
+                  label: ele.label,
                 };
               });
             },
           },
         },
         {
-          label: "سرویس های محبوب",
-          name: "page_id",
-          type: "multiSelectApi",
+          label: "نویسنده",
+          name: "writer",
+          validation: yup.string().required("نویسنده اجباری است"),
+          type: "input",
           cardKey: "1",
-          col: "col-span-12",
-          api: {
-            route: "/admin/blogs/create?select=page",
-            sort: (state) => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
-        },
-        {
-          label: "مقالات مرتبط",
-          name: "blog_id",
-          type: "multiSelectApi",
-          cardKey: "1",
-          col: "col-span-12",
-          api: {
-            route: "/admin/blogs/create?select=blog",
-            sort: (state) => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
+          col: "col-span-12 ",
         },
         {
           label: "توضیحات",
@@ -142,25 +114,15 @@ const BlogUpdate = () => {
           cardKey: "1",
           col: "col-span-12",
         },
-        {
-          cardKey: "1",
-          name: "",
-          type: "component",
-          component: watch => {
-            return (
-              <div
-                dangerouslySetInnerHTML={{ __html: watch("description") }}
-              ></div>
-            );
-          },
-        },
+
         {
           label: "تصویر",
           name: "image",
-          validation: yup.mixed().required("تصویر اجباری است"),
           type: "fileUploader",
+          validation: yup.mixed().required("تصویر اجباری است"),
           cardKey: "1",
           col: "col-span-12",
+          route: "/admin/blogs/upload",
         },
         {
           label: "عنوان سئو",

@@ -67,8 +67,9 @@ const ProductCreate = () => {
           cardKey: "1",
           col: "col-span-12",
           api: {
-            route: "/admin/products/create",
-            sort: state => {
+            keys: ["categories"],
+
+            sort: (state) => {
               return state.map((ele: any) => {
                 return {
                   value: ele.id,

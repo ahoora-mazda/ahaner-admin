@@ -58,7 +58,7 @@ const PlanUpdate = () => {
       if (editId) {
         setErrorPlan({ title: false, svg: false, value: false });
         setProperties(
-          properties.map(ele => {
+          properties.map((ele) => {
             if (ele.id === editId) {
               return { ...ele, ...form };
             } else {
@@ -88,7 +88,7 @@ const PlanUpdate = () => {
       if (editIdPrice) {
         setErrorPrice({ link: false, price: false, title: false });
         setPrice(
-          price.map(ele => {
+          price.map((ele) => {
             if (ele.id === editIdPrice) {
               return { ...ele, ...formPrice };
             } else {
@@ -152,7 +152,7 @@ const PlanUpdate = () => {
         navigate("/plan-list");
       }}
       notSerialize
-      sortGet={state => {
+      sortGet={(state) => {
         setProperties(state.properties);
         setPrice(state.price);
         return {
@@ -162,7 +162,7 @@ const PlanUpdate = () => {
           group_id: +state.group_id,
         };
       }}
-      sortUpdate={state => {
+      sortUpdate={(state) => {
         return {
           ...state,
           properties,
@@ -193,65 +193,7 @@ const PlanUpdate = () => {
           cardKey: "1",
           col: "col-span-12",
         },
-        {
-          label: "محصول",
-          name: "product_id",
-          type: "multiSelectApi",
-          cardKey: "1",
-          col: "col-span-12",
-          api: {
-            route: "/admin/plans/create?select=product",
-            sort: state => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
-        },
-        {
-          label: "دسته بندی",
-          name: "category_id",
-          type: "multiSelectApi",
-          cardKey: "1",
-          col: "col-span-12 ",
-          api: {
-            route: "/admin/plans/create?select=category",
-            sort: state => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
-        },
-        {
-          label: "کشور",
-          name: "group_id",
-          type: "multiSelectApi",
-          cardKey: "1",
-          col: "col-span-12",
-          exists: { keys: ["product_id"] },
-          depend: {
-            key: "product_id",
-          },
 
-          api: {
-            route: "/admin/plans/create?select=group",
-            sort: state => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
-        },
         {
           label: "پرفروش ترین",
           type: "checkbox",
@@ -317,7 +259,7 @@ const PlanUpdate = () => {
                 <div className="mt-4">
                   <DragDropContext onDragEnd={handleOnDragEnd}>
                     <Droppable droppableId="droppable-list">
-                      {provided => (
+                      {(provided) => (
                         <div
                           className="block"
                           {...provided.droppableProps}
@@ -333,7 +275,7 @@ const PlanUpdate = () => {
                               draggableId={item.id}
                               index={key}
                             >
-                              {provided => (
+                              {(provided) => (
                                 <div
                                   ref={provided.innerRef}
                                   {...provided.draggableProps}
@@ -456,7 +398,7 @@ const PlanUpdate = () => {
                 <div className="mt-4">
                   <DragDropContext onDragEnd={handleOnDragEndPrice}>
                     <Droppable droppableId="prices-list">
-                      {provided => (
+                      {(provided) => (
                         <div
                           className="block"
                           {...provided.droppableProps}
@@ -472,7 +414,7 @@ const PlanUpdate = () => {
                               draggableId={item.id}
                               index={key}
                             >
-                              {provided => (
+                              {(provided) => (
                                 <div
                                   ref={provided.innerRef}
                                   {...provided.draggableProps}

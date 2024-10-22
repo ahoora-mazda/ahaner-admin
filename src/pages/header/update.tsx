@@ -10,21 +10,21 @@ const HeaderUpdate = () => {
       title="ویرایش هدر"
       btn={{ text: "ویرایش هدر" }}
       api={{
-        route: "/admin/headers",
-        get: "/admin/headers/:id",
-        update: "/admin/headers/:id",
+        route: "/admin/headeritems",
+        get: "/admin/headeritems/:id",
+        update: "/admin/headeritems/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {
         navigate("/header-list");
       }}
-      sortGet={state => {
+      sortGet={(state) => {
         return {
           ...state,
           inner_link: state.inner_link === "true" ? true : false,
         };
       }}
-      sortUpdate={state => {
+      sortUpdate={(state) => {
         return { ...state, inner_link: state.inner_link ? "yes" : "no" };
       }}
       cards={[
@@ -38,6 +38,7 @@ const HeaderUpdate = () => {
         {
           label: "عنوان",
           name: "title",
+          validation: yup.string().required("عنوان اجباری است"),
           type: "input",
           cardKey: "1",
           col: "col-span-12 md:col-span-4",
@@ -50,12 +51,13 @@ const HeaderUpdate = () => {
           col: "col-span-12 md:col-span-4",
         },
         {
-          label: "والد هدر",
-          name: "header_id",
+          label: "والد لینک",
+          name: "item_id",
           type: "selectApi",
           api: {
-            route: "/admin/headers/create",
-            sort: state => {
+            keys: ["categories"],
+
+            sort: (state) => {
               return state.map((ele: any) => {
                 return {
                   value: ele.id,
@@ -66,34 +68,6 @@ const HeaderUpdate = () => {
           },
           cardKey: "1",
           col: "col-span-12 md:col-span-4",
-        },
-        {
-          label: "جزییات",
-          name: "info",
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          label: "توضیحات",
-          name: "description",
-          type: "textarea",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          label: "تصویر",
-          name: "image",
-          type: "fileUploader",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          label: "لینک داخلی",
-          name: "inner_link",
-          cardKey: "1",
-          type: "checkbox",
-          defaultValue: true,
         },
       ]}
     />

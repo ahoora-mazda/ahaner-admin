@@ -11,14 +11,14 @@ const HeaderCreate = () => {
       }}
       title="ایجاد هدر"
       btn={{ text: "ایجاد هدر" }}
-      api={{ route: "/admin/headers" }}
+      api={{ route: "/admin/headeritems" }}
       cards={[
         {
           title: "اطلاعات هدر",
           key: "1",
         },
       ]}
-      sortUpdate={state => {
+      sortUpdate={(state) => {
         console.log({ state });
         return {
           ...state,
@@ -42,12 +42,13 @@ const HeaderCreate = () => {
           col: "col-span-12 md:col-span-4",
         },
         {
-          label: "والد هدر",
-          name: "header_id",
+          label: "والد لینک",
+          name: "item_id",
           type: "selectApi",
           api: {
-            route: "/admin/headers/create",
-            sort: state => {
+            keys: ["categories"],
+
+            sort: (state) => {
               return state.map((ele: any) => {
                 return {
                   value: ele.id,
@@ -58,35 +59,6 @@ const HeaderCreate = () => {
           },
           cardKey: "1",
           col: "col-span-12 md:col-span-4",
-        },
-        {
-          label: "جزییات",
-          name: "info",
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          label: "توضیحات",
-          name: "description",
-          type: "textarea",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          label: "تصویر",
-          name: "image",
-          type: "fileUploader",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          label: "لینک داخلی",
-          name: "inner_link",
-          cardKey: "1",
-          type: "checkbox",
-          validation: yup.boolean().default(true),
-          defaultValue: true,
         },
       ]}
     />

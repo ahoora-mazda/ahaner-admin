@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Edit, Plus, Trash } from "tabler-icons-react";
@@ -61,7 +60,7 @@ const PlanCreate = () => {
       if (editId) {
         setErrorPlan({ title: false, svg: false, value: false });
         setProperties(
-          properties.map(ele => {
+          properties.map((ele) => {
             if (ele.id === editId) {
               return { ...ele, ...form };
             } else {
@@ -93,7 +92,7 @@ const PlanCreate = () => {
       if (editIdPrice) {
         setErrorPrice({ link: false, price: false, title: false });
         setPrice(
-          price.map(ele => {
+          price.map((ele) => {
             if (ele.id === editIdPrice) {
               return { ...ele, ...formPrice };
             } else {
@@ -174,7 +173,7 @@ const PlanCreate = () => {
         },
       ]}
       notSerialize
-      sortUpdate={state => {
+      sortUpdate={(state) => {
         return {
           ...state,
           properties,
@@ -189,65 +188,6 @@ const PlanCreate = () => {
           type: "input",
           cardKey: "1",
           col: "col-span-12",
-        },
-        {
-          label: "محصول",
-          name: "product_id",
-          type: "multiSelectApi",
-          cardKey: "1",
-          col: "col-span-12",
-          api: {
-            route: "/admin/plans/create?select=product",
-            sort: state => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
-        },
-        {
-          label: "دسته بندی",
-          name: "category_id",
-          type: "multiSelectApi",
-          cardKey: "1",
-          col: "col-span-12 ",
-          api: {
-            route: "/admin/plans/create?select=category",
-            sort: state => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
-        },
-        {
-          label: "کشور",
-          name: "group_id",
-          type: "multiSelectApi",
-          cardKey: "1",
-          col: "col-span-12",
-          exists: { keys: ["product_id"] },
-          depend: {
-            key: "product_id",
-          },
-
-          api: {
-            route: "/admin/plans/create?select=group",
-            sort: state => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
         },
         {
           label: "پرفروش ترین",
@@ -314,7 +254,7 @@ const PlanCreate = () => {
                 <div className="mt-4">
                   <DragDropContext onDragEnd={handleOnDragEnd}>
                     <Droppable droppableId="droppable-list">
-                      {provided => (
+                      {(provided) => (
                         <div
                           className="block"
                           {...provided.droppableProps}
@@ -330,7 +270,7 @@ const PlanCreate = () => {
                               draggableId={item.id}
                               index={key}
                             >
-                              {provided => (
+                              {(provided) => (
                                 <div
                                   ref={provided.innerRef}
                                   {...provided.draggableProps}
@@ -453,7 +393,7 @@ const PlanCreate = () => {
                 <div className="mt-4">
                   <DragDropContext onDragEnd={handleOnDragEndPrice}>
                     <Droppable droppableId="prices-list">
-                      {provided => (
+                      {(provided) => (
                         <div
                           className="block"
                           {...provided.droppableProps}
@@ -469,7 +409,7 @@ const PlanCreate = () => {
                               draggableId={item.id}
                               index={key}
                             >
-                              {provided => (
+                              {(provided) => (
                                 <div
                                   ref={provided.innerRef}
                                   {...provided.draggableProps}

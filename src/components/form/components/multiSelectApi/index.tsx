@@ -9,7 +9,7 @@ interface Props {
   onBlur?: (op: any) => void;
   value: any;
   api: {
-    route: string;
+    keys: string[];
     sort: (state: any) => {};
   };
   depend?: {
@@ -35,7 +35,7 @@ const MultiSelectApi = ({
   const [options, setOptions] = useState<any>([]);
   const getOptions = async () => {
     setLoading(true);
-    const { data } = await API.get(api?.route || "", {
+    const { data } = await API.post("/admin/requirements" || "", {
       params: depend
         ? {
             [depend.altKey || depend.key]: dependValue(),

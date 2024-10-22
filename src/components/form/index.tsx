@@ -28,10 +28,10 @@ const CustomForm: React.FC<Form> = ({
   btn,
   api,
   update,
-  sortUpdate = state => {
+  sortUpdate = (state) => {
     return state;
   },
-  sortGet = state => {
+  sortGet = (state) => {
     return state;
   },
   cards,
@@ -64,7 +64,7 @@ const CustomForm: React.FC<Form> = ({
     notSerialize,
   });
 
-  const render = (element: RequiredIfSelect<FormElement>, key: number) => {
+  const render = (element: FormElement, key: number) => {
     switch (element.type) {
       case "input":
         return (
@@ -86,11 +86,12 @@ const CustomForm: React.FC<Form> = ({
               label={element.label}
               props={{ ...register(element.name) }}
               error={errors[element.name]}
-              onChange={e => {
+              onChange={(e) => {
                 if (element.onChange) {
                   element?.onChange(e, watch, setValue);
                 }
               }}
+              help={element.help}
             />
           </Wrapper>
         );
@@ -128,7 +129,7 @@ const CustomForm: React.FC<Form> = ({
               label={element.label}
               props={{ value: watch(element.name) }}
               error={errors[element.name]}
-              onChange={e => {
+              onChange={(e) => {
                 setValue(element.name, formattedPrice(e.target.value));
                 if (element.onChange) {
                   element?.onChange(e, watch, setValue);
@@ -159,7 +160,7 @@ const CustomForm: React.FC<Form> = ({
               label={element.label}
               options={element.options || []}
               error={errors[element.name]}
-              onChange={e => {
+              onChange={(e) => {
                 setValue(element.name, e);
               }}
               readonly={element.readonly}
@@ -204,7 +205,7 @@ const CustomForm: React.FC<Form> = ({
                 : {
                     optional: true,
                   })}
-              onChange={value => {
+              onChange={(value) => {
                 setValue(element.name, value);
                 if (element.onChange) {
                   element.onChange(value);
@@ -266,7 +267,7 @@ const CustomForm: React.FC<Form> = ({
                 }
               }}
               error={errors[element.name]}
-              onChange={e => {
+              onChange={(e) => {
                 if (element.onChange) {
                   element.onChange(e, watch, setValue);
                 } else {
@@ -277,8 +278,8 @@ const CustomForm: React.FC<Form> = ({
               value={watch(element.name)}
               api={
                 element.api || {
-                  route: "",
-                  sort: state => {
+                  keys: [""],
+                  sort: (state) => {
                     return state.data;
                   },
                 }
@@ -375,8 +376,8 @@ const CustomForm: React.FC<Form> = ({
               value={watch(element.name)}
               api={
                 element.api || {
-                  route: "",
-                  sort: state => {
+                  keys: [""],
+                  sort: (state) => {
                     return state.data;
                   },
                 }
@@ -405,7 +406,7 @@ const CustomForm: React.FC<Form> = ({
               label={element.label}
               error={errors[element.name]}
               value={watch(element.name)}
-              onChange={e => {
+              onChange={(e) => {
                 const target = e.target as HTMLInputElement;
                 const inputText = target.value.replace(/[^\d]/g, "");
                 const formattedCardNumber = inputText
@@ -515,7 +516,7 @@ const CustomForm: React.FC<Form> = ({
       {title && <TopCard title={title} />}
       <form
         onSubmit={handleSubmit(onSubmit)}
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           // if (e.key === "Enter") {
           //   e.preventDefault();
           // }

@@ -7,8 +7,8 @@ const GroupUpdate = () => {
   const navigate = useNavigate();
   return (
     <CustomForm
-      title="ایجاد کشور"
-      btn={{ text: "ویرایش کشور" }}
+      title="ایجاد گروه"
+      btn={{ text: "ویرایش گروه" }}
       api={{
         route: "/admin/groups",
         get: "/admin/groups/:id",
@@ -20,12 +20,12 @@ const GroupUpdate = () => {
       }}
       cards={[
         {
-          title: "اطلاعات کشور",
+          title: "اطلاعات گروه",
           key: "1",
         },
       ]}
       update={true}
-      sortGet={state => {
+      sortGet={(state) => {
         return {
           ...state,
           product_id: state.group_products.map((ele: any) => +ele.product_id),
@@ -33,29 +33,18 @@ const GroupUpdate = () => {
       }}
       elements={[
         {
-          label: "محصول",
-          name: "product_id",
-          validation: yup.array().of(yup.number()).required("محصول اجباری است"),
-          type: "multiSelectApi",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-12",
-          api: {
-            route: "/admin/groups/create",
-            sort: state => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
-        },
-        {
           label: "عنوان",
           name: "title",
           validation: yup.string().required("عنوان اجباری است"),
-          type: "textarea",
+          type: "input",
+          cardKey: "1",
+          col: "col-span-12 md:col-span-6",
+        },
+        {
+          label: "توضیحات",
+          name: "description",
+          validation: yup.string().required("توضیحات اجباری است"),
+          type: "editor",
           cardKey: "1",
           col: "col-span-12",
         },

@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import Input from "../../components/form/components/input";
-import Btn from "../../components/form/components/button";
-import CheckBox from "../../components/form/components/checkbox";
-import { Link, useNavigate } from "react-router-dom";
-import { usePost } from "../../hooks";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { AuthProps } from "../../types/auth";
+import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
+import Btn from "../../components/form/components/button";
+import Input from "../../components/form/components/input";
 import { login, setPayment } from "../../features/user";
+import { usePost } from "../../hooks";
+import { AuthProps } from "../../types/auth";
 const schema = yup
   .object({
-    name: yup.string().required("نام کاربری اجباری است"),
+    email: yup.string().email("ایمیل اشتباه است").required("ایمیل اجباری است"),
     password: yup.string().required("رمز عبور اجباری است"),
   })
   .required();
@@ -25,6 +23,7 @@ const Login = () => {
     formState: { errors },
   } = useForm<AuthProps>({
     resolver: yupResolver(schema),
+    defaultValues: { email: "admin@example.com", password: "123456" },
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,14 +31,14 @@ const Login = () => {
     route: "/login",
     redirect: {
       status: true,
-      action: data => {
+      action: (data) => {
         navigate("/");
         dispatch(login({ token: data.token }));
       },
     },
-    setError: ob => {
+    setError: (ob) => {
       if (ob) {
-        Object.keys(ob).forEach(key => {
+        Object.keys(ob).forEach((key) => {
           setError(key, { message: ob[key][0] });
         });
       }
@@ -67,11 +66,11 @@ const Login = () => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
-          label="نام کاربری"
+          label="ایمیل"
           props={{
-            ...register("name" as const),
+            ...register("email" as const),
           }}
-          error={errors.name}
+          error={errors.email}
         />
         <Input
           type="password"

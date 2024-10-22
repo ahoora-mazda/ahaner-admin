@@ -1,14 +1,13 @@
-import Badge from "../../components/badge";
 import CustomTable from "../../components/table";
 
-const BlogList = () => {
+const UserList = () => {
   return (
     <>
       <CustomTable
-        add="/blog-create"
-        title="لیست مقالات"
-        subTitle="مقالات"
-        api={{ route: "/admin/blogs" }}
+        add="/user-create"
+        title="لیست کاربران"
+        subTitle="کاربران"
+        api={{ route: "/admin/users" }}
         sort={(state) => {
           return {
             ...state,
@@ -16,25 +15,26 @@ const BlogList = () => {
         }}
         headers={[
           {
-            title: "ردیف",
-            type: "_idx",
-            key: "",
-            filterType: "sort",
+            key: "name",
+            title: "نام و نام خانوادگی",
           },
           {
-            key: "image",
-            title: "تصویر",
-            type: "image",
+            key: "mobile",
+            title: "موبایل",
           },
           {
-            key: "title",
-            title: "عنوان",
-            filterType: "input",
-            keyFilter: "text",
+            key: "email",
+            title: "ایمیل",
           },
           {
-            key: "short_description",
-            title: "توضیحات",
+            key: "role",
+            title: "نقش",
+            type: "enum",
+            enum: {
+              admin: "ادمین",
+              team: "تیم",
+              guest: "کاربر میهمان",
+            },
           },
 
           {
@@ -45,13 +45,13 @@ const BlogList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/blog-list/:id",
+                route: "/user-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/blogs",
+                route: "/admin/users",
                 accessKey: "cheque_remove",
               },
             ],
@@ -62,4 +62,4 @@ const BlogList = () => {
   );
 };
 
-export default BlogList;
+export default UserList;

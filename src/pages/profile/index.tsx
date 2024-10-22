@@ -34,7 +34,7 @@ const Profile = () => {
               ...otherProps,
             };
           }}
-          sortGet={state => {
+          sortGet={(state) => {
             if (roleOne === "admin") {
               return {
                 ...state,
@@ -207,8 +207,9 @@ const Profile = () => {
               type: "selectApi",
               cardKey: "2",
               api: {
-                route: "/state/list",
-                sort: state => {
+                keys: ["categories"],
+
+                sort: (state) => {
                   return state.map((ele: any) => {
                     return { value: ele.id, label: ele.title.trim() };
                   });
@@ -222,8 +223,9 @@ const Profile = () => {
               col: "col-span-12 md:col-span-6",
               cardKey: "2",
               api: {
-                route: "/city/list",
-                sort: state => {
+                keys: ["categories"],
+
+                sort: (state) => {
                   return state.map((ele: any) => {
                     return { value: +ele.id, label: ele.title.trim() };
                   });
@@ -269,7 +271,7 @@ const Profile = () => {
                 ...otherProps,
               };
             }}
-            sortGet={state => {
+            sortGet={(state) => {
               if (roleOne === "admin") {
                 return {
                   ...state,
@@ -465,8 +467,9 @@ const Profile = () => {
                 type: "selectApi",
                 cardKey: "2",
                 api: {
-                  route: "/state/list",
-                  sort: state => {
+                  keys: ["categories"],
+
+                  sort: (state) => {
                     return state.map((ele: any) => {
                       return { value: ele.id, label: ele.title.trim() };
                     });
@@ -480,8 +483,9 @@ const Profile = () => {
                 col: "col-span-12 md:col-span-6",
                 cardKey: "2",
                 api: {
-                  route: "/city/list",
-                  sort: state => {
+                  keys: ["categories"],
+
+                  sort: (state) => {
                     return state.map((ele: any) => {
                       return { value: +ele.id, label: ele.title.trim() };
                     });

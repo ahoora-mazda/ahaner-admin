@@ -24,21 +24,29 @@ const CategoryUpdate = () => {
           key: "1",
         },
       ]}
-      sortUpdate={state => {
+      sortUpdate={(state) => {
         return {
           ...state,
+          seo: {
+            title: state.title_seo,
+            description: state.description_seo,
+            schema: state.schema,
+          },
         };
       }}
-      sortGet={state => {
+      sortGet={(state) => {
         return {
           ...state,
+          title_seo: state.seo.title,
+          description_seo: state.seo.description,
+          schema: state.seo.schema,
         };
       }}
       update={true}
       elements={[
         {
           label: "عنوان",
-          name: "title",
+          name: "name",
           validation: yup.string().required("عنوان اجباری است"),
           type: "input",
           cardKey: "1",
@@ -51,23 +59,33 @@ const CategoryUpdate = () => {
           type: "input",
           cardKey: "1",
           col: "col-span-12 md:col-span-6",
+          help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
         },
-        // {
-        //   type: "colorPicker",
-        //   cardKey: "1",
-        //   validation: yup.string().required("رنگ اجباری است"),
-        //   col: "col-span-12 md:col-span-6",
-        //   name: "color",
-        //   label: "رنگ",
-        // },
-        // {
-        //   type: "colorPicker",
-        //   cardKey: "1",
-        //   validation: yup.string().required("رنگ زمینه اجباری است"),
-        //   name: "background_color",
-        //   col: "col-span-12 md:col-span-6",
-        //   label: "رنگ زمینه",
-        // },
+        {
+          label: "والد دسته بندی",
+          name: "category_id",
+          type: "selectApi",
+          api: {
+            keys: ["categories"],
+            sort: (state) => {
+              return state.categories.map((ele: any) => {
+                return {
+                  value: ele.value,
+                  label: ele.label,
+                };
+              });
+            },
+          },
+          cardKey: "1",
+          col: "col-span-12",
+        },
+        {
+          name: "description",
+          label: "توضیحات",
+          cardKey: "1",
+          type: "editor",
+          col: "col-span-12",
+        },
         {
           type: "fileUploader",
           cardKey: "1",
@@ -76,27 +94,28 @@ const CategoryUpdate = () => {
           label: "تصویر",
           col: "col-span-12",
         },
-        // {
-        //   label: "عنوان سئو",
-        //   name: "title_s",
-        //   type: "input",
-        //   cardKey: "1",
-        //   col: "col-span-12",
-        // },
-        // {
-        //   label: "توضیحات سئو",
-        //   name: "desc_s",
-        //   type: "textarea",
-        //   cardKey: "1",
-        //   col: "col-span-12",
-        // },
-        // {
-        //   label: "schema",
-        //   name: "schema",
-        //   type: "textarea",
-        //   cardKey: "1",
-        //   col: "col-span-12",
-        // },
+        {
+          name: "title_seo",
+          label: "عنوان صفحه",
+          type: "input",
+          cardKey: "1",
+          col: "col-span-12",
+        },
+        {
+          name: "description_seo",
+          label: "توضیحات صفحه",
+          type: "textarea",
+          cardKey: "1",
+          col: "col-span-12",
+        },
+
+        {
+          name: "schema",
+          label: "schema",
+          cardKey: "1",
+          type: "textarea",
+          col: "col-span-12",
+        },
       ]}
     />
   );

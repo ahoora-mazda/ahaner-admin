@@ -4,12 +4,12 @@ import { User } from "../types/user";
 import { toast } from "react-toastify";
 
 export const API = axios.create({
-  baseURL: "https://api.webpouyan.net/api/",
+  baseURL: "https://api.ahaner.site/api",
   // baseURL: "http://192.168.1.102:8000/api/",
 });
 
 API.interceptors.request.use(
-  config => {
+  (config) => {
     let _userJson = Cookie.get("user");
     let _user: User = { full_name: "", token: "", mobile: "" };
     if (_userJson) {
@@ -18,7 +18,7 @@ API.interceptors.request.use(
     if (_user?.token) config.headers.Authorization = `Bearer ${_user?.token}`;
     return config;
   },
-  error => {
+  (error) => {
     toast.error("خطایی پیش آمده است لطفا مجددا تلاش نمایید.");
 
     return Promise.reject(error);
@@ -35,7 +35,7 @@ API.interceptors.response.use(
       window.location.replace("/login");
     } else if (error?.response?.status === 422) {
       let _errors = error.response.data;
-      Object.keys(_errors).map(ele => toast.error(_errors[ele][0]));
+      Object.keys(_errors).map((ele) => toast.error(_errors[ele][0]));
       toast.error(_errors);
     } else if (
       error?.response?.data?.message &&

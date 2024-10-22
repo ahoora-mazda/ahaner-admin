@@ -62,52 +62,25 @@ const BlogCreate = () => {
           cardKey: "1",
           col: "col-span-12 md:col-span-6",
           api: {
-            route: "/admin/blogs/create",
+            keys : ['categories'],
             sort: (state) => {
+              console.log({ state });
               return state.map((ele: any) => {
                 return {
                   value: ele.id,
-                  label: ele.title,
+                  label: ele.label,
                 };
               });
             },
           },
         },
         {
-          label: "سرویس های محبوب",
-          name: "page_id",
-          type: "multiSelectApi",
+          label: "نویسنده",
+          name: "writer",
+          validation: yup.string().required("نویسنده اجباری است"),
+          type: "input",
           cardKey: "1",
-          col: "col-span-12",
-          api: {
-            route: "/admin/blogs/create?select=page",
-            sort: (state) => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
-        },
-        {
-          label: "مقالات مرتبط",
-          name: "blog_id",
-          type: "multiSelectApi",
-          cardKey: "1",
-          col: "col-span-12",
-          api: {
-            route: "/admin/blogs/create?select=blog",
-            sort: (state) => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
+          col: "col-span-12 ",
         },
         {
           label: "توضیحات",
@@ -125,18 +98,7 @@ const BlogCreate = () => {
           cardKey: "1",
           col: "col-span-12",
         },
-        {
-          cardKey: "1",
-          name: "",
-          type: "component",
-          component: (watch) => {
-            return (
-              <div
-                dangerouslySetInnerHTML={{ __html: watch("description") }}
-              ></div>
-            );
-          },
-        },
+
         {
           label: "تصویر",
           name: "image",

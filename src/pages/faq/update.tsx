@@ -25,32 +25,11 @@ const FaqUpdate = () => {
           key: "1",
         },
       ]}
-      sortGet={state => {
+      sortGet={(state) => {
         return { ...state, questionable_id: +state.questionable_id };
       }}
       update={true}
       elements={[
-        {
-          label: "مربوط به",
-          name: "questionable_id",
-          validation: yup.string().required("مربوط به اجباری است"),
-          type: "selectApi",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-12",
-          api: {
-            route: "/admin/questions/create",
-            sort: state => {
-              setItems(state);
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
-            },
-          },
-        },
-
         {
           label: "صفحه",
           name: "page",

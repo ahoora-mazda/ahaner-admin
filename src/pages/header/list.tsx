@@ -7,7 +7,7 @@ const HeaderLists = () => {
         add="/header-create"
         title="لیست هدر"
         subTitle="هدر"
-        api={{ route: "/admin/headers" }}
+        api={{ route: "/admin/headeritems" }}
         sort={state => {
           return {
             ...state,

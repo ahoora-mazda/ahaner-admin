@@ -1,4 +1,4 @@
-import { AudioFilled } from "@ant-design/icons";
+import { AudioFilled, GroupOutlined } from "@ant-design/icons";
 import { uniqueId } from "lodash";
 import {
   Aperture,
@@ -20,10 +20,13 @@ import {
   Speakerphone,
   Square,
   Stack3,
+  User,
+  UserCheck,
   Video,
   Vip,
 } from "tabler-icons-react";
 import { MenuitemProps } from "../types/menuItem";
+import { Group } from "antd/es/avatar";
 
 export const Menuitems: MenuitemProps[] = [
   {
@@ -34,6 +37,54 @@ export const Menuitems: MenuitemProps[] = [
     accessKey: ["admin_profile", "subscriber"],
     chip: "New",
     chipColor: "secondary",
+  },
+  {
+    id: uniqueId(),
+    subheader: "مدیریت کاربران",
+    navlabel: true,
+    accessKey: ["smart-doc"],
+  },
+  {
+    id: uniqueId(),
+    title: "کاربران",
+    icon: User,
+    children: [
+      {
+        id: uniqueId(),
+        title: "افزودن",
+        icon: Point,
+        href: "/user-create",
+        accessKey: ["doc-create"],
+      },
+      {
+        id: uniqueId(),
+        title: "لیست",
+        icon: Point,
+        href: "/user-list",
+        accessKey: ["normal-doc-list"],
+      },
+    ],
+  },
+  {
+    id: uniqueId(),
+    title: "اعضا",
+    icon: UserCheck,
+    children: [
+      {
+        id: uniqueId(),
+        title: "افزودن",
+        icon: Point,
+        href: "/team-create",
+        accessKey: ["doc-create"],
+      },
+      {
+        id: uniqueId(),
+        title: "لیست",
+        icon: Point,
+        href: "/team-list",
+        accessKey: ["normal-doc-list"],
+      },
+    ],
   },
   {
     id: uniqueId(),
@@ -85,8 +136,8 @@ export const Menuitems: MenuitemProps[] = [
   },
   {
     id: uniqueId(),
-    title: "کشور",
-    icon: MasksTheater,
+    title: "گروه ها",
+    icon: GroupOutlined,
     children: [
       {
         id: uniqueId(),
@@ -100,27 +151,6 @@ export const Menuitems: MenuitemProps[] = [
         title: "لیست",
         icon: Point,
         href: "/group-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
-  {
-    id: uniqueId(),
-    title: "پلن ها",
-    icon: Vip,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/plan-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/plan-list",
         accessKey: ["normal-doc-list"],
       },
     ],
@@ -238,51 +268,9 @@ export const Menuitems: MenuitemProps[] = [
   },
   {
     id: uniqueId(),
-    title: "پادکست صفحه اصلی",
-    icon: AudioFilled,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/voice-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/voice-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
-  {
-    id: uniqueId(),
     subheader: "تنظمیات سایت",
     navlabel: true,
     accessKey: ["smart-doc"],
-  },
-  {
-    id: uniqueId(),
-    title: "مدیریت صفحات",
-    icon: Notebook,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/page-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/page-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
   },
   {
     id: uniqueId(),
@@ -304,47 +292,6 @@ export const Menuitems: MenuitemProps[] = [
         accessKey: ["normal-doc-list"],
       },
     ],
-  }, {
-    id: uniqueId(),
-    title: "صفحه اصلی مقالات",
-    icon: MailOpened,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/blogs-page-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/blogs-page-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
-  {
-    id: uniqueId(),
-    title: "اسلایدر مقاله",
-    icon: LayoutSidebar,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/blog-slider-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/blog-slider-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
   },
   {
     id: uniqueId(),
@@ -363,27 +310,6 @@ export const Menuitems: MenuitemProps[] = [
         title: "لیست",
         icon: Point,
         href: "/faq-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
-  {
-    id: uniqueId(),
-    title: "تبلیغات",
-    icon: Planet,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/ads-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/ads-list",
         accessKey: ["normal-doc-list"],
       },
     ],

@@ -15,4 +15,5 @@ export interface InputProps {
   id?: string;
   onEnter?: () => void;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  help?: string;
 }

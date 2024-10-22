@@ -1,6 +1,7 @@
 import React from "react";
 import { InputProps } from "../../../../types/form/input";
 import { motion } from "framer-motion";
+import { InfoCircle } from "tabler-icons-react";
 const Input = ({
   label,
   props,
@@ -11,7 +12,8 @@ const Input = ({
   readonly,
   id,
   onEnter,
-  onChange = e => {},
+  onChange = (e) => {},
+  help,
 }: InputProps) => {
   const variants = {
     open: { opacity: 1, y: 0 },
@@ -37,18 +39,25 @@ const Input = ({
       <input
         type={type}
         id={id}
-        onChange={e => onChange(e)}
+        onChange={(e) => onChange(e)}
         {...props}
         readOnly={readonly}
         className={`${
           error?.message ? "!border-red" : "border-borderSidebar"
         } border rounded-lg	px-4 py-3`}
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           if (e.code === "Enter" && onEnter) {
             onEnter();
           }
         }}
       />
+      {help && (
+        <small className="flex items-center gap-2 mt-2">
+          <InfoCircle size={"1rem"} />
+          {help}
+        </small>
+      )}
+
       <motion.p
         animate={error ? "open" : "closed"}
         variants={variants}

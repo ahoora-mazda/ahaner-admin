@@ -4,15 +4,9 @@ import AdsCreate from "../pages/ads/create";
 import AdsLists from "../pages/ads/list";
 import AdsUpdate from "../pages/ads/update";
 import Login from "../pages/auth/login";
-import BlogSlidersCreate from "../pages/blogSliders/create";
-import BlogSlidersList from "../pages/blogSliders/list";
-import BlogSlidersUpdate from "../pages/blogSliders/update";
 import BlogCreate from "../pages/blogs/create";
 import BlogList from "../pages/blogs/list";
 import BlogUpdate from "../pages/blogs/update";
-import BlogsPageCreate from "../pages/blogsPage/create";
-import BlogsPageList from "../pages/blogsPage/list";
-import BlogsPageUpdate from "../pages/blogsPage/update";
 import CategoryCreate from "../pages/categories/create";
 import CategoriesList from "../pages/categories/list";
 import CategoryUpdate from "../pages/categories/update";
@@ -44,9 +38,7 @@ import HomeVideoCreate from "../pages/home/videos/create";
 import HomeVideoList from "../pages/home/videos/list";
 import HomeVoiceCreate from "../pages/home/voice/create";
 import HomeVoiceList from "../pages/home/voice/list";
-import PageCreate from "../pages/page/create";
-import PageList from "../pages/page/list";
-import PageUpdate from "../pages/page/update";
+
 import PlanCreate from "../pages/plan/create";
 import PlanList from "../pages/plan/list";
 import PlanUpdate from "../pages/plan/update";
@@ -55,7 +47,13 @@ import ProductList from "../pages/product/list";
 import ProductUpdate from "../pages/product/update";
 import Profile from "../pages/profile";
 import SettingPage from "../pages/settings";
+import TeamCreate from "../pages/team/create";
+import TeamList from "../pages/team/list";
+import TeamUpdate from "../pages/team/update";
 import TicketList from "../pages/ticket/list";
+import UserCreate from "../pages/user/create";
+import UserList from "../pages/user/list";
+import UserUpdate from "../pages/user/update";
 import { route } from "../types/route";
 
 export const routes: route[] = [
@@ -255,27 +253,6 @@ export const routes: route[] = [
   },
   // Headers End
 
-  // ‌Blog Slider Start
-  {
-    component: BlogSlidersCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/blog-slider-create",
-  },
-  {
-    component: BlogSlidersList,
-    user: true,
-    layout: MainLayout,
-    path: "/blog-slider-list",
-  },
-  {
-    component: BlogSlidersUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/blog-slider-list/:id",
-  },
-  // ‌Blog Slider End
-
   // Ticket Start
 
   {
@@ -425,44 +402,45 @@ export const routes: route[] = [
     path: "/settings",
   },
   // Settings End
-  // Page Start
+
+  // Users Page Start
   {
-    component: PageCreate,
+    component: UserCreate,
     user: true,
     layout: MainLayout,
-    path: "/page-create",
+    path: "/user-create",
   },
   {
-    component: PageList,
+    component: UserList,
     user: true,
     layout: MainLayout,
-    path: "/page-list",
+    path: "/user-list",
   },
   {
-    component: PageUpdate,
+    component: UserUpdate,
     user: true,
     layout: MainLayout,
-    path: "/page-list/:id",
+    path: "/user-list/:id",
   },
-  // Page End
-  // Blogs Page Start
+  // Users Page End
+  // Teams Page Start
   {
-    component: BlogsPageCreate,
+    component: TeamCreate,
     user: true,
     layout: MainLayout,
-    path: "/blogs-page-create",
-  },
-  {
-    component: BlogsPageList,
-    user: true,
-    layout: MainLayout,
-    path: "/blogs-page-list",
+    path: "/team-create",
   },
   {
-    component: BlogsPageUpdate,
+    component: TeamList,
     user: true,
     layout: MainLayout,
-    path: "/blogs-page-list/:id",
+    path: "/team-list",
   },
-  // Blogs Page End
+  {
+    component: TeamUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/team-list/:id",
+  },
+  // Teams Page End
 ];

@@ -9,12 +9,12 @@ const GroupCreate = () => {
       onEnd={() => {
         navigate("/group-list");
       }}
-      title="ایجاد کشور"
-      btn={{ text: "ایجاد کشور" }}
+      title="ایجاد گروه"
+      btn={{ text: "ایجاد گروه" }}
       api={{ route: "/admin/groups" }}
       cards={[
         {
-          title: "اطلاعات کشور",
+          title: "اطلاعات گروه",
           key: "1",
         },
       ]}
@@ -27,8 +27,9 @@ const GroupCreate = () => {
           cardKey: "1",
           col: "col-span-12 md:col-span-12",
           api: {
-            route: "/admin/groups/create",
-            sort: state => {
+            keys: ["categories"],
+
+            sort: (state) => {
               return state.map((ele: any) => {
                 return {
                   value: ele.id,

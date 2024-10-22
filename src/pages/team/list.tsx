@@ -1,37 +1,42 @@
 import CustomTable from "../../components/table";
 
-const BlogsPageList = () => {
+const TeamList = () => {
   return (
     <>
       <CustomTable
-        add="/blogs-page-create"
-        title="لیست صفحه اصلی مقالات"
-        subTitle="صفحه اصلی مقالات"
-        api={{ route: "/admin/category_blogs" }}
-        sort={state => {
+        add="/user-create"
+        title="لیست اعضا"
+        subTitle="اعضا"
+        api={{ route: "/admin/teams" }}
+        sort={(state) => {
           return {
             ...state,
           };
         }}
         headers={[
           {
-            title: "ردیف",
-            type: "_idx",
-            key: "",
-            filterType: "sort",
+            key: "name",
+            title: "نام و نام خانوادگی",
           },
           {
-            key: "title",
-            title: "عنوان",
+            key: "mobile",
+            title: "موبایل",
           },
           {
-            key: "tag",
-            title: "تگ",
+            key: "email",
+            title: "ایمیل",
           },
           {
-            key: "description",
-            title: "توضیحات",
+            key: "role",
+            title: "نقش",
+            type: "enum",
+            enum: {
+              admin: "ادمین",
+              team: "تیم",
+              guest: "کاربر میهمان",
+            },
           },
+
           {
             key: "",
             title: "عملیات",
@@ -40,13 +45,13 @@ const BlogsPageList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/blogs-page-list/:id",
+                route: "/team-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/category_blogs",
+                route: "/admin/teams",
                 accessKey: "cheque_remove",
               },
             ],
@@ -57,4 +62,4 @@ const BlogsPageList = () => {
   );
 };
 
-export default BlogsPageList;
+export default TeamList;
