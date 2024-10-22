@@ -37,9 +37,9 @@ const CategoryUpdate = () => {
       sortGet={(state) => {
         return {
           ...state,
-          title_seo: state.seo.title,
-          description_seo: state.seo.description,
-          schema: state.seo.schema,
+          title_seo: state?.seo?.title,
+          description_seo: state?.seo?.description,
+          schema: state?.seo?.schema,
         };
       }}
       update={true}

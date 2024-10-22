@@ -80,13 +80,7 @@ const BlogUpdate = () => {
           api: {
             keys: ["categories"],
             sort: (state) => {
-              console.log({ state });
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.label,
-                };
-              });
+              return state.categories;
             },
           },
         },

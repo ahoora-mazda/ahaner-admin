@@ -1,11 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import CustomForm from "../../components/form";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 const FaqCreate = () => {
   const navigate = useNavigate();
-  const [items, setItems] = useState<any[]>([]);
   return (
     <CustomForm
       onEnd={() => {
@@ -14,8 +12,6 @@ const FaqCreate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
-          model: items.filter((ele) => +ele.id === +state.questionable_id)[0]
-            .model,
         };
       }}
       title="ایجاد سوالات متداول"
@@ -29,55 +25,105 @@ const FaqCreate = () => {
       ]}
       elements={[
         {
-          label: "مربوط به",
-          name: "questionable_id",
-          validation: yup.string().required("مربوط به اجباری است"),
-          type: "selectApi",
+          name: "question",
+          label: "سوال",
+          type: "textarea",
+          col: "col-span-12",
           cardKey: "1",
-          col: "col-span-12 md:col-span-12",
-          api: {
-            keys: ["categories"],
-
-            sort: (state) => {
-              setItems(state);
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
+          validation: yup.string().required("سوال اجباری است"),
+        },
+        {
+          name: "answer",
+          label: "پاسخ",
+          type: "textarea",
+          col: "col-span-12",
+          cardKey: "1",
+          validation: yup.string().required("پاسخ اجباری است"),
+        },
+        {
+          type: "select",
+          name: "status",
+          label: "وضعیت",
+          options: [
+            { value: "active", label: "فعال" },
+            { value: "inactive", label: "غیر فعال" },
+          ],
+          col: "col-span-12",
+          cardKey: "1",
+        },
+        {
+          type: "select",
+          label: "برای؟",
+          name: "questionable_type",
+          validation: yup.string().required("برای اجباری است"),
+          col: "col-span-12",
+          cardKey: "1",
+          options: [
+            {
+              value: "product",
+              label: "محصول",
             },
+            {
+              value: "blog",
+              label: "مقاله",
+            },
+            {
+              value: "category",
+              label: "دسته بندی",
+            },
+          ],
+        },
+        {
+          label: "محصول",
+          name: "questionable_id",
+          type: "selectApi",
+          api: {
+            keys: ["products"],
+            sort: (state) => {
+              return state.products;
+            },
+          },
+          cardKey: "1",
+          col: "col-span-12",
+          existIf: {
+            key: "questionable_type",
+            value: "product",
+          },
+        },
+        {
+          label: "مقاله",
+          name: "questionable_id",
+          type: "selectApi",
+          api: {
+            keys: ["blogs"],
+            sort: (state) => {
+              return state.blogs;
+            },
+          },
+          cardKey: "1",
+          col: "col-span-12",
+          existIf: {
+            key: "questionable_type",
+            value: "blog",
           },
         },
 
         {
-          label: "صفحه",
-          name: "page",
-          validation: yup.string().required("صفحه اجباری است"),
-          type: "select",
-          options: [
-            { label: "صفحه اصلی", value: "home" },
-            //{ label: "مقالات", value: "blog" },
-            { label: "محصولات", value: "product" },
-          ],
+          label: "دسته بندی",
+          name: "questionable_id",
+          type: "selectApi",
+          api: {
+            keys: ["categories"],
+            sort: (state) => {
+              return state.categories;
+            },
+          },
           cardKey: "1",
           col: "col-span-12",
-        },
-        {
-          label: "سوال",
-          name: "question",
-          validation: yup.string().required("سوال اجباری است"),
-          type: "textarea",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          label: "پاسخ",
-          name: "answer",
-          validation: yup.string().required("پاسخ اجباری است"),
-          type: "textarea",
-          cardKey: "1",
-          col: "col-span-12",
+          existIf: {
+            key: "questionable_type",
+            value: "category",
+          },
         },
       ]}
     />

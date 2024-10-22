@@ -8,9 +8,10 @@ const HeaderLists = () => {
         title="لیست هدر"
         subTitle="هدر"
         api={{ route: "/admin/headeritems" }}
-        sort={state => {
+        sort={(state) => {
           return {
             ...state,
+            parent: state.parent?.title || "والد ندارد",
           };
         }}
         headers={[
@@ -21,11 +22,6 @@ const HeaderLists = () => {
             filterType: "sort",
           },
           {
-            key: "image",
-            title: "تصویر",
-            type: "image",
-          },
-          {
             key: "title",
             title: "عنوان",
             filterType: "input",
@@ -34,6 +30,10 @@ const HeaderLists = () => {
           {
             key: "link",
             title: "لینک",
+          },
+          {
+            key: "parent",
+            title: "والد",
           },
           {
             key: "",
@@ -49,7 +49,7 @@ const HeaderLists = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/headers",
+                route: "/admin/headeritems",
                 accessKey: "cheque_remove",
               },
             ],

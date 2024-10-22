@@ -21,11 +21,10 @@ const HeaderUpdate = () => {
       sortGet={(state) => {
         return {
           ...state,
-          inner_link: state.inner_link === "true" ? true : false,
         };
       }}
       sortUpdate={(state) => {
-        return { ...state, inner_link: state.inner_link ? "yes" : "no" };
+        return { ...state };
       }}
       cards={[
         {
@@ -41,33 +40,28 @@ const HeaderUpdate = () => {
           validation: yup.string().required("عنوان اجباری است"),
           type: "input",
           cardKey: "1",
-          col: "col-span-12 md:col-span-4",
+          col: "col-span-12 ",
         },
         {
           label: "لینک",
           name: "link",
           type: "input",
           cardKey: "1",
-          col: "col-span-12 md:col-span-4",
+          col: "col-span-12 ",
+          help: "لینک رو داخلی وارد کنید (بدون دامین)",
         },
         {
           label: "والد لینک",
           name: "item_id",
           type: "selectApi",
           api: {
-            keys: ["categories"],
-
+            keys: ["headerItems"],
             sort: (state) => {
-              return state.map((ele: any) => {
-                return {
-                  value: ele.id,
-                  label: ele.title,
-                };
-              });
+              return state.headerItems;
             },
           },
           cardKey: "1",
-          col: "col-span-12 md:col-span-4",
+          col: "col-span-12 ",
         },
       ]}
     />

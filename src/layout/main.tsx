@@ -50,7 +50,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
 
   const check = async () => {
     try {
-      const { data } = await API.get(`/admin/info`);
+      const { data } = await API.get(`/admin/profile`);
       dispatch(setTrue());
 
       dispatch(

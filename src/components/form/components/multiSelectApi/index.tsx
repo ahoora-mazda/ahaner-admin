@@ -36,14 +36,10 @@ const MultiSelectApi = ({
   const getOptions = async () => {
     setLoading(true);
     const { data } = await API.post("/admin/requirements" || "", {
-      params: depend
-        ? {
-            [depend.altKey || depend.key]: dependValue(),
-          }
-        : {},
+      keys: api.keys,
     });
     if (typeof api.sort === "function") {
-      setOptions(api.sort(data));
+      setOptions(api.sort(data.data));
     }
     setLoading(false);
   };

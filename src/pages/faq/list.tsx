@@ -9,7 +9,7 @@ const FaqList = () => {
         title="لیست سوالات متداول"
         subTitle="سوالات متداول"
         api={{ route: "/admin/questions" }}
-        sort={state => {
+        sort={(state) => {
           return {
             ...state,
           };
@@ -24,12 +24,19 @@ const FaqList = () => {
           {
             key: "question",
             title: "سوال",
-            filterType: "input",
-            keyFilter: "text",
           },
           {
             key: "answer",
             title: "پاسخ",
+          },
+          {
+            key: "status",
+            title: "وضعیت",
+            type: "enum",
+            enum: {
+              inactive: "غیرفعال",
+              active: "فعال",
+            },
           },
           {
             key: "",

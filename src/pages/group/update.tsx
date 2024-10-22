@@ -41,6 +41,7 @@ const GroupUpdate = () => {
           title_seo: state.seo?.title,
           description_seo: state.seo?.description,
           schema: state.seo?.schema,
+          category_id: state?.category?.map((c: any) => c.id),
         };
       }}
       elements={[
@@ -53,11 +54,10 @@ const GroupUpdate = () => {
           col: "col-span-12",
         },
         {
-          type: "selectApi",
+          type: "multiSelectApi",
           label: "دسته بندی",
-          name: "category_id",
-          validation: yup.string().required("دسته بندی اجباری است"),
-
+          name: "category_ids",
+          validation: yup.mixed().required("دسته بندی اجباری است"),
           api: {
             keys: ["categories"],
             sort: (state) => {

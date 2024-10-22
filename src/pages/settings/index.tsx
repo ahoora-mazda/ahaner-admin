@@ -16,8 +16,8 @@ const SettingPage = () => {
         btn={{ text: "ویرایش تنظیمات" }}
         api={{
           route: "/admin/settings",
-          get: "/admin/settings/1",
-          update: "/admin/settings/1",
+          get: "/admin/settings",
+          update: "/admin/settings",
         }}
         cards={[
           {
@@ -27,85 +27,105 @@ const SettingPage = () => {
         ]}
         update
         accessUpdate={"permission_update"}
-        sortUpdate={state => {
+        sortUpdate={(state) => {
           return {
             ...state,
-            seo: {
-              title: state.title_s,
-              description: state.desc_s,
-              schema: state.schema,
-            },
           };
         }}
-        sortGet={state => {
+        sortGet={(state) => {
           return {
             ...state,
-            title_s: state?.seo?.title,
-            schema: state?.seo?.schema,
-            desc_s: state?.seo?.description,
+            ...state.meta_data,
           };
         }}
         elements={[
           {
-            label: "عنوان",
-            name: "title",
+            name: "phone",
+            label: "تلفن تماس مشاوره",
+            type: "input",
             validation: yup.string().required("عنوان اجباری است"),
+            cardKey: "1",
+            col: "col-span-12",
+          },
+          {
+            name: "sub_phone",
             type: "input",
-            cardKey: "1",
+            label: "تلفن تماس اعلام قیمت",
+            validation: yup.string().required("عنوان اجباری است"),
             col: "col-span-12",
+            cardKey: "1",
           },
           {
-            label: "توضیحات",
-            name: "title",
-            validation: yup.string().required("توضیحات اجباری است"),
-            type: "textarea",
-            cardKey: "1",
-            col: "col-span-12",
-          },
-          {
-            label: "لوگو",
-            name: "logo",
-            validation: yup.mixed().required("لوگو اجباری است"),
-            type: "fileUploader",
-            cardKey: "1",
-            col: "col-span-12",
-          },
-          {
-            label: "لوگو دکستاپ",
-            name: "big_logo",
-            validation: yup.mixed().required("لوگو اجباری است"),
-            type: "fileUploader",
-            cardKey: "1",
-            col: "col-span-12",
-          },
-          {
-            label: "لوگو موبایل",
-            name: "small_logo",
-            validation: yup.mixed().required("لوگو اجباری است"),
-            type: "fileUploader",
-            cardKey: "1",
-            col: "col-span-12",
-          },
-          {
-            label: "عنوان سئو",
-            name: "title_s",
+            name: "address",
+            label: "آدرس",
             type: "input",
+            validation: yup.string().required("عنوان اجباری است"),
             cardKey: "1",
             col: "col-span-12",
           },
           {
-            label: "توضیحات سئو",
-            name: "desc_s",
-            type: "textarea",
-            cardKey: "1",
+            name: "telegram",
+            type: "input",
+            label: "لینک تلگرام",
+            validation: yup.string().required("عنوان اجباری است"),
             col: "col-span-12",
+            cardKey: "1",
           },
           {
-            label: "schema",
-            name: "schema",
-            type: "textarea",
-            cardKey: "1",
+            name: "instagram",
+            label: "لینک اینستاگرام",
+            type: "input",
+            validation: yup.string().required("عنوان اجباری است"),
             col: "col-span-12",
+            cardKey: "1",
+          },
+          {
+            name: "whatsapp",
+            label: "لینک واتساپ",
+            type: "input",
+            validation: yup.string().required("عنوان اجباری است"),
+            col: "col-span-12",
+            cardKey: "1",
+          },
+          {
+            name: "facebook",
+            label: "لینک فیسبوک",
+            type: "input",
+            validation: yup.string().required("عنوان اجباری است"),
+            col: "col-span-12",
+            cardKey: "1",
+          },
+          {
+            name: "twiter",
+            label: "لینک توییتر",
+            type: "input",
+            validation: yup.string().required("عنوان اجباری است"),
+            col: "col-span-12",
+            cardKey: "1",
+          },
+          {
+            name: "about_footer",
+            label: "درباره آهن یکتا فوتر",
+            type: "textarea",
+            validation: yup.string().required("عنوان اجباری است"),
+            col: "col-span-12",
+            cardKey: "1",
+          },
+          {
+            name: "copyright",
+            label: "متن کپی رایت",
+            type: "textarea",
+            validation: yup.string().required("عنوان اجباری است"),
+            col: "col-span-12",
+            cardKey: "1",
+          },
+          {
+            name: "about_us",
+            label: "درباره ما",
+            type: "editor",
+            validation: yup.string().required("عنوان اجباری است"),
+            col: "col-span-12",
+            cardKey: "1",
           },
         ]}
       />

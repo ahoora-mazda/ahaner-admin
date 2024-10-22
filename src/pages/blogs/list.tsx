@@ -29,8 +29,6 @@ const BlogList = () => {
           {
             key: "title",
             title: "عنوان",
-            filterType: "input",
-            keyFilter: "text",
           },
           {
             key: "short_description",

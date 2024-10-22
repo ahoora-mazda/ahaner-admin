@@ -38,11 +38,10 @@ const GroupCreate = () => {
           col: "col-span-12",
         },
         {
-          type: "selectApi",
+          type: "multiSelectApi",
           label: "دسته بندی",
-          name: "category_id",
-          validation: yup.string().required("دسته بندی اجباری است"),
-
+          name: "category_ids",
+          validation: yup.mixed().required("دسته بندی اجباری است"),
           api: {
             keys: ["categories"],
             sort: (state) => {
