@@ -39,9 +39,6 @@ import HomeVideoList from "../pages/home/videos/list";
 import HomeVoiceCreate from "../pages/home/voice/create";
 import HomeVoiceList from "../pages/home/voice/list";
 
-import PlanCreate from "../pages/plan/create";
-import PlanList from "../pages/plan/list";
-import PlanUpdate from "../pages/plan/update";
 import ProductCreate from "../pages/product/create";
 import ProductList from "../pages/product/list";
 import ProductUpdate from "../pages/product/update";
@@ -213,28 +210,6 @@ export const routes: route[] = [
     path: "/product-list/:id",
   },
   // Products End
-
-  // Plans Start
-  {
-    component: PlanCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/plan-create",
-  },
-  {
-    component: PlanList,
-    user: true,
-    layout: MainLayout,
-    path: "/plan-list",
-  },
-  {
-    component: PlanUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/plan-list/:id",
-  },
-  // Plans End
-
   // Headers Start
   {
     component: HeaderCreate,
