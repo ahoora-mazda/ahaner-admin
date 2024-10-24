@@ -21,10 +21,8 @@ const ProductList = () => {
             filterType: "sort",
           },
           {
-            key: "title",
+            key: "name",
             title: "عنوان",
-            filterType: "input",
-            keyFilter: "text",
           },
           {
             key: "slug",

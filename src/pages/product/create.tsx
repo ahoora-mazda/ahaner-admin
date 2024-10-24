@@ -76,11 +76,7 @@ const ProductCreate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
-          seo: {
-            title: state.title_seo,
-            description: state.description_seo,
-            schema: state.schema,
-          },
+          properties,
         };
       }}
       elements={[
@@ -107,7 +103,7 @@ const ProductCreate = () => {
           validation: yup.string().required("قیمت اجباری است"),
           type: "input",
           cardKey: "1",
-          col: "col-span-12 md:col-span-6",
+          col: "col-span-12",
         },
         {
           label: "دسته بندی",
@@ -175,12 +171,16 @@ const ProductCreate = () => {
                     <SelectApi
                       onChange={(value, v) => {
                         console.log({ v });
-                        setForm({ ...form, property_id: value });
+                        setForm({
+                          ...form,
+                          property_id: value,
+                          propertyName: v.label,
+                        });
                       }}
                       api={{
                         keys: ["properties"],
                         sort: (state) => {
-                          return state.categories.map((ele: any) => {
+                          return state.properties.map((ele: any) => {
                             return {
                               value: ele.value,
                               label: ele.label,
@@ -229,7 +229,7 @@ const ProductCreate = () => {
                       >
                         <div className="flex items-center gap-2">
                           <p>{key + 1}.</p>
-                          <p>{item.name}</p>
+                          <p>{item.propertyName} : </p>
                           <p>{item.value}</p>
                           <span
                             onClick={() => remove(item.id)}
