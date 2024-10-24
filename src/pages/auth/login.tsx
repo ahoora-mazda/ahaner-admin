@@ -83,7 +83,7 @@ const Login = () => {
         <Btn
           text="ورود"
           type="submit"
-          loading={true}
+          loading={loading.send}
           classNames="bg-primary mt-6 hover:bg-subPrimary text-white w-full justify-center  px-6 py-2 "
         />
       </form>
