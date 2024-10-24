@@ -10,6 +10,7 @@ import { setProfile } from "../features/user";
 import useScreenBreakpoint from "../hooks/useScreenBreakpoint";
 import { API } from "../server";
 import { RootState } from "../store";
+import { useLocation } from "react-router-dom";
 interface Props {
   children: React.ReactNode;
 }
@@ -17,7 +18,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
   const drawer = useSelector((state: RootState) => state.themeReducer.drawer);
   const roleOne = useSelector((state: RootState) => state.userReducer.roleOne);
   const breakPoint = useScreenBreakpoint();
-
+  const { pathname } = useLocation();
   const variants = {
     open: {
       marginRight: breakPoint === "sm" || breakPoint === "md" ? 0 : 270,

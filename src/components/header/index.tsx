@@ -20,6 +20,7 @@ const Header = () => {
   useEffect(() => {
     const close = () => {
       setDrawerOpen(false);
+      dispatch(toggle());
     };
     close();
   }, [pathname]);
@@ -40,7 +41,7 @@ const Header = () => {
         <button
           className="block md:hidden"
           onClick={() => {
-            setDrawerOpen(prev => !prev);
+            setDrawerOpen((prev) => !prev);
             dispatch(toggle());
           }}
         >

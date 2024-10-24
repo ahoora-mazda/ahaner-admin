@@ -1,4 +1,8 @@
-import { AudioFilled, GroupOutlined, PropertySafetyFilled } from "@ant-design/icons";
+import {
+  AudioFilled,
+  GroupOutlined,
+  PropertySafetyFilled,
+} from "@ant-design/icons";
 import { uniqueId } from "lodash";
 import {
   Aperture,
@@ -176,117 +180,117 @@ export const Menuitems: MenuitemProps[] = [
       },
     ],
   },
-  {
-    id: uniqueId(),
-    subheader: "تنظمیات صفحه اصلی",
-    navlabel: true,
-    accessKey: ["smart-doc"],
-  },
-  {
-    id: uniqueId(),
-    title: "محصولات صفحه اصلی",
-    icon: Home,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/home/products-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/home/products-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
-  {
-    id: uniqueId(),
-    title: "ویدیو های صفحه اصلی",
-    icon: Video,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/home/videos-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/home/videos-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
-  {
-    id: uniqueId(),
-    title: "نظرات صفحه اصلی",
-    icon: Note,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/home/comments-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/home/comments-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
-  {
-    id: uniqueId(),
-    title: "خدمات صفحه اصلی",
-    icon: Square,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/home/services-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/home/services-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
-  {
-    id: uniqueId(),
-    title: "تنظیمات فوتر",
-    icon: LayoutAlignBottom,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/footer-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/footer-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
+  // {
+  //   id: uniqueId(),
+  //   subheader: "تنظمیات صفحه اصلی",
+  //   navlabel: true,
+  //   accessKey: ["smart-doc"],
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "محصولات صفحه اصلی",
+  //   icon: Home,
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: "افزودن",
+  //       icon: Point,
+  //       href: "/home/products-create",
+  //       accessKey: ["doc-create"],
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: "لیست",
+  //       icon: Point,
+  //       href: "/home/products-list",
+  //       accessKey: ["normal-doc-list"],
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "ویدیو های صفحه اصلی",
+  //   icon: Video,
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: "افزودن",
+  //       icon: Point,
+  //       href: "/home/videos-create",
+  //       accessKey: ["doc-create"],
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: "لیست",
+  //       icon: Point,
+  //       href: "/home/videos-list",
+  //       accessKey: ["normal-doc-list"],
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "نظرات صفحه اصلی",
+  //   icon: Note,
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: "افزودن",
+  //       icon: Point,
+  //       href: "/home/comments-create",
+  //       accessKey: ["doc-create"],
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: "لیست",
+  //       icon: Point,
+  //       href: "/home/comments-list",
+  //       accessKey: ["normal-doc-list"],
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "خدمات صفحه اصلی",
+  //   icon: Square,
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: "افزودن",
+  //       icon: Point,
+  //       href: "/home/services-create",
+  //       accessKey: ["doc-create"],
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: "لیست",
+  //       icon: Point,
+  //       href: "/home/services-list",
+  //       accessKey: ["normal-doc-list"],
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "تنظیمات فوتر",
+  //   icon: LayoutAlignBottom,
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: "افزودن",
+  //       icon: Point,
+  //       href: "/footer-create",
+  //       accessKey: ["doc-create"],
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: "لیست",
+  //       icon: Point,
+  //       href: "/footer-list",
+  //       accessKey: ["normal-doc-list"],
+  //     },
+  //   ],
+  // },
   {
     id: uniqueId(),
     subheader: "تنظمیات سایت",
@@ -358,16 +362,33 @@ export const Menuitems: MenuitemProps[] = [
   },
   {
     id: uniqueId(),
+    title: "نظرات",
+    icon: Message2,
+    href: "/comment-list",
+    children: [
+      {
+        id: uniqueId(),
+        title: "افزودن",
+        icon: Point,
+        href: "/comment-create",
+        accessKey: ["doc-create"],
+      },
+      {
+        id: uniqueId(),
+        title: "لیست",
+        icon: Point,
+        href: "/comment-list",
+        accessKey: ["normal-doc-list"],
+      },
+    ],
+  },
+  {
+    id: uniqueId(),
     title: "تیکت ها",
     icon: Speakerphone,
     href: "/ticket-list",
   },
-  {
-    id: uniqueId(),
-    title: "نظرات",
-    icon: Message2,
-    href: "/comment-list",
-  },
+
   {
     id: uniqueId(),
     title: "تنظیمات",
