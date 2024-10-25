@@ -1,13 +1,13 @@
 import CustomTable from "../../../components/table";
 
-const HomeServiceList = () => {
+const MomentPriceList = () => {
   return (
     <>
       <CustomTable
-        add="/home/services-create"
-        title="لیست خدمات صفحه اصلی"
-        subTitle="خدمات صفحه اصلی"
-        api={{ route: "/admin/home_services" }}
+        add="/home/comments-create"
+        title="لیست نظر صفحه اصلی"
+        subTitle="نظر صفحه اصلی"
+        api={{ route: "/admin/home_comments" }}
         sort={state => {
           return {
             ...state,
@@ -21,16 +21,17 @@ const HomeServiceList = () => {
             filterType: "sort",
           },
           {
-            key: "title",
-            title: "عنوان",
+            key: "image",
+            title: "تصویر",
+            type: "image",
           },
           {
-            key: "tag",
-            title: "تگ",
+            key: "name",
+            title: "نام و نام خانوادگی",
           },
           {
-            key: "description",
-            title: "توضیحات",
+            key: "body",
+            title: "متن نظر",
           },
           {
             key: "",
@@ -40,13 +41,13 @@ const HomeServiceList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/home/services-list/:id",
+                route: "/home/comments-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/home_services",
+                route: "/admin/home_comments",
                 accessKey: "cheque_remove",
               },
             ],
@@ -57,4 +58,4 @@ const HomeServiceList = () => {
   );
 };
 
-export default HomeServiceList;
+export default MomentPriceList;

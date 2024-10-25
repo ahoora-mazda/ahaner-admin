@@ -2,7 +2,7 @@ import * as yup from "yup";
 import CustomForm from "../../../components/form";
 import { useNavigate } from "react-router-dom";
 
-const HomeCommentUpdate = () => {
+const RecentPriceUpdate = () => {
   const navigate = useNavigate();
   return (
     <CustomForm
@@ -62,4 +62,4 @@ const HomeCommentUpdate = () => {
   );
 };
 
-export default HomeCommentUpdate;
+export default RecentPriceUpdate;

@@ -1,16 +1,14 @@
-import { useState } from "react";
-import Modal from "../../../components/modal";
-import CustomTable from "../../../components/table";
+import CustomTable from "../../components/table";
 
-const HomeCommentList = () => {
+const UsefulLinksList = () => {
   return (
     <>
       <CustomTable
-        add="/home/comments-create"
-        title="لیست نظر صفحه اصلی"
-        subTitle="نظر صفحه اصلی"
-        api={{ route: "/admin/home_comments" }}
-        sort={state => {
+        add="/usefullinks-create"
+        title="لیست لینک های مفید"
+        subTitle="لینک های مفید"
+        api={{ route: "/admin/usefullinks" }}
+        sort={(state) => {
           return {
             ...state,
           };
@@ -23,17 +21,10 @@ const HomeCommentList = () => {
             filterType: "sort",
           },
           {
-            key: "image",
-            title: "تصویر",
-            type: "image",
-          },
-          {
             key: "name",
-            title: "نام و نام خانوادگی",
-          },
-          {
-            key: "body",
-            title: "متن نظر",
+            title: "عنوان",
+            // filterType: "input",
+            // keyFilter: "text",
           },
           {
             key: "",
@@ -43,13 +34,13 @@ const HomeCommentList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/home/comments-list/:id",
+                route: "/usefullinks-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/home_comments",
+                route: "/admin/usefullinks",
                 accessKey: "cheque_remove",
               },
             ],
@@ -60,4 +51,4 @@ const HomeCommentList = () => {
   );
 };
 
-export default HomeCommentList;
+export default UsefulLinksList;

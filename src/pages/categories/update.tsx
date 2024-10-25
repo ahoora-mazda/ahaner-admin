@@ -27,6 +27,8 @@ const CategoryUpdate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
+
+          show_on_homepage: state.show_on_homepage ? "1" : "0",
           seo: {
             title: state.title_seo,
             description: state.description_seo,
@@ -84,6 +86,13 @@ const CategoryUpdate = () => {
           label: "توضیحات",
           cardKey: "1",
           type: "editor",
+          col: "col-span-12",
+        },
+        {
+          name: "show_on_homepage",
+          label: "مشاهده در صفحه اصلی",
+          type: "checkbox",
+          cardKey: "1",
           col: "col-span-12",
         },
         {

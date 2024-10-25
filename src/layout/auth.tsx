@@ -17,7 +17,7 @@ const AuthLayout = ({ children }: Props) => {
           <div className="flex items-center justify-center">
             <img
               alt=""
-              src={require("../assets/images/logo/logo.png")}
+              src={require("../assets/images/logo/logo.svg").default}
               className="w-[200px] object-contain mb-2"
             />
           </div>

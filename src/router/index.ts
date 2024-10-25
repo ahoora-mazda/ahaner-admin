@@ -22,22 +22,9 @@ import GroupUpdate from "../pages/group/update";
 import HeaderCreate from "../pages/header/create";
 import HeaderLists from "../pages/header/list";
 import HeaderUpdate from "../pages/header/update";
-import HomeCommentCreate from "../pages/home/commens/create";
-import HomeCommentList from "../pages/home/commens/list";
-import HomeCommentUpdate from "../pages/home/commens/update";
-import FooterCreate from "../pages/home/footer/create";
-import FooterList from "../pages/home/footer/list";
-import FooterUpdate from "../pages/home/footer/update";
-import HomeProductCreate from "../pages/home/products/create";
-import HomeProductList from "../pages/home/products/list";
-import HomeProductUpdate from "../pages/home/products/update";
-import HomeServiceCreate from "../pages/home/services/create";
-import HomeServiceList from "../pages/home/services/list";
-import HomeServiceUpdate from "../pages/home/services/update";
-import HomeVideoCreate from "../pages/home/videos/create";
-import HomeVideoList from "../pages/home/videos/list";
-import HomeVoiceCreate from "../pages/home/voice/create";
-import HomeVoiceList from "../pages/home/voice/list";
+import HomeCommentCreate from "../pages/home/momentPrices/create";
+import HomeCommentList from "../pages/home/momentPrices/list";
+import HomeCommentUpdate from "../pages/home/momentPrices/update";
 
 import ProductCreate from "../pages/product/create";
 import ProductList from "../pages/product/list";
@@ -55,6 +42,18 @@ import UserCreate from "../pages/user/create";
 import UserList from "../pages/user/list";
 import UserUpdate from "../pages/user/update";
 import { route } from "../types/route";
+import UsefulLinksCreate from "../pages/usefulLinks/create";
+import UsefulLinksList from "../pages/usefulLinks/list";
+import UsefulLinkUpdate from "../pages/usefulLinks/update";
+import DayPriceCreate from "../pages/home/dayPrices/create";
+import DayPriceList from "../pages/home/dayPrices/list";
+import DayPriceUpdate from "../pages/home/dayPrices/update";
+import MomentPriceCreate from "../pages/home/momentPrices/create";
+import MomentPriceList from "../pages/home/momentPrices/list";
+import MomentPriceUpdate from "../pages/home/momentPrices/update";
+import RecentPriceCreate from "../pages/home/recentPrices/create";
+import RecentPriceList from "../pages/home/recentPrices/list";
+import RecentPriceUpdate from "../pages/home/recentPrices/update";
 
 export const routes: route[] = [
   // Auth Start
@@ -281,96 +280,6 @@ export const routes: route[] = [
   },
   // Home Comments End
 
-  // Home Products Start
-  {
-    component: HomeProductCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/home/products-create",
-  },
-  {
-    component: HomeProductList,
-    user: true,
-    layout: MainLayout,
-    path: "/home/products-list",
-  },
-  {
-    component: HomeProductUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/home/products-list/:id",
-  },
-  // Home Products End
-
-  // Home Videos Start
-  {
-    component: HomeVideoCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/home/videos-create",
-  },
-  {
-    component: HomeVideoList,
-    user: true,
-    layout: MainLayout,
-    path: "/home/videos-list",
-  },
-  // Home Videos End
-
-  // Home Services Start
-  {
-    component: HomeServiceCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/home/services-create",
-  },
-  {
-    component: HomeServiceList,
-    user: true,
-    layout: MainLayout,
-    path: "/home/services-list",
-  },
-  {
-    component: HomeServiceUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/home/services-list/:id",
-  },
-  // Home Services End
-  // Footer Start
-  {
-    component: FooterCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/footer-create",
-  },
-  {
-    component: FooterList,
-    user: true,
-    layout: MainLayout,
-    path: "/footer-list",
-  },
-  {
-    component: FooterUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/footer-list/:id",
-  },
-  // Footer End
-  // Voice Start
-  {
-    component: HomeVoiceCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/voice-create",
-  },
-  {
-    component: HomeVoiceList,
-    user: true,
-    layout: MainLayout,
-    path: "/voice-list",
-  },
-  // Voice End
   //Home End
   // Settings Start
   {
@@ -421,7 +330,7 @@ export const routes: route[] = [
     path: "/team-list/:id",
   },
   // Teams Page End
-  // Teams Page Start
+  // property Start
   {
     component: PropertyCreate,
     user: true,
@@ -440,5 +349,85 @@ export const routes: route[] = [
     layout: MainLayout,
     path: "/property-list/:id",
   },
-  // Teams Page End
+  // property End
+  // usefullinks Start
+  {
+    component: UsefulLinksCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/usefullinks-create",
+  },
+  {
+    component: UsefulLinksList,
+    user: true,
+    layout: MainLayout,
+    path: "/usefullinks-list",
+  },
+  {
+    component: UsefulLinkUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/usefullinks-list/:id",
+  },
+  // usefullinks End
+  // Day Prices Start
+  {
+    component: DayPriceCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/home_dayPrices-create",
+  },
+  {
+    component: DayPriceList,
+    user: true,
+    layout: MainLayout,
+    path: "/home_dayPrices-list",
+  },
+  {
+    component: DayPriceUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/home_dayPrices-list/:id",
+  },
+  // Day Prices End
+  // Moment Prices Start
+  {
+    component: MomentPriceCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/home_momentPrices-create",
+  },
+  {
+    component: MomentPriceList,
+    user: true,
+    layout: MainLayout,
+    path: "/home_momentPrices-list",
+  },
+  {
+    component: MomentPriceUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/home_momentPrices-list/:id",
+  },
+  // Moment Prices End
+  // Recent Prices Start
+  {
+    component: RecentPriceCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/home_recentPrices-create",
+  },
+  {
+    component: RecentPriceList,
+    user: true,
+    layout: MainLayout,
+    path: "/home_recentPrices-list",
+  },
+  {
+    component: RecentPriceUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/home_recentPrices-list/:id",
+  },
+  // Recent Prices End
 ];

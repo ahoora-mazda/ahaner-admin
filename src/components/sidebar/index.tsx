@@ -46,14 +46,14 @@ const Sidebar = () => {
         <div className="flex gap-2 pb-8">
           {drawer ? (
             <img
-              src={require("../../assets/images/logo/logo.png")}
+              src={require("../../assets/images/logo/logo.svg").default}
               alt=""
               className="h-[150px] w-full object-contain"
             />
           ) : (
             <img
               className="h-[50px] object-contain"
-              src={require("../../assets/images/logo/logo.png")}
+              src={require("../../assets/images/logo/logo.svg").default}
               alt=""
             />
           )}

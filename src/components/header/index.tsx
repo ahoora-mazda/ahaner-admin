@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { Calendar, Menu2 } from "tabler-icons-react";
-import { toggle } from "../../features/theme";
+import { closeDrawer, toggle } from "../../features/theme";
 import { now } from "../../utils/function";
 
 const Header = () => {
@@ -20,7 +20,9 @@ const Header = () => {
   useEffect(() => {
     const close = () => {
       setDrawerOpen(false);
-      dispatch(toggle());
+      if (window.innerWidth <= 720) {
+        dispatch(closeDrawer());
+      }
     };
     close();
   }, [pathname]);

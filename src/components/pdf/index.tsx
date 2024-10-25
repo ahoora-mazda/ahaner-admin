@@ -45,7 +45,7 @@ const Pdf = ({
       <div className="box-header">
         <div className="box" style={{}}>
           <img
-            src={require("../../assets/images/logo/logo.png")}
+            src={require("../../assets/images/logo/logo.svg").default}
             alt="logo"
             width={100}
             style={{ objectFit: "contain" }}

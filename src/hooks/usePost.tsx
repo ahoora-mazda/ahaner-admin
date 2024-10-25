@@ -25,7 +25,7 @@ export const usePost = ({
       }
       setLoading({ ...loading, send: true });
       const { status, data } = await API.post(route, newBody);
-      if (+status === 200) {
+      if (+status === 200 || +status === 201) {
         if (needToast) {
           toast.success(data.message);
         }

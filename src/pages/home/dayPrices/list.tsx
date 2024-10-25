@@ -1,13 +1,13 @@
 import CustomTable from "../../../components/table";
 
-const HomeProductList = () => {
+const DayPriceList = () => {
   return (
     <>
       <CustomTable
-        add="/home/products-create"
-        title="لیست محصولات صفحه اصلی"
-        subTitle="محصولات صفحه اصلی"
-        api={{ route: "/admin/home_products" }}
+        add="/home/comments-create"
+        title="لیست نظر صفحه اصلی"
+        subTitle="نظر صفحه اصلی"
+        api={{ route: "/admin/home_comments" }}
         sort={state => {
           return {
             ...state,
@@ -21,16 +21,17 @@ const HomeProductList = () => {
             filterType: "sort",
           },
           {
-            key: "title",
-            title: "عنوان",
+            key: "image",
+            title: "تصویر",
+            type: "image",
           },
           {
-            key: "tag",
-            title: "تگ",
+            key: "name",
+            title: "نام و نام خانوادگی",
           },
           {
-            key: "description",
-            title: "توضیحات",
+            key: "body",
+            title: "متن نظر",
           },
           {
             key: "",
@@ -38,16 +39,16 @@ const HomeProductList = () => {
             type: "operation",
             options: [
               {
-                title: "حذف",
-                type: "delete",
-                route: "/admin/home_products",
-                accessKey: "cheque_remove",
-              },
-              {
                 title: "ویرایش",
                 type: "edit",
-                route: "/home/products-list/:id",
+                route: "/home/comments-list/:id",
                 accessKey: "permission_show",
+              },
+              {
+                title: "حذف",
+                type: "delete",
+                route: "/admin/home_comments",
+                accessKey: "cheque_remove",
               },
             ],
           },
@@ -57,4 +58,4 @@ const HomeProductList = () => {
   );
 };
 
-export default HomeProductList;
+export default DayPriceList;

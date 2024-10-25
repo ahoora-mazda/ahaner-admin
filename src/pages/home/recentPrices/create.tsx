@@ -2,60 +2,52 @@ import * as yup from "yup";
 import CustomForm from "../../../components/form";
 import { useNavigate } from "react-router-dom";
 
-const HomeProductCreate = () => {
+const RecentPriceCreate = () => {
   const navigate = useNavigate();
   return (
     <CustomForm
       onEnd={() => {
-        navigate("/home/products-list");
+        navigate("/home/comments-list");
       }}
-      title="ایجاد محصول صفحه اصلی"
-      btn={{ text: "ایجاد محصول صفحه اصلی" }}
-      api={{ route: "/admin/home_products" }}
+      title="ایجاد نظر صفحه اصلی    "
+      btn={{ text: "ایجاد نظر صفحه اصلی   " }}
+      api={{ route: "/admin/home_comments" }}
       cards={[
         {
-          title: "اطلاعات محصول صفحه اصلی",
+          title: "اطلاعات نظر صفحه اصلی   ",
           key: "1",
         },
       ]}
       elements={[
         {
-          label: "عنوان",
-          name: "title",
+          label: "نام و نام خانوادگی",
+          name: "name",
           validation: yup.string().required("نام و نام خانوادگی اجباری است"),
           type: "input",
           cardKey: "1",
-          col: "col-span-12 md:col-span-4",
+          col: "col-span-12",
         },
         {
-          label: "تگ",
-          name: "tag",
-          validation: yup.string().required("متن اجباری است"),
+          label: "سال عضویت",
+          name: "membership",
+          validation: yup.string().required("سال عضویت اجباری است"),
           type: "input",
           cardKey: "1",
-          col: "col-span-12 md:col-span-4",
+          col: "col-span-12",
         },
         {
-          label: "لینک",
-          name: "link",
+          label: "متن",
+          name: "body",
           validation: yup.string().required("متن اجباری است"),
           type: "input",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-4",
-        },
-        {
-          label: "توضیحات",
-          name: "description",
-          validation: yup.string().required("متن اجباری است"),
-          type: "textarea",
           cardKey: "1",
           col: "col-span-12",
         },
         {
           label: "تصویر",
           name: "image",
-          type: "fileUploader",
           validation: yup.mixed().required("تصویر اجباری است"),
+          type: "fileUploader",
           cardKey: "1",
           col: "col-span-12",
         },
@@ -64,4 +56,4 @@ const HomeProductCreate = () => {
   );
 };
 
-export default HomeProductCreate;
+export default RecentPriceCreate;

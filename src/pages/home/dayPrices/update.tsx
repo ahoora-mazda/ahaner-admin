@@ -2,16 +2,22 @@ import * as yup from "yup";
 import CustomForm from "../../../components/form";
 import { useNavigate } from "react-router-dom";
 
-const HomeCommentCreate = () => {
+const DayPriceUpdate = () => {
   const navigate = useNavigate();
   return (
     <CustomForm
       onEnd={() => {
         navigate("/home/comments-list");
       }}
-      title="ایجاد نظر صفحه اصلی    "
-      btn={{ text: "ایجاد نظر صفحه اصلی   " }}
-      api={{ route: "/admin/home_comments" }}
+      update
+      accessUpdate={'dwad'}
+      title="ویرایش نظر صفحه اصلی    "
+      btn={{ text: "ویرایش نظر صفحه اصلی   " }}
+      api={{
+        route: "/admin/home_comments",
+        get: "/admin/home_comments/:id",
+        update: "/admin/home_comments/:id",
+      }}
       cards={[
         {
           title: "اطلاعات نظر صفحه اصلی   ",
@@ -56,4 +62,4 @@ const HomeCommentCreate = () => {
   );
 };
 
-export default HomeCommentCreate;
+export default DayPriceUpdate;

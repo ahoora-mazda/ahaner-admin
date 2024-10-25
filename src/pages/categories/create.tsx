@@ -21,6 +21,7 @@ const CategoryCreate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
+          show_on_homepage: state.show_on_homepage ? "1" : "0",
           seo: {
             title: state.title_seo,
             description: state.description_seo,
@@ -46,6 +47,7 @@ const CategoryCreate = () => {
           col: "col-span-12 md:col-span-6",
           help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
         },
+
         {
           label: "والد دسته بندی",
           name: "category_id",
@@ -72,6 +74,13 @@ const CategoryCreate = () => {
           col: "col-span-12",
         },
         {
+          name: "show_on_homepage",
+          label: "مشاهده در صفحه اصلی",
+          type: "checkbox",
+          cardKey: "1",
+          col: "col-span-12",
+        },
+        {
           type: "fileUploader",
           cardKey: "1",
           validation: yup.mixed().required("تصویر اجباری است"),
@@ -93,7 +102,7 @@ const CategoryCreate = () => {
           cardKey: "1",
           col: "col-span-12",
         },
-        
+
         {
           name: "schema",
           label: "schema",
@@ -101,7 +110,6 @@ const CategoryCreate = () => {
           type: "textarea",
           col: "col-span-12",
         },
-       
       ]}
     />
   );

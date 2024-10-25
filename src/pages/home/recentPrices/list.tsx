@@ -1,13 +1,15 @@
+import { useState } from "react";
+import Modal from "../../../components/modal";
 import CustomTable from "../../../components/table";
 
-const FooterList = () => {
+const RecentPriceList = () => {
   return (
     <>
       <CustomTable
-        add="/footer-create"
-        title="لیست فوتر"
-        subTitle="فوتر"
-        api={{ route: "/admin/footers" }}
+        add="/home/comments-create"
+        title="لیست نظر صفحه اصلی"
+        subTitle="نظر صفحه اصلی"
+        api={{ route: "/admin/home_comments" }}
         sort={state => {
           return {
             ...state,
@@ -20,12 +22,19 @@ const FooterList = () => {
             key: "",
             filterType: "sort",
           },
-
           {
-            key: "title",
-            title: "عنوان",
+            key: "image",
+            title: "تصویر",
+            type: "image",
           },
-
+          {
+            key: "name",
+            title: "نام و نام خانوادگی",
+          },
+          {
+            key: "body",
+            title: "متن نظر",
+          },
           {
             key: "",
             title: "عملیات",
@@ -34,13 +43,13 @@ const FooterList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/footer-list/:id",
+                route: "/home/comments-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/footers",
+                route: "/admin/home_comments",
                 accessKey: "cheque_remove",
               },
             ],
@@ -51,4 +60,4 @@ const FooterList = () => {
   );
 };
 
-export default FooterList;
+export default RecentPriceList;
