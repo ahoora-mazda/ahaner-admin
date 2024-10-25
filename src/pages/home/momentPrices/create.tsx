@@ -7,40 +7,33 @@ const MomentPriceCreate = () => {
   return (
     <CustomForm
       onEnd={() => {
-        navigate("/home/comments-list");
+        navigate("/home_momentPrices-list");
       }}
-      title="ایجاد نظر صفحه اصلی    "
-      btn={{ text: "ایجاد نظر صفحه اصلی   " }}
-      api={{ route: "/admin/home_comments" }}
+      title="ایجاد قیمت لحظه ای و رقابتی"
+      btn={{ text: "ایجاد قیمت لحظه ای و رقابتی" }}
+      api={{ route: "/admin/home_momentPrices" }}
       cards={[
         {
-          title: "اطلاعات نظر صفحه اصلی   ",
+          title: "اطلاعات قیمت لحظه ای و رقابتی",
           key: "1",
         },
       ]}
       elements={[
         {
-          label: "نام و نام خانوادگی",
-          name: "name",
-          validation: yup.string().required("نام و نام خانوادگی اجباری است"),
+          label: "عنوان",
+          name: "title",
+          validation: yup.string().required("عنوان اجباری است"),
           type: "input",
           cardKey: "1",
           col: "col-span-12",
         },
         {
-          label: "سال عضویت",
-          name: "membership",
-          validation: yup.string().required("سال عضویت اجباری است"),
+          label: "لینک",
+          name: "link",
+          validation: yup.string().required("لینک اجباری است"),
           type: "input",
           cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          label: "متن",
-          name: "body",
-          validation: yup.string().required("متن اجباری است"),
-          type: "input",
-          cardKey: "1",
+          help: "لینک رو داخلی وارد کنید (بدون دامین)",
           col: "col-span-12",
         },
         {

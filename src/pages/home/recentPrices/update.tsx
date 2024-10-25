@@ -2,51 +2,44 @@ import * as yup from "yup";
 import CustomForm from "../../../components/form";
 import { useNavigate } from "react-router-dom";
 
-const RecentPriceUpdate = () => {
+const MomentPriceUpdate = () => {
   const navigate = useNavigate();
   return (
     <CustomForm
       onEnd={() => {
-        navigate("/home/comments-list");
+        navigate("/home_momentPrices-list");
       }}
       update
-      accessUpdate={'dwad'}
-      title="ویرایش نظر صفحه اصلی    "
-      btn={{ text: "ویرایش نظر صفحه اصلی   " }}
+      accessUpdate={"dwad"}
+      title="ویرایش قیمت روز محصولات"
+      btn={{ text: "ویرایش قیمت روز محصولات" }}
       api={{
-        route: "/admin/home_comments",
-        get: "/admin/home_comments/:id",
-        update: "/admin/home_comments/:id",
+        route: "/admin/home_momentPrices",
+        get: "/admin/home_momentPrices/:id",
+        update: "/admin/home_momentPrices/:id",
       }}
       cards={[
         {
-          title: "اطلاعات نظر صفحه اصلی   ",
+          title: "اطلاعات قیمت روز محصولات",
           key: "1",
         },
       ]}
       elements={[
         {
-          label: "نام و نام خانوادگی",
-          name: "name",
-          validation: yup.string().required("نام و نام خانوادگی اجباری است"),
+          label: "عنوان",
+          name: "title",
+          validation: yup.string().required("عنوان اجباری است"),
           type: "input",
           cardKey: "1",
           col: "col-span-12",
         },
         {
-          label: "سال عضویت",
-          name: "membership",
-          validation: yup.string().required("سال عضویت اجباری است"),
+          label: "لینک",
+          name: "link",
+          validation: yup.string().required("لینک اجباری است"),
           type: "input",
           cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          label: "متن",
-          name: "body",
-          validation: yup.string().required("متن اجباری است"),
-          type: "input",
-          cardKey: "1",
+          help: "لینک رو داخلی وارد کنید (بدون دامین)",
           col: "col-span-12",
         },
         {
@@ -62,4 +55,4 @@ const RecentPriceUpdate = () => {
   );
 };
 
-export default RecentPriceUpdate;
+export default MomentPriceUpdate;

@@ -56,7 +56,7 @@ const GroupUpdate = () => {
         {
           type: "multiSelectApi",
           label: "دسته بندی",
-          name: "category_ids",
+          name: "category_id",
           validation: yup.mixed().required("دسته بندی اجباری است"),
           api: {
             keys: ["categories"],

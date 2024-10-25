@@ -4,11 +4,11 @@ const MomentPriceList = () => {
   return (
     <>
       <CustomTable
-        add="/home/comments-create"
-        title="لیست نظر صفحه اصلی"
-        subTitle="نظر صفحه اصلی"
-        api={{ route: "/admin/home_comments" }}
-        sort={state => {
+        add="/home_momentPrices-create"
+        title="لیست قیمت لحظه ای و رقابتی"
+        subTitle="قیمت لحظه ای و رقابتی"
+        api={{ route: "/admin/home_momentPrices" }}
+        sort={(state) => {
           return {
             ...state,
           };
@@ -26,12 +26,12 @@ const MomentPriceList = () => {
             type: "image",
           },
           {
-            key: "name",
-            title: "نام و نام خانوادگی",
+            key: "title",
+            title: "عنوان",
           },
           {
-            key: "body",
-            title: "متن نظر",
+            key: "link",
+            title: "آدرس",
           },
           {
             key: "",
@@ -41,13 +41,13 @@ const MomentPriceList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/home/comments-list/:id",
+                route: "/home_momentPrices-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/home_comments",
+                route: "/admin/home_momentPrices",
                 accessKey: "cheque_remove",
               },
             ],

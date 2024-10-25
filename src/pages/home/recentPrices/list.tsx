@@ -1,16 +1,14 @@
-import { useState } from "react";
-import Modal from "../../../components/modal";
 import CustomTable from "../../../components/table";
 
-const RecentPriceList = () => {
+const MomentPriceList = () => {
   return (
     <>
       <CustomTable
-        add="/home/comments-create"
-        title="لیست نظر صفحه اصلی"
-        subTitle="نظر صفحه اصلی"
-        api={{ route: "/admin/home_comments" }}
-        sort={state => {
+        add="/home_momentPrices-create"
+        title="لیست قیمت روز محصولات"
+        subTitle="قیمت روز محصولات"
+        api={{ route: "/admin/home_momentPrices" }}
+        sort={(state) => {
           return {
             ...state,
           };
@@ -28,12 +26,12 @@ const RecentPriceList = () => {
             type: "image",
           },
           {
-            key: "name",
-            title: "نام و نام خانوادگی",
+            key: "title",
+            title: "عنوان",
           },
           {
-            key: "body",
-            title: "متن نظر",
+            key: "link",
+            title: "آدرس",
           },
           {
             key: "",
@@ -43,13 +41,13 @@ const RecentPriceList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/home/comments-list/:id",
+                route: "/home_momentPrices-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/home_comments",
+                route: "/admin/home_momentPrices",
                 accessKey: "cheque_remove",
               },
             ],
@@ -60,4 +58,4 @@ const RecentPriceList = () => {
   );
 };
 
-export default RecentPriceList;
+export default MomentPriceList;

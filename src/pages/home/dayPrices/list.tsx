@@ -5,9 +5,9 @@ const DayPriceList = () => {
     <>
       <CustomTable
         add="/home/comments-create"
-        title="لیست نظر صفحه اصلی"
-        subTitle="نظر صفحه اصلی"
-        api={{ route: "/admin/home_comments" }}
+        title="لیست قیمت روز آهن آلات"
+        subTitle="قیمت روز آهن آلات"
+        api={{ route: "/admin/home_dayPrices" }}
         sort={state => {
           return {
             ...state,
@@ -21,17 +21,12 @@ const DayPriceList = () => {
             filterType: "sort",
           },
           {
-            key: "image",
-            title: "تصویر",
-            type: "image",
+            key: "title",
+            title: "عنوان",
           },
           {
-            key: "name",
-            title: "نام و نام خانوادگی",
-          },
-          {
-            key: "body",
-            title: "متن نظر",
+            key: "link",
+            title: "آدرس",
           },
           {
             key: "",
@@ -41,13 +36,13 @@ const DayPriceList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/home/comments-list/:id",
+                route: "/home_dayPrices-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/home_comments",
+                route: "/admin/home_dayPrices",
                 accessKey: "cheque_remove",
               },
             ],
