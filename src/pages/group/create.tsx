@@ -40,7 +40,7 @@ const GroupCreate = () => {
         {
           type: "multiSelectApi",
           label: "دسته بندی",
-          name: "category_id",
+          name: "category_ids",
           validation: yup.mixed().required("دسته بندی اجباری است"),
           api: {
             keys: ["categories"],
