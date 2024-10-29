@@ -11,7 +11,7 @@ const HeaderCreate = () => {
       }}
       title="ایجاد هدر"
       btn={{ text: "ایجاد هدر" }}
-      api={{ route: "/admin/headeritems" }}
+      api={{ route: "/headeritems" }}
       cards={[
         {
           title: "اطلاعات هدر",

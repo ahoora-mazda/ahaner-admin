@@ -10,9 +10,9 @@ const PropertyCreate = () => {
       title="ایجاد ویژگی محصول"
       btn={{ text: "ویرایش" }}
       api={{
-        route: "/admin/properties",
-        get: "/admin/properties/:id",
-        update: "/admin/properties/:id",
+        route: "/properties",
+        get: "/properties/:id",
+        update: "/properties/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

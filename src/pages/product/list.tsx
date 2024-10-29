@@ -7,7 +7,7 @@ const ProductList = () => {
         add="/product-create"
         title="لیست محصولات"
         subTitle="محصولات"
-        api={{ route: "/admin/products" }}
+        api={{ route: "/products" }}
         sort={state => {
           return {
             ...state,
@@ -42,7 +42,7 @@ const ProductList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/products",
+                route: "/products",
                 accessKey: "cheque_remove",
               },
             ],

@@ -7,7 +7,7 @@ const MomentPriceList = () => {
         add="/home_momentPrices-create"
         title="لیست قیمت روز محصولات"
         subTitle="قیمت روز محصولات"
-        api={{ route: "/admin/home_momentPrices" }}
+        api={{ route: "/home_momentPrices" }}
         sort={(state) => {
           return {
             ...state,
@@ -47,7 +47,7 @@ const MomentPriceList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/home_momentPrices",
+                route: "/home_momentPrices",
                 accessKey: "cheque_remove",
               },
             ],

@@ -17,11 +17,9 @@ interface Props {
 }
 export const useTable = ({ api, sortAllData }: Props) => {
   const [table, setTable] = useState<any>({
-    data: [],
-    meta: {
-      last_page: 1,
-      current_page: 1,
-    },
+    rows: [],
+    lastPage: 1,
+    currentPage: 1,
   });
   const [loading, setLoading] = useState({ get: true, inner: false });
   const { getQueryParams, changeObj, searchParams, count, clear } = useQuery();
@@ -86,10 +84,11 @@ export const useTable = ({ api, sortAllData }: Props) => {
           ...getQueryParams(window.location),
         },
       });
+      console.log({ data });
       if (typeof sortAllData == "function") {
-        setTable(sortAllData(data));
+        setTable(sortAllData(data.data));
       } else {
-        setTable(data);
+        setTable(data.data);
       }
       setLoading({ get: false, inner: false });
     } catch (error) {

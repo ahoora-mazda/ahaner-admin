@@ -58,7 +58,7 @@ const PropertyCreate = () => {
       title="ایجاد ویژگی محصول"
       {...(properties.length > 0 ? { btn: { text: "ذخیره" } } : {})}
       api={{
-        route: "/admin/properties",
+        route: "/properties",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

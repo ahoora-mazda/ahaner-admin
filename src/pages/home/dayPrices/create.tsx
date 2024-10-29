@@ -60,7 +60,7 @@ const DayPriceCreate = () => {
       }}
       title="ایجاد قیمت روز آهن آلات"
       btn={{ text: "ایجاد قیمت روز آهن آلات" }}
-      api={{ route: "/admin/home_dayPrices" }}
+      api={{ route: "/home_dayPrices" }}
       cards={[
         {
           title: "اطلاعات قیمت روز آهن آلات",

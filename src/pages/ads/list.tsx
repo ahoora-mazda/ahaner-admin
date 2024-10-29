@@ -7,7 +7,7 @@ const AdsLists = () => {
         add="/ads-create"
         title="لیست تبلیغات"
         subTitle="تبلیغات"
-        api={{ route: "/admin/ads" }}
+        api={{ route: "/ads" }}
         sort={state => {
           return {
             ...state,
@@ -53,7 +53,7 @@ const AdsLists = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/ads",
+                route: "/ads",
                 accessKey: "cheque_remove",
               },
             ],

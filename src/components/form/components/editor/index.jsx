@@ -85,7 +85,7 @@ export default function Editor({
 
     return () => setIsLayoutReady(false);
   }, []);
-  const UPLOAD_ENDPOINT = "/admin/upload";
+  const UPLOAD_ENDPOINT = "/upload";
 
   function uploadAdapter(loader) {
     return {

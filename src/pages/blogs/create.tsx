@@ -11,7 +11,7 @@ const BlogCreate = () => {
       }}
       title="ایجاد مقاله ها"
       btn={{ text: "ایجاد مقاله" }}
-      api={{ route: "/admin/blogs" }}
+      api={{ route: "/blogs" }}
       cards={[
         {
           title: "اطلاعات مقاله",
@@ -100,7 +100,7 @@ const BlogCreate = () => {
           validation: yup.mixed().required("تصویر اجباری است"),
           cardKey: "1",
           col: "col-span-12",
-          route: "/admin/blogs/upload",
+          route: "/blogs/upload",
         },
         {
           label: "عنوان سئو",

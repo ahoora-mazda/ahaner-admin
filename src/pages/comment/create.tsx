@@ -11,7 +11,7 @@ const CommentCreate = () => {
       }}
       title="ایجاد گروه"
       btn={{ text: "ایجاد گروه" }}
-      api={{ route: "/admin/groups" }}
+      api={{ route: "/groups" }}
       cards={[
         {
           title: "اطلاعات گروه",

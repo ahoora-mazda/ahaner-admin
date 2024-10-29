@@ -10,7 +10,7 @@ import { usePost } from "../../hooks";
 import { AuthProps } from "../../types/auth";
 const schema = yup
   .object({
-    email: yup.string().email("ایمیل اشتباه است").required("ایمیل اجباری است"),
+    mobile: yup.string().required("ایمیل اجباری است"),
     password: yup.string().required("رمز عبور اجباری است"),
   })
   .required();
@@ -23,7 +23,7 @@ const Login = () => {
     formState: { errors },
   } = useForm<AuthProps>({
     resolver: yupResolver(schema),
-    defaultValues: { email: "admin@example.com", password: "123456" },
+    defaultValues: { mobile: "09155519848", password: "123456" },
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,28 +37,15 @@ const Login = () => {
       },
     },
     setError: (ob) => {
+      console.log({ ob });
       if (ob) {
         Object.keys(ob).forEach((key) => {
           setError(key, { message: ob[key][0] });
         });
       }
     },
-    errorAction: (response, body) => {
-      if (+response?.response?.status === 318) {
-        dispatch(
-          setPayment({
-            id: response?.response?.data?.data?.id,
-            name: body.name,
-            password: body.password,
-            amount_membership_fee:
-              response?.response?.data?.data?.amount_membership_fee,
-          })
-        );
-        navigate(`/payment`);
-      }
-    },
   });
-  const onSubmit = (data: AuthProps) => send({ ...data });
+  const onSubmit = (data: AuthProps) => send({ ...data }, false, true);
   return (
     <div>
       <div>
@@ -66,11 +53,11 @@ const Login = () => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
-          label="ایمیل"
+          label="موبایل"
           props={{
-            ...register("email" as const),
+            ...register("mobile" as const),
           }}
-          error={errors.email}
+          error={errors.mobile}
         />
         <Input
           type="password"

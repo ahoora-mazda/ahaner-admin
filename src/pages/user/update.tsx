@@ -9,9 +9,9 @@ const UserUpdate = () => {
       title="ویرایش کاربر"
       btn={{ text: "ویرایش کاربر" }}
       api={{
-        route: "/admin/users",
-        get: "/admin/users/:id",
-        update: "/admin/users/:id",
+        route: "/users",
+        get: "/users/:id",
+        update: "/users/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

@@ -7,7 +7,7 @@ const HeaderLists = () => {
         add="/header-create"
         title="لیست هدر"
         subTitle="هدر"
-        api={{ route: "/admin/headeritems" }}
+        api={{ route: "/headeritems" }}
         sort={(state) => {
           return {
             ...state,
@@ -49,7 +49,7 @@ const HeaderLists = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/headeritems",
+                route: "/headeritems",
                 accessKey: "cheque_remove",
               },
             ],

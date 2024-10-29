@@ -10,9 +10,9 @@ const AdsUpdate = () => {
       title="ویرایش تبلیغات"
       btn={{ text: "ویرایش تبلیغات" }}
       api={{
-        route: "/admin/ads",
-        get: "/admin/ads/:id",
-        update: "/admin/ads/:id",
+        route: "/ads",
+        get: "/ads/:id",
+        update: "/ads/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

@@ -11,7 +11,7 @@ const AdsCreate = () => {
       }}
       title="ایجاد تبلیغات"
       btn={{ text: "ایجاد تبلیغات" }}
-      api={{ route: "/admin/ads" }}
+      api={{ route: "/ads" }}
       cards={[
         {
           title: "اطلاعات تبلیغات",

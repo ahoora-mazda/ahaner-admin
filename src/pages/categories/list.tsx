@@ -8,7 +8,7 @@ const CategoriesList = () => {
         add="/category-create"
         title="لیست دسته بندی ها"
         subTitle="دسته بندی ها"
-        api={{ route: "/admin/categories" }}
+        api={{ route: "/categories" }}
         sort={state => {
           return {
             ...state,
@@ -50,7 +50,7 @@ const CategoriesList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/categories",
+                route: "/categories",
                 accessKey: "cheque_remove",
               },
             ],

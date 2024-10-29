@@ -11,9 +11,9 @@ const BlogUpdate = () => {
       title="ویرایش مقاله"
       btn={{ text: "ویرایش مقاله" }}
       api={{
-        route: "/admin/blogs",
-        get: "/admin/blogs/:id",
-        update: "/admin/blogs/:id",
+        route: "/blogs",
+        get: "/blogs/:id",
+        update: "/blogs/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {
@@ -116,7 +116,7 @@ const BlogUpdate = () => {
           validation: yup.mixed().required("تصویر اجباری است"),
           cardKey: "1",
           col: "col-span-12",
-          route: "/admin/blogs/upload",
+          route: "/blogs/upload",
         },
         {
           label: "عنوان سئو",

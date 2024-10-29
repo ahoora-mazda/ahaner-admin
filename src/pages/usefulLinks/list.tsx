@@ -7,7 +7,7 @@ const UsefulLinksList = () => {
         add="/usefullinks-create"
         title="لیست لینک های مفید"
         subTitle="لینک های مفید"
-        api={{ route: "/admin/usefullinks" }}
+        api={{ route: "/usefullinks" }}
         sort={(state) => {
           return {
             ...state,
@@ -40,7 +40,7 @@ const UsefulLinksList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/usefullinks",
+                route: "/usefullinks",
                 accessKey: "cheque_remove",
               },
             ],

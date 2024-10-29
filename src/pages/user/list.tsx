@@ -7,7 +7,7 @@ const UserList = () => {
         add="/user-create"
         title="لیست کاربران"
         subTitle="کاربران"
-        api={{ route: "/admin/users" }}
+        api={{ route: "/users" }}
         sort={(state) => {
           return {
             ...state,
@@ -15,7 +15,7 @@ const UserList = () => {
         }}
         headers={[
           {
-            key: "name",
+            key: "full_name",
             title: "نام و نام خانوادگی",
           },
           {
@@ -26,17 +26,6 @@ const UserList = () => {
             key: "email",
             title: "ایمیل",
           },
-          {
-            key: "role",
-            title: "نقش",
-            type: "enum",
-            enum: {
-              admin: "ادمین",
-              team: "تیم",
-              guest: "کاربر میهمان",
-            },
-          },
-
           {
             key: "",
             title: "عملیات",
@@ -51,7 +40,7 @@ const UserList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/users",
+                route: "/users",
                 accessKey: "cheque_remove",
               },
             ],

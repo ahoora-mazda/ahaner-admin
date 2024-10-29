@@ -1,9 +1,8 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { API } from "../server";
 import { UsePost } from "../types/hooks/usePost";
-import { serialize } from "object-to-formdata";
-import { convertToFormData, p2e, removeFalsyKeys } from "../utils/function";
-import { toast } from "react-toastify";
+import { convertToFormData, removeFalsyKeys } from "../utils/function";
 
 export const usePost = ({
   route,
@@ -40,7 +39,7 @@ export const usePost = ({
       console.log("er", error);
       errorAction(error, body);
       if (error?.response?.data) {
-        setError(error?.response?.data);
+        setError(error?.response?.data.errors);
       }
       setLoading({ ...loading, send: false });
     }

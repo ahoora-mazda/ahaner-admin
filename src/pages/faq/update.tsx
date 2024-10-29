@@ -9,9 +9,9 @@ const FaqUpdate = () => {
       title="ویرایش سوالات متداول"
       btn={{ text: "ویرایش سوالات متداول" }}
       api={{
-        route: "/admin/questions",
-        get: "/admin/questions/:id",
-        update: "/admin/questions/:id",
+        route: "/questions",
+        get: "/questions/:id",
+        update: "/questions/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

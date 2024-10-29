@@ -1,5 +1,5 @@
 export interface AuthProps {
-  email: string;
+  mobile: string;
   password: string;
   [key: string]: string | boolean | number;
 }

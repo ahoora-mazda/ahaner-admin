@@ -63,9 +63,9 @@ const DayPriceUpdate = () => {
       title="قیمت روز آهن آلات"
       btn={{ text: "قیمت روز آهن آلات" }}
       api={{
-        route: "/admin/home_dayPrices",
-        get: "/admin/home_dayPrices/:id",
-        update: "/admin/home_dayPrices/:id",
+        route: "/home_dayPrices",
+        get: "/home_dayPrices/:id",
+        update: "/home_dayPrices/:id",
       }}
       sortUpdate={(state) => {
         return { ...state, products: properties };

@@ -62,7 +62,7 @@ const ProductCreate = () => {
       }}
       title="ایجاد محصول"
       btn={{ text: "ایجاد محصول" }}
-      api={{ route: "/admin/products" }}
+      api={{ route: "/products" }}
       cards={[
         {
           title: "اطلاعات محصول",

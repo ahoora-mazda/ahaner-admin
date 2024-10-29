@@ -10,9 +10,9 @@ const CategoryUpdate = () => {
       title="ویرایش دسته بندی"
       btn={{ text: "ویرایش دسته بندی" }}
       api={{
-        route: "/admin/categories",
-        get: "/admin/categories/:id",
-        update: "/admin/categories/:id",
+        route: "/categories",
+        get: "/categories/:id",
+        update: "/categories/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

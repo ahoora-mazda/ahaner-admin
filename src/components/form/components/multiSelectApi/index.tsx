@@ -35,7 +35,7 @@ const MultiSelectApi = ({
   const [options, setOptions] = useState<any>([]);
   const getOptions = async () => {
     setLoading(true);
-    const { data } = await API.post("/admin/requirements" || "", {
+    const { data } = await API.post("/requirements" || "", {
       keys: api.keys,
     });
     if (typeof api.sort === "function") {

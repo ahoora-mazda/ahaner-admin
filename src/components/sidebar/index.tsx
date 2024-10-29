@@ -24,7 +24,7 @@ const Sidebar = () => {
     (state: RootState) => state.userReducer
   );
   const [, , send, loading] = usePost({
-    route: "/admin/logout",
+    route: "/logout",
     redirect: {
       status: true,
       action: () => {

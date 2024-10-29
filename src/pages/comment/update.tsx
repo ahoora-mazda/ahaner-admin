@@ -10,9 +10,9 @@ const CommentUpdate = () => {
       title="ویرایش نظر"
       btn={{ text: "ویرایش نظر" }}
       api={{
-        route: "/admin/comments",
-        get: "/admin/comments/:id",
-        update: "/admin/comments/:id",
+        route: "/comments",
+        get: "/comments/:id",
+        update: "/comments/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

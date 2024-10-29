@@ -10,9 +10,9 @@ const GroupUpdate = () => {
       title="ایجاد گروه"
       btn={{ text: "ویرایش گروه" }}
       api={{
-        route: "/admin/groups",
-        get: "/admin/groups/:id",
-        update: "/admin/groups/:id",
+        route: "/groups",
+        get: "/groups/:id",
+        update: "/groups/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

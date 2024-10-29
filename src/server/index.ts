@@ -4,8 +4,8 @@ import { User } from "../types/user";
 import { toast } from "react-toastify";
 
 export const API = axios.create({
-  baseURL: "https://api.ahaner.site/api",
-  // baseURL: "http://192.168.1.102:8000/api/",
+  // baseURL: "https://server.ahaner.site/api/admin",
+  baseURL: "http://192.168.1.3:9582/api/admin",
 });
 
 API.interceptors.request.use(
@@ -34,7 +34,7 @@ API.interceptors.response.use(
       Cookie.remove("user");
       window.location.replace("/login");
     } else if (error?.response?.status === 422) {
-      let _errors = error.response.data;
+      let _errors = error.response.data.errors;
       Object.keys(_errors).map((ele) => toast.error(_errors[ele][0]));
       toast.error(_errors);
     } else if (

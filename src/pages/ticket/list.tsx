@@ -14,7 +14,7 @@ const TicketList = () => {
   const changeStatus = async () => {
     try {
       setLoading(true);
-      await API.put(`/admin/tickets/${id}`, {
+      await API.put(`/tickets/${id}`, {
         _method: "PUT",
         status: status === "active" ? "inactive" : "active",
       });
@@ -33,7 +33,7 @@ const TicketList = () => {
       <CustomTable
         title="لیست تیکت ها"
         subTitle="تیکت ها"
-        api={{ route: "/admin/tickets" }}
+        api={{ route: "/tickets" }}
         sort={(state) => {
           return {
             ...state,
@@ -81,7 +81,7 @@ const TicketList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/tickets",
+                route: "/tickets",
                 accessKey: "cheque_remove",
               },
               // {

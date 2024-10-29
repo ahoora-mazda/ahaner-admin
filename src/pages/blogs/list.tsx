@@ -1,4 +1,3 @@
-import Badge from "../../components/badge";
 import CustomTable from "../../components/table";
 
 const BlogList = () => {
@@ -8,7 +7,7 @@ const BlogList = () => {
         add="/blog-create"
         title="لیست مقالات"
         subTitle="مقالات"
-        api={{ route: "/admin/blogs" }}
+        api={{ route: "/blogs" }}
         sort={(state) => {
           return {
             ...state,
@@ -49,7 +48,7 @@ const BlogList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/blogs",
+                route: "/blogs",
                 accessKey: "cheque_remove",
               },
             ],

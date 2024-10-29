@@ -9,9 +9,9 @@ const TeamUpdate = () => {
       title="ویرایش عضو"
       btn={{ text: "ویرایش عضو" }}
       api={{
-        route: "/admin/teams",
-        get: "/admin/teams/:id",
-        update: "/admin/teams/:id",
+        route: "/teams",
+        get: "/teams/:id",
+        update: "/teams/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

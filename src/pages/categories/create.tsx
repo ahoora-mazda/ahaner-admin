@@ -11,7 +11,7 @@ const CategoryCreate = () => {
       }}
       title="ایجاد دسته بندی ها"
       btn={{ text: "ایجاد دسته بندی" }}
-      api={{ route: "/admin/categories" }}
+      api={{ route: "/categories" }}
       cards={[
         {
           title: "اطلاعات دسته بندی",

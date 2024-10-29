@@ -7,7 +7,7 @@ const PropertyList = () => {
         add="/property-create"
         title="لیست ویژگی محصول"
         subTitle="ویژگی محصول"
-        api={{ route: "/admin/properties" }}
+        api={{ route: "/properties" }}
         sort={(state) => {
           return {
             ...state,
@@ -40,7 +40,7 @@ const PropertyList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/properties",
+                route: "/properties",
                 accessKey: "cheque_remove",
               },
             ],

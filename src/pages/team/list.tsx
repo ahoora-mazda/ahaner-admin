@@ -7,7 +7,7 @@ const TeamList = () => {
         add="/user-create"
         title="لیست اعضا"
         subTitle="اعضا"
-        api={{ route: "/admin/teams" }}
+        api={{ route: "/teams" }}
         sort={(state) => {
           return {
             ...state,
@@ -51,7 +51,7 @@ const TeamList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/teams",
+                route: "/teams",
                 accessKey: "cheque_remove",
               },
             ],

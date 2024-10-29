@@ -7,7 +7,7 @@ const GroupList = () => {
         add="/group-create"
         title="لیست گروه ها"
         subTitle="گروه ها"
-        api={{ route: "/admin/groups" }}
+        api={{ route: "/groups" }}
         sort={(state) => {
           return {
             ...state,
@@ -40,7 +40,7 @@ const GroupList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/groups",
+                route: "/groups",
                 accessKey: "cheque_remove",
               },
             ],

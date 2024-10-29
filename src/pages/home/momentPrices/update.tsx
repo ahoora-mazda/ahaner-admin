@@ -14,9 +14,9 @@ const MomentPriceUpdate = () => {
       title="ویرایش قیمت لحظه ای و رقابتی"
       btn={{ text: "ویرایش قیمت لحظه ای و رقابتی" }}
       api={{
-        route: "/admin/home_momentPrices",
-        get: "/admin/home_momentPrices/:id",
-        update: "/admin/home_momentPrices/:id",
+        route: "/home_momentPrices",
+        get: "/home_momentPrices/:id",
+        update: "/home_momentPrices/:id",
       }}
       cards={[
         {

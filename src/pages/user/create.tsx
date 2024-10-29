@@ -11,7 +11,7 @@ const UserCreate = () => {
       }}
       title="ایجاد کاربران"
       btn={{ text: "ایجاد کاربر" }}
-      api={{ route: "/admin/users" }}
+      api={{ route: "/users" }}
       cards={[
         {
           title: "اطلاعات کاربر",
@@ -23,6 +23,7 @@ const UserCreate = () => {
           ...state,
         };
       }}
+      notSerialize
       elements={[
         {
           name: "email",
@@ -36,7 +37,7 @@ const UserCreate = () => {
             .required("ایمیل اجباری است"),
         },
         {
-          name: "name",
+          name: "full_name",
           label: "نام و نام خانوادگی",
           cardKey: "1",
           col: "col-span-12 md:col-span-6",
@@ -50,28 +51,6 @@ const UserCreate = () => {
           col: "col-span-12 md:col-span-6",
           validation: yup.string().required("موبایل اجباری است"),
           type: "input",
-        },
-        {
-          type: "select",
-          cardKey: "1",
-          label: "نقش",
-          col: "col-span-12 md:col-span-6",
-          validation: yup.string().required("نقش اجباری است"),
-          name: "role",
-          options: [
-            {
-              value: "team",
-              label: "اعضا",
-            },
-            {
-              value: "admin",
-              label: "ادمین",
-            },
-            {
-              value: "client",
-              label: "مشتری",
-            },
-          ],
         },
       ]}
     />

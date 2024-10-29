@@ -7,7 +7,7 @@ const DayPriceList = () => {
         add="/home/comments-create"
         title="لیست قیمت روز آهن آلات"
         subTitle="قیمت روز آهن آلات"
-        api={{ route: "/admin/home_dayPrices" }}
+        api={{ route: "/home_dayPrices" }}
         sort={state => {
           return {
             ...state,
@@ -42,7 +42,7 @@ const DayPriceList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/home_dayPrices",
+                route: "/home_dayPrices",
                 accessKey: "cheque_remove",
               },
             ],

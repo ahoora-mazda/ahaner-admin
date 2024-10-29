@@ -14,7 +14,7 @@ const CommentList = () => {
   const changeStatus = async () => {
     try {
       setLoading(true);
-      await API.put(`/admin/comments/${id}`, {
+      await API.put(`/comments/${id}`, {
         _method: "PUT",
         status: status === "active" ? "inactive" : "active",
       });
@@ -34,7 +34,7 @@ const CommentList = () => {
         key={depend}
         title="لیست نظرات"
         subTitle="نظرات"
-        api={{ route: "/admin/comments" }}
+        api={{ route: "/comments" }}
         sort={state => {
           return {
             ...state,
@@ -77,7 +77,7 @@ const CommentList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/admin/comments",
+                route: "/comments",
                 accessKey: "cheque_remove",
               },
               {

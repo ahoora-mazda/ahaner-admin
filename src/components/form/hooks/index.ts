@@ -62,7 +62,7 @@ export const useCustomForm = ({
     if (update) {
       setLoadingGet(true);
       const { data } = await API.get(api.get?.replace(":id", id || "") ?? "");
-      reset(sortGet({ ...data }));
+      reset(sortGet({ ...data.data }));
       setLoadingGet(false);
     }
   };

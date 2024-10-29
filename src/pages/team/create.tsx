@@ -11,7 +11,7 @@ const TeamCreate = () => {
       }}
       title="ایجاد اعضا"
       btn={{ text: "ایجاد عضو" }}
-      api={{ route: "/admin/teams" }}
+      api={{ route: "/teams" }}
       cards={[
         {
           title: "اطلاعات عضو",

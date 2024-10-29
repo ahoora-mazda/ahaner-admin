@@ -63,9 +63,9 @@ const ProductCreate = () => {
       title="ایجاد محصول"
       btn={{ text: "ایجاد محصول" }}
       api={{
-        route: "/admin/products",
-        get: "/admin/products/:id",
-        update: "/admin/products/:id",
+        route: "/products",
+        get: "/products/:id",
+        update: "/products/:id",
       }}
       update
       accessUpdate={""}

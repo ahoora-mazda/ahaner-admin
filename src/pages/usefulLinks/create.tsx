@@ -11,7 +11,7 @@ const UsefulLinksCreate = () => {
       }}
       title="ایجاد لینک مفید"
       btn={{ text: "ایجاد لینک مفید" }}
-      api={{ route: "/admin/usefullinks" }}
+      api={{ route: "/usefullinks" }}
       cards={[
         {
           title: "اطلاعات لینک مفید",

@@ -16,7 +16,7 @@ const FaqCreate = () => {
       }}
       title="ایجاد سوالات متداول"
       btn={{ text: "ایجاد سوالات متداول" }}
-      api={{ route: "/admin/questions" }}
+      api={{ route: "/questions" }}
       cards={[
         {
           title: "اطلاعات سوالات متداول",

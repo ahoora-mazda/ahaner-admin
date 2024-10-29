@@ -10,9 +10,9 @@ const UsefulLinkUpdate = () => {
       title="ایجاد لینک مفید"
       btn={{ text: "ویرایش لینک مفید" }}
       api={{
-        route: "/admin/usefullinks",
-        get: "/admin/usefullinks/:id",
-        update: "/admin/usefullinks/:id",
+        route: "/usefullinks",
+        get: "/usefullinks/:id",
+        update: "/usefullinks/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

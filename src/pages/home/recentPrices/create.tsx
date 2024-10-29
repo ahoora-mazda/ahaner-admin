@@ -11,7 +11,7 @@ const MomentPriceCreate = () => {
       }}
       title="ایجاد قیمت روز محصولات"
       btn={{ text: "ایجاد قیمت روز محصولات" }}
-      api={{ route: "/admin/home_momentPrices" }}
+      api={{ route: "/home_momentPrices" }}
       cards={[
         {
           title: "اطلاعات قیمت روز محصولات",

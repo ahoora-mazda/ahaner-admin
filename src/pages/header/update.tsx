@@ -10,9 +10,9 @@ const HeaderUpdate = () => {
       title="ویرایش هدر"
       btn={{ text: "ویرایش هدر" }}
       api={{
-        route: "/admin/headeritems",
-        get: "/admin/headeritems/:id",
-        update: "/admin/headeritems/:id",
+        route: "/headeritems",
+        get: "/headeritems/:id",
+        update: "/headeritems/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

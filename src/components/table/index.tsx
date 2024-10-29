@@ -18,7 +18,7 @@ const CustomTable: React.FC<TableProps> = ({
   headers,
   api,
   sort = (state, key) => state,
-  sortAllData = state => state,
+  sortAllData = (state) => state,
   add,
   pdf,
   minimal,
@@ -37,6 +37,7 @@ const CustomTable: React.FC<TableProps> = ({
       api,
       sortAllData,
     });
+  console.log({ table });
   const tableComponent = (
     // table.data.length === 0
     <div className="w-full overflow-x-auto md:overflow-visible table-wrapper  p-6 ">
@@ -56,7 +57,7 @@ const CustomTable: React.FC<TableProps> = ({
               </td>
             </tr>
           </tbody>
-        ) : table.data.length === 0 ? (
+        ) : table.rows.length === 0 ? (
           <tbody>
             <tr>
               <td colSpan={headers.length}>
@@ -79,7 +80,7 @@ const CustomTable: React.FC<TableProps> = ({
         ) : (
           <>
             <tbody>
-              {table?.data?.map((row: any, id: number) => {
+              {table?.rows?.map((row: any, id: number) => {
                 if (!deleted.includes(+row.id)) {
                   return (
                     <tr key={id}>
@@ -190,8 +191,8 @@ const CustomTable: React.FC<TableProps> = ({
           {!dashboard && (
             <div className="flex justify-center items-center pb-2 pagination mt-2">
               <Pagination
-                currentPage={table.current_page}
-                totalPages={table.last_page}
+                currentPage={table.currentPage}
+                totalPages={table.totalPages}
                 onPageChange={handlePageChange}
               />
             </div>
