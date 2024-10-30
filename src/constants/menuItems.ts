@@ -1,7 +1,7 @@
 import {
   GroupOutlined,
   LinkOutlined,
-  PropertySafetyFilled
+  PropertySafetyFilled,
 } from "@ant-design/icons";
 import { uniqueId } from "lodash";
 import {
@@ -20,7 +20,7 @@ import {
   Stack3,
   User,
   UserCheck,
-  Video
+  Video,
 } from "tabler-icons-react";
 import { MenuitemProps } from "../types/menuItem";
 
@@ -354,17 +354,17 @@ export const Menuitems: MenuitemProps[] = [
       },
     ],
   },
-  {
-    id: uniqueId(),
-    title: "تیکت ها",
-    icon: Speakerphone,
-    href: "/ticket-list",
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: "تیکت ها",
+  //   icon: Speakerphone,
+  //   href: "/ticket-list",
+  // },
 
-  {
-    id: uniqueId(),
-    title: "تنظیمات",
-    icon: Settings,
-    href: "/settings",
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: "تنظیمات",
+  //   icon: Settings,
+  //   href: "/settings",
+  // },
 ];

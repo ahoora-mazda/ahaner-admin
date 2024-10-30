@@ -26,7 +26,7 @@ const ProductCreate = () => {
         update: "/products/:id",
       }}
       update
-      accessUpdate={""}
+      accessUpdate={"dawdawd"}
       cards={[
         {
           title: "اطلاعات محصول",
@@ -49,6 +49,11 @@ const ProductCreate = () => {
         };
       }}
       sortGet={(state) => {
+        setProperties(
+          state.Property_Values.map((p: any) => {
+            return { name: p.Property?.name, id: p.id, value: p.value };
+          })
+        );
         return state;
       }}
       elements={[

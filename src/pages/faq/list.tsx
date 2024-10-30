@@ -8,7 +8,7 @@ const FaqList = () => {
         add="/faq-create"
         title="لیست سوالات متداول"
         subTitle="سوالات متداول"
-        api={{ route: "/questions" }}
+        api={{ route: "/faqs" }}
         sort={(state) => {
           return {
             ...state,
@@ -52,7 +52,7 @@ const FaqList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/questions",
+                route: "/faqs",
                 accessKey: "cheque_remove",
               },
             ],

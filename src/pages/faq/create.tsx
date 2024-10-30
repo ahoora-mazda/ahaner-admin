@@ -16,7 +16,7 @@ const FaqCreate = () => {
       }}
       title="ایجاد سوالات متداول"
       btn={{ text: "ایجاد سوالات متداول" }}
-      api={{ route: "/questions" }}
+      api={{ route: "/faqs" }}
       cards={[
         {
           title: "اطلاعات سوالات متداول",
@@ -41,74 +41,6 @@ const FaqCreate = () => {
           validation: yup.string().required("پاسخ اجباری است"),
         },
         {
-          type: "select",
-          name: "status",
-          label: "وضعیت",
-          options: [
-            { value: "active", label: "فعال" },
-            { value: "inactive", label: "غیر فعال" },
-          ],
-          col: "col-span-12",
-          cardKey: "1",
-        },
-        {
-          type: "select",
-          label: "برای؟",
-          name: "questionable_type",
-          validation: yup.string().required("برای اجباری است"),
-          col: "col-span-12",
-          cardKey: "1",
-          options: [
-            {
-              value: "product",
-              label: "محصول",
-            },
-            {
-              value: "blog",
-              label: "مقاله",
-            },
-            {
-              value: "category",
-              label: "دسته بندی",
-            },
-          ],
-        },
-        {
-          label: "محصول",
-          name: "questionable_id",
-          type: "selectApi",
-          api: {
-            keys: ["products"],
-            sort: (state) => {
-              return state.products;
-            },
-          },
-          cardKey: "1",
-          col: "col-span-12",
-          existIf: {
-            key: "questionable_type",
-            value: "product",
-          },
-        },
-        {
-          label: "مقاله",
-          name: "questionable_id",
-          type: "selectApi",
-          api: {
-            keys: ["blogs"],
-            sort: (state) => {
-              return state.blogs;
-            },
-          },
-          cardKey: "1",
-          col: "col-span-12",
-          existIf: {
-            key: "questionable_type",
-            value: "blog",
-          },
-        },
-
-        {
           label: "دسته بندی",
           name: "questionable_id",
           type: "selectApi",
@@ -120,10 +52,6 @@ const FaqCreate = () => {
           },
           cardKey: "1",
           col: "col-span-12",
-          existIf: {
-            key: "questionable_type",
-            value: "category",
-          },
         },
       ]}
     />

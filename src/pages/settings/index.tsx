@@ -15,9 +15,9 @@ const SettingPage = () => {
         title="ویرایش تنظیمات"
         btn={{ text: "ویرایش تنظیمات" }}
         api={{
-          route: "/settings",
-          get: "/settings",
-          update: "/settings",
+          route: "/settings/1",
+          get: "/settings?id=1",
+          update: "/settings?id=1",
         }}
         cards={[
           {
