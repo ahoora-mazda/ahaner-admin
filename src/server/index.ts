@@ -3,9 +3,11 @@ import Cookie from "js-cookie";
 import { User } from "../types/user";
 import { toast } from "react-toastify";
 
+export const baseURL = "https://server.ahaner.site";
+
 export const API = axios.create({
   // baseURL: "https://server.ahaner.site/api/admin",
-  baseURL: "http://192.168.1.3:9582/api/admin",
+  baseURL: baseURL + "/api/admin",
 });
 
 API.interceptors.request.use(

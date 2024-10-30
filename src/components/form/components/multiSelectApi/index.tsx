@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { API } from "../../../../server";
 import { Select } from "antd";
+import { InfoCircle } from "tabler-icons-react";
 interface Props {
   label?: string;
   error?: any;
@@ -18,6 +19,7 @@ interface Props {
   };
   optional?: boolean;
   dependValue?: any;
+  help?: string;
 }
 
 const MultiSelectApi = ({
@@ -30,6 +32,7 @@ const MultiSelectApi = ({
   depend,
   dependValue,
   optional,
+  help,
 }: Props) => {
   const [loading, setLoading] = useState(true);
   const [options, setOptions] = useState<any>([]);
@@ -60,15 +63,18 @@ const MultiSelectApi = ({
 
   return (
     <div className="flex flex-col ">
-      <label className="text-sm	font-semibold mb-1 text-right">
-        {label}
-
-        {optional && (
-          <span className="text-xs font-normal mx-1 text-primary">
-            (اختیاری)
-          </span>
-        )}
-      </label>
+      {label ? (
+        <>
+          <label className="text-sm	font-semibold mb-1 text-right">
+            {label}
+            {!optional && (
+              <span className="text-xs font-normal mx-1 text-red-800">*</span>
+            )}
+          </label>
+        </>
+      ) : (
+        <></>
+      )}
       <Select
         mode="multiple"
         showSearch
@@ -87,6 +93,12 @@ const MultiSelectApi = ({
         value={value}
         onBlur={onBlur}
       ></Select>
+      {help && (
+        <small className="flex items-center gap-2 mt-2">
+          <InfoCircle size={"1rem"} />
+          {help}
+        </small>
+      )}
       <motion.p
         animate={error ? "open" : "closed"}
         variants={variants}

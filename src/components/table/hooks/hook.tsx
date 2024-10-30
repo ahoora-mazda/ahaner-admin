@@ -46,13 +46,7 @@ export const useTable = ({ api, sortAllData }: Props) => {
       case "longText":
         return <LongText text={row[head.key]} />;
       case "_idx":
-        return counter({
-          allData: table,
-          _id: id,
-          sortStatus: searchParams.get("orderby")
-            ? searchParams.get("orderby")
-            : "desc",
-        });
+        return id + 1;
       case "checkbox":
         return (
           <Checkbox

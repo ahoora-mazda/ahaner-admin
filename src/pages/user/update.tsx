@@ -29,12 +29,23 @@ const UserUpdate = () => {
         };
       }}
       update={true}
+      notSerialize
       sortGet={(state) => {
         return {
           ...state,
+          province_id: state?.City?.Province?.id,
+          city_id: state?.City?.id,
         };
       }}
       elements={[
+        {
+          name: "full_name",
+          label: "نام و نام خانوادگی",
+          cardKey: "1",
+          col: "col-span-12",
+          validation: yup.string().required("نام و نام خانوادگی اجباری است"),
+          type: "input",
+        },
         {
           name: "email",
           label: "ایمیل",
@@ -47,14 +58,6 @@ const UserUpdate = () => {
             .required("ایمیل اجباری است"),
         },
         {
-          name: "name",
-          label: "نام و نام خانوادگی",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-          validation: yup.string().required("نام و نام خانوادگی اجباری است"),
-          type: "input",
-        },
-        {
           name: "mobile",
           cardKey: "1",
           label: "موبایل",
@@ -63,26 +66,33 @@ const UserUpdate = () => {
           type: "input",
         },
         {
-          type: "select",
-          cardKey: "1",
-          label: "نقش",
+          label: "استان",
+          name: "province_id",
+          type: "selectApi",
           col: "col-span-12 md:col-span-6",
-          validation: yup.string().required("نقش اجباری است"),
-          name: "role",
-          options: [
-            {
-              value: "team",
-              label: "تیم",
+          cardKey: "1",
+          api: {
+            keys: ["provinces"],
+            sort: (state) => {
+              return state.provinces;
             },
-            {
-              value: "admin",
-              label: "ادمین",
+          },
+        },
+        {
+          label: "شهر",
+          name: "city_id",
+          type: "selectApi",
+          col: "col-span-12 md:col-span-6",
+          cardKey: "1",
+          api: {
+            keys: ["cities"],
+            sort: (state) => {
+              return state.cities;
             },
-            {
-              value: "client",
-              label: "مشتری",
-            },
-          ],
+          },
+          depend: {
+            key: "province_id",
+          },
         },
       ]}
     />

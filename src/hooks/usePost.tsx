@@ -18,7 +18,7 @@ export const usePost = ({
 
   const send = async (body: any, needToast?: boolean, ser?: boolean) => {
     try {
-      let newBody = removeFalsyKeys({ ...initial, ...form, ...body });
+      let newBody = { ...initial, ...form, ...body };
       if (!ser) {
         newBody = convertToFormData(newBody);
       }

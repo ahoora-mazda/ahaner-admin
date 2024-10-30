@@ -63,7 +63,7 @@ const CustomForm: React.FC<Form> = ({
     initial,
     notSerialize,
   });
-
+  console.log(watch("properties"));
   const render = (element: FormElement, key: number) => {
     switch (element.type) {
       case "input":
@@ -382,6 +382,7 @@ const CustomForm: React.FC<Form> = ({
                   },
                 }
               }
+              help={element.help}
             />
           </Wrapper>
         );

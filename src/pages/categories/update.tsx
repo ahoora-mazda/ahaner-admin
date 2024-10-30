@@ -27,21 +27,14 @@ const CategoryUpdate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
-
-          show_on_homepage: state.show_on_homepage ? "1" : "0",
-          seo: {
-            title: state.title_seo,
-            description: state.description_seo,
-            schema: state.schema,
-          },
         };
       }}
       sortGet={(state) => {
         return {
           ...state,
-          title_seo: state?.seo?.title,
-          description_seo: state?.seo?.description,
-          schema: state?.seo?.schema,
+          seo_title: state?.SeoDatum?.title,
+          seo_description: state?.SeoDatum?.description,
+          seo_schema: state?.SeoDatum?.schema,
         };
       }}
       update={true}
@@ -64,22 +57,19 @@ const CategoryUpdate = () => {
           help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
         },
         {
-          label: "والد دسته بندی",
-          name: "category_id",
-          type: "selectApi",
+          type: "multiSelectApi",
+          label: "ویژگی ها",
+          name: "properties",
+          validation: yup.mixed().required("ویژگی ها اجباری است"),
           api: {
-            keys: ["categories"],
+            keys: ["properties"],
             sort: (state) => {
-              return state.categories.map((ele: any) => {
-                return {
-                  value: ele.value,
-                  label: ele.label,
-                };
-              });
+              return state.properties;
             },
           },
-          cardKey: "1",
           col: "col-span-12",
+          cardKey: "1",
+          help: "ترتیب انتخاب٬ همان ترتیب نمایش جدول است",
         },
         {
           name: "description",
@@ -88,13 +78,7 @@ const CategoryUpdate = () => {
           type: "editor",
           col: "col-span-12",
         },
-        {
-          name: "show_on_homepage",
-          label: "مشاهده در صفحه اصلی",
-          type: "checkbox",
-          cardKey: "1",
-          col: "col-span-12",
-        },
+
         {
           type: "fileUploader",
           cardKey: "1",

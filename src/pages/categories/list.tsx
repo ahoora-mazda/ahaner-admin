@@ -1,5 +1,5 @@
-import Badge from "../../components/badge";
 import CustomTable from "../../components/table";
+import { combineImageUrl } from "../../utils/function";
 
 const CategoriesList = () => {
   return (
@@ -9,9 +9,10 @@ const CategoriesList = () => {
         title="لیست دسته بندی ها"
         subTitle="دسته بندی ها"
         api={{ route: "/categories" }}
-        sort={state => {
+        sort={(state) => {
           return {
             ...state,
+            image: combineImageUrl(state.image),
           };
         }}
         headers={[
@@ -29,8 +30,6 @@ const CategoriesList = () => {
           {
             key: "name",
             title: "عنوان",
-            filterType: "input",
-            keyFilter: "text",
           },
           {
             key: "slug",

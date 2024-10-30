@@ -4,10 +4,10 @@ const TeamList = () => {
   return (
     <>
       <CustomTable
-        add="/user-create"
+        add="/team-create"
         title="لیست اعضا"
         subTitle="اعضا"
-        api={{ route: "/teams" }}
+        api={{ route: "/team-info" }}
         sort={(state) => {
           return {
             ...state,
@@ -15,26 +15,12 @@ const TeamList = () => {
         }}
         headers={[
           {
-            key: "name",
+            key: "full_name",
             title: "نام و نام خانوادگی",
           },
           {
             key: "mobile",
             title: "موبایل",
-          },
-          {
-            key: "email",
-            title: "ایمیل",
-          },
-          {
-            key: "role",
-            title: "نقش",
-            type: "enum",
-            enum: {
-              admin: "ادمین",
-              team: "تیم",
-              guest: "کاربر میهمان",
-            },
           },
 
           {
@@ -51,7 +37,7 @@ const TeamList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/teams",
+                route: "/team-info",
                 accessKey: "cheque_remove",
               },
             ],

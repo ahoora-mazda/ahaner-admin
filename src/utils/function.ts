@@ -1,8 +1,9 @@
 import packageJson from "../../package.json";
 import moment from "jalali-moment";
 import { v4 as uuidv4 } from "uuid";
+import { baseURL } from "../server";
 export const timeout = (delay: number) => {
-  return new Promise(res => setTimeout(res, delay));
+  return new Promise((res) => setTimeout(res, delay));
 };
 export const toDate = (date: string | undefined, dash = false) => {
   if (date && date !== "Invalid date") {
@@ -27,7 +28,7 @@ export const highlightSearchText = (text: string, searchText: string) => {
   return text
     ? text.replace(
         regex,
-        match => `<span style="color:#362FD9;">${match}</span>`
+        (match) => `<span style="color:#362FD9;">${match}</span>`
       )
     : "ثبت نشده";
 };
@@ -93,8 +94,8 @@ export const caching = () => {
   let version = localStorage.getItem("version");
   if (version !== packageJson.version) {
     if ("caches" in window) {
-      caches.keys().then(names => {
-        names.forEach(name => {
+      caches.keys().then((names) => {
+        names.forEach((name) => {
           caches.delete(name);
         });
       });
@@ -125,7 +126,7 @@ export const changeObj = (
   obj: any,
   key: string
 ) => {
-  return arr.map(ele => {
+  return arr.map((ele) => {
     if (ele[key] === id) {
       return { ...ele, ...obj };
     } else {
@@ -177,7 +178,7 @@ export const replaceNumbers = (
   inputString: string,
   replacements: Record<string, string>
 ): string => {
-  const resultString = inputString.replace(/\d+/g, match => {
+  const resultString = inputString.replace(/\d+/g, (match) => {
     return replacements.hasOwnProperty(match) ? replacements[match] : match;
   });
 
@@ -188,7 +189,7 @@ export const getYears = () => {
   let currentYear = currentDate.jYear();
 
   let years = generateNumberArray(1402, currentYear + 10);
-  return years.map(year => {
+  return years.map((year) => {
     return { value: year, label: year };
   });
 };
@@ -235,7 +236,7 @@ export const renderMonth = (cel: number | string) => {
     { id: 11, label: "بهمن" },
     { id: 12, label: "اسفند" },
   ];
-  months.forEach(element => {
+  months.forEach((element) => {
     if (+element.id === +cel) {
       res = element.label;
     }
@@ -262,7 +263,7 @@ export const renderStatusCheque = (status: string | number) => {
 export const sumByKey = (arr: any[], key: string) => {
   let result = 0;
   if (Array.isArray(arr) && arr.length > 0) {
-    arr.forEach(ele => {
+    arr.forEach((ele) => {
       if (ele[key]) {
         result += +ele[key];
       }
@@ -438,7 +439,7 @@ export const downloadFile = (url: string, fileName: string) => {
 };
 export const allKeyIsThis = (arr: any[], key: string, value: string) => {
   let number = 0;
-  arr.forEach(ele => {
+  arr.forEach((ele) => {
     if (ele[key] === value) {
       number++;
     }
@@ -478,7 +479,7 @@ export const renderNatureAccount = (value: string): string => {
   }
 };
 export const isIdInArray = (id: number, arrayOfObjects: any[]): boolean => {
-  return arrayOfObjects.some(obj => obj.account_id === id);
+  return arrayOfObjects.some((obj) => obj.account_id === id);
 };
 
 export const convertDate = (date: string) => {
@@ -523,4 +524,7 @@ export const convertToFormData = (
   }
 
   return formData;
+};
+export const combineImageUrl = (url: string) => {
+  return url ? baseURL + "/" + url : "";
 };

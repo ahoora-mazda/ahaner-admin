@@ -11,12 +11,13 @@ const CommentList = () => {
   const [loading, setLoading] = useState(false);
   const [depend, setDepend] = useState<string>("");
   const [status, setStatus] = useState("");
+  const [data, setData] = useState<any>({});
   const changeStatus = async () => {
     try {
       setLoading(true);
-      await API.put(`/comments/${id}`, {
-        _method: "PUT",
-        status: status === "active" ? "inactive" : "active",
+      await API.post(`/comments/${id}`, {
+        ...data,
+        status: status === "published" ? "pending" : "published",
       });
       setLoading(false);
       setModal(false);
@@ -28,15 +29,19 @@ const CommentList = () => {
       setId(0);
     }
   };
+  console.log({ status });
   return (
     <>
       <CustomTable
+        add="/comments-create"
         key={depend}
         title="لیست نظرات"
         subTitle="نظرات"
         api={{ route: "/comments" }}
-        sort={state => {
+        sort={(state) => {
           return {
+            ...state?.User,
+            user_id: state?.User?.id,
             ...state,
           };
         }}
@@ -48,24 +53,25 @@ const CommentList = () => {
             filterType: "sort",
           },
           {
-            key: "name",
-            title: "نام",
+            key: "content",
+            title: "متن نظر",
+            type: "longText",
+          },
+          {
+            key: "full_name",
+            title: "کاربر",
           },
           {
             key: "mobile",
             title: "موبایل",
           },
           {
-            key: "body",
-            title: "نظر",
-          },
-          {
             key: "status",
             title: "وضعیت",
             type: "enum",
             enum: {
-              active: "فعال",
-              inactive: "غیر فعال",
+              published: "فعال",
+              pending: "غیر فعال",
             },
           },
 
@@ -83,7 +89,7 @@ const CommentList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/comment-list/:id",
+                route: "/comments-list/:id",
                 accessKey: "permission_show",
               },
               {
@@ -94,6 +100,7 @@ const CommentList = () => {
                   setId(+id);
                   setModal(true);
                   setStatus(data.status);
+                  setData(data);
                 },
               },
             ],
@@ -101,7 +108,7 @@ const CommentList = () => {
         ]}
       />
       <Modal
-        title={status === "active" ? "رد نظر" : "تایید نظر"}
+        title={status === "published" ? "رد نظر" : "تایید نظر"}
         isOpen={modal}
         onClose={() => {
           setModal(false);
@@ -109,10 +116,10 @@ const CommentList = () => {
         }}
       >
         <h2 className="text-right mb-2">
-          آیا برای {status === "active" ? "رد نظر" : "تایید نظر"} مطمئن هستید؟
+          آیا برای {status === "published" ? "رد نظر" : "تایید نظر"} مطمئن هستید؟
         </h2>
         <p className="text-xs text-right">
-          {status === "active"
+          {status === "published"
             ? "بعد از رد، نظر در سایت قابل مشاهده نیست."
             : "بعد از تایید، نظر در سایت قابل مشاهده می باشد."}
         </p>

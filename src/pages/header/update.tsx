@@ -10,9 +10,9 @@ const HeaderUpdate = () => {
       title="ویرایش هدر"
       btn={{ text: "ویرایش هدر" }}
       api={{
-        route: "/headeritems",
-        get: "/headeritems/:id",
-        update: "/headeritems/:id",
+        route: "/category-views",
+        get: "/category-views/:id",
+        update: "/category-views/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {
@@ -35,33 +35,47 @@ const HeaderUpdate = () => {
       update={true}
       elements={[
         {
-          label: "عنوان",
-          name: "title",
-          validation: yup.string().required("عنوان اجباری است"),
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12 ",
-        },
-        {
-          label: "لینک",
-          name: "link",
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12 ",
-          help: "لینک رو داخلی وارد کنید (بدون دامین)",
-        },
-        {
-          label: "والد لینک",
-          name: "item_id",
+          label: "دسته بندی",
+          name: "category_id",
           type: "selectApi",
           api: {
-            keys: ["headerItems"],
+            keys: ["categories"],
             sort: (state) => {
-              return state.headerItems;
+              return state.categories.map((ele: any) => {
+                return {
+                  value: ele.value,
+                  label: ele.label,
+                };
+              });
             },
           },
           cardKey: "1",
-          col: "col-span-12 ",
+          validation: yup.string().required("دسته بندی اجباری است"),
+          col: "col-span-12",
+        },
+        {
+          label: "ترتیب",
+          name: "view_order",
+          type: "input",
+          cardKey: "1",
+          col: "col-span-12",
+        },
+        // {
+        //   label: "لینک",
+        //   name: "link",
+        //   type: "input",
+        //   cardKey: "1",
+        //   col: "col-span-12 ",
+        //   help: "لینک رو داخلی وارد کنید (بدون دامین)",
+        // },
+
+        {
+          label: "تصویر",
+          name: "image",
+          type: "fileUploader",
+          validation: yup.mixed().required("تصویر اجباری است"),
+          cardKey: "1",
+          col: "col-span-12",
         },
       ]}
     />

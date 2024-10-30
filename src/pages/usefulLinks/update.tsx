@@ -10,9 +10,9 @@ const UsefulLinkUpdate = () => {
       title="ایجاد لینک مفید"
       btn={{ text: "ویرایش لینک مفید" }}
       api={{
-        route: "/usefullinks",
-        get: "/usefullinks/:id",
-        update: "/usefullinks/:id",
+        route: "/useful-links",
+        get: "/useful-links/:id",
+        update: "/useful-links/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {
@@ -30,6 +30,7 @@ const UsefulLinkUpdate = () => {
           ...state,
         };
       }}
+      notSerialize
       elements={[
         {
           label: "عنوان",
@@ -43,6 +44,14 @@ const UsefulLinkUpdate = () => {
           label: "آدرس",
           name: "url",
           validation: yup.string().required("آدرس اجباری است"),
+          type: "input",
+          cardKey: "1",
+          col: "col-span-12",
+        },
+        {
+          label: "ترتیب",
+          name: "show_order",
+          validation: yup.string().required("ترتیب اجباری است"),
           type: "input",
           cardKey: "1",
           col: "col-span-12",

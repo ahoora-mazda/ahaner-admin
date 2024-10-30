@@ -14,8 +14,7 @@ const TicketList = () => {
   const changeStatus = async () => {
     try {
       setLoading(true);
-      await API.put(`/tickets/${id}`, {
-        _method: "PUT",
+      await API.post(`/tickets/${id}`, {
         status: status === "active" ? "inactive" : "active",
       });
       setLoading(false);

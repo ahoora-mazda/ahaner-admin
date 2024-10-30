@@ -11,7 +11,7 @@ const UsefulLinksCreate = () => {
       }}
       title="ایجاد لینک مفید"
       btn={{ text: "ایجاد لینک مفید" }}
-      api={{ route: "/usefullinks" }}
+      api={{ route: "/useful-links" }}
       cards={[
         {
           title: "اطلاعات لینک مفید",
@@ -23,6 +23,7 @@ const UsefulLinksCreate = () => {
           ...state,
         };
       }}
+      notSerialize
       elements={[
         {
           label: "عنوان",
@@ -36,6 +37,14 @@ const UsefulLinksCreate = () => {
           label: "آدرس",
           name: "url",
           validation: yup.string().required("آدرس اجباری است"),
+          type: "input",
+          cardKey: "1",
+          col: "col-span-12",
+        },
+        {
+          label: "ترتیب",
+          name: "show_order",
+          validation: yup.string().required("ترتیب اجباری است"),
           type: "input",
           cardKey: "1",
           col: "col-span-12",

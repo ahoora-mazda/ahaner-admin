@@ -30,6 +30,7 @@ const PropertyCreate = () => {
         };
       }}
       update={true}
+      notSerialize
       elements={[
         {
           label: "عنوان",
@@ -37,26 +38,14 @@ const PropertyCreate = () => {
           validation: yup.string().required("عنوان اجباری است"),
           type: "input",
           cardKey: "1",
-          col: "col-span-12 md:col-span-6",
+          col: "col-span-12",
         },
         {
-          label: "دسته بندی",
-          name: "category_id",
-          type: "selectApi",
-          validation: yup.string().required("دسته بندی اجباری است"),
-          api: {
-            keys: ["categories"],
-            sort: (state) => {
-              return state.categories.map((ele: any) => {
-                return {
-                  value: ele.value,
-                  label: ele.label,
-                };
-              });
-            },
-          },
+          label: "توضیحات",
+          name: "description",
+          type: "textarea",
           cardKey: "1",
-          col: "col-span-12 md:col-span-6",
+          col: "col-span-12",
         },
       ]}
     />

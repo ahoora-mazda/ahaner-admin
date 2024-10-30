@@ -40,12 +40,17 @@ const SelectApi = ({
 }: Props) => {
   const [loading, setLoading] = useState(true);
   const [options, setOptions] = useState<any>([]);
+  console.log(dependValue());
   const getOptions = async () => {
     setLoading(true);
-    const { data } = await API.post("/requirements", {
-      keys: api.keys,
-    });
-    console.log({ data });
+    const { data } = await API.post(
+      "/requirements",
+      depend
+        ? { keys: api.keys, [depend.key]: dependValue() }
+        : {
+            keys: api.keys,
+          }
+    );
     if (typeof api.sort === "function") {
       setOptions(api.sort(data.data));
     }

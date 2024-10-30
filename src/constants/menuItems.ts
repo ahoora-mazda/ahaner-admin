@@ -314,20 +314,20 @@ export const Menuitems: MenuitemProps[] = [
     id: uniqueId(),
     title: "نظرات",
     icon: Message2,
-    href: "/comment-list",
+    href: "/comments-list",
     children: [
       {
         id: uniqueId(),
         title: "افزودن",
         icon: Point,
-        href: "/comment-create",
+        href: "/comments-create",
         accessKey: ["doc-create"],
       },
       {
         id: uniqueId(),
         title: "لیست",
         icon: Point,
-        href: "/comment-list",
+        href: "/comments-list",
         accessKey: ["normal-doc-list"],
       },
     ],

@@ -7,83 +7,63 @@ const CommentCreate = () => {
   return (
     <CustomForm
       onEnd={() => {
-        navigate("/group-list");
+        navigate("/comments-list");
       }}
-      title="ایجاد گروه"
-      btn={{ text: "ایجاد گروه" }}
-      api={{ route: "/groups" }}
+      title="ایجاد نظر"
+      btn={{ text: "ایجاد نظر" }}
+      api={{ route: "/comments" }}
       cards={[
         {
-          title: "اطلاعات گروه",
+          title: "اطلاعات نظر",
           key: "1",
         },
       ]}
       sortUpdate={(state) => {
         return {
           ...state,
-          seo: {
-            title: state.title_seo,
-            description: state.description_seo,
-            schema: state.schema,
-          },
         };
       }}
+      notSerialize
       elements={[
         {
-          label: "عنوان",
-          name: "name",
-          validation: yup.string().required("عنوان اجباری است"),
-          type: "input",
+          label: "متن نظر",
+          name: "content",
+          validation: yup.string().required("متن نظر اجباری است"),
+          type: "textarea",
           cardKey: "1",
           col: "col-span-12",
         },
         {
-          type: "multiSelectApi",
-          label: "دسته بندی",
-          name: "category_id",
+          type: "selectApi",
+          label: "کاربر",
+          name: "user_id",
           validation: yup.mixed().required("دسته بندی اجباری است"),
           api: {
-            keys: ["categories"],
+            keys: ["users"],
             sort: (state) => {
-              return state.categories.map((ele: any) => {
-                return {
-                  value: ele.value,
-                  label: ele.label,
-                };
-              });
+              return state.users;
             },
           },
           col: "col-span-12",
           cardKey: "1",
         },
         {
-          name: "description",
-          label: "توضیحات",
-          cardKey: "1",
-          type: "editor",
+          name: "status",
+          type: "select",
+          label: "وضعیت",
+          validation: yup.mixed().required("وضعیت اجباری است"),
           col: "col-span-12",
-        },
-        {
-          name: "title_seo",
-          label: "عنوان صفحه",
-          type: "input",
           cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          name: "description_seo",
-          label: "توضیحات صفحه",
-          type: "textarea",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-
-        {
-          name: "schema",
-          label: "schema",
-          cardKey: "1",
-          type: "textarea",
-          col: "col-span-12",
+          options: [
+            {
+              label: "فعال",
+              value: "published",
+            },
+            {
+              label: "غیر فعال",
+              value: "pending",
+            },
+          ],
         },
       ]}
     />

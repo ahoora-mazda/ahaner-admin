@@ -16,7 +16,7 @@ const CommentUpdate = () => {
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {
-        navigate("/comment-list");
+        navigate("/comments-list");
       }}
       cards={[
         {
@@ -24,68 +24,58 @@ const CommentUpdate = () => {
           key: "1",
         },
       ]}
-      sortUpdate={state => {
-        delete state.commentable_type;
+      sortUpdate={(state) => {
         return {
           ...state,
         };
       }}
-      sortGet={state => {
+      sortGet={(state) => {
         return {
           ...state,
         };
       }}
       update={true}
+      notSerialize
       elements={[
         {
-          label: "نام",
-          name: "name",
-          validation: yup.string().required("نام اجباری است"),
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-        },
-        {
-          label: "موبایل",
-          name: "mobile",
-          validation: yup.string().required("موبایل اجباری است"),
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-        },
-        {
           label: "متن نظر",
+          name: "content",
           validation: yup.string().required("متن نظر اجباری است"),
-          name: "body",
           type: "textarea",
           cardKey: "1",
-          col: "col-span-12 ",
+          col: "col-span-12",
         },
         {
-          label: "وضعیت",
-          name: "status",
-          validation: yup.string().required("وضعیت اجباری است"),
+          type: "selectApi",
+          label: "کاربر",
+          name: "user_id",
+          validation: yup.mixed().required("دسته بندی اجباری است"),
+          api: {
+            keys: ["users"],
+            sort: (state) => {
+              return state.users;
+            },
+          },
           col: "col-span-12",
+          cardKey: "1",
+        },
+        {
+          name: "status",
           type: "select",
+          label: "وضعیت",
+          validation: yup.mixed().required("وضعیت اجباری است"),
+          col: "col-span-12",
           cardKey: "1",
           options: [
             {
               label: "فعال",
-              value: "active",
+              value: "published",
             },
             {
               label: "غیر فعال",
-              value: "inactive",
+              value: "pending",
             },
           ],
-        },
-        {
-          label: "تصویر",
-          name: "image",
-          validation: yup.mixed().required("تصویر اجباری است"),
-          type: "fileUploader",
-          cardKey: "1",
-          col: "col-span-12",
         },
       ]}
     />

@@ -11,7 +11,7 @@ const TeamCreate = () => {
       }}
       title="ایجاد اعضا"
       btn={{ text: "ایجاد عضو" }}
-      api={{ route: "/teams" }}
+      api={{ route: "/team-info" }}
       cards={[
         {
           title: "اطلاعات عضو",
@@ -21,7 +21,8 @@ const TeamCreate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
-          meta_data: {
+          show_on_prices_page: state.show_on_prices_page ? 1 : 0,
+          social_medias: {
             telegram: state.telegram,
             whatsapp: state.whatsapp,
             instagram: state.instagram,
@@ -30,7 +31,7 @@ const TeamCreate = () => {
       }}
       elements={[
         {
-          name: "image",
+          name: "avatar",
           type: "imageUploader",
           label: "تصویر",
           cardKey: "1",
@@ -38,18 +39,7 @@ const TeamCreate = () => {
           wrapperClassName: "flex items-center justify-center",
         },
         {
-          name: "email",
-          label: "ایمیل",
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-          validation: yup
-            .string()
-            .email("ایمیل صحیح نیست")
-            .required("ایمیل اجباری است"),
-        },
-        {
-          name: "name",
+          name: "full_name",
           label: "نام و نام خانوادگی",
           cardKey: "1",
           col: "col-span-12 md:col-span-6",
@@ -63,24 +53,6 @@ const TeamCreate = () => {
           col: "col-span-12 md:col-span-6",
           validation: yup.string().required("موبایل اجباری است"),
           type: "input",
-        },
-        {
-          type: "selectApi",
-          label: "دسته بندی",
-          name: "category_id",
-          api: {
-            keys: ["categories"],
-            sort: (state) => {
-              return state.categories.map((ele: any) => {
-                return {
-                  value: ele.value,
-                  label: ele.label,
-                };
-              });
-            },
-          },
-          col: "col-span-12 md:col-span-6",
-          cardKey: "1",
         },
         {
           name: "field",
@@ -127,6 +99,13 @@ const TeamCreate = () => {
           ],
           cardKey: "1",
           col: "col-span-12 md:col-span-6",
+        },
+        {
+          type: "checkbox",
+          name: "show_on_prices_page",
+          label: "مشاهده در صفحه محصول و دسته بندی",
+          cardKey: "1",
+          col: "col-span-12",
         },
       ]}
     />

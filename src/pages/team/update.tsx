@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import CustomForm from "../../components/form";
+import { baseURL } from "../../server";
+import { combineImageUrl } from "../../utils/function";
 
 const TeamUpdate = () => {
   const navigate = useNavigate();
@@ -9,9 +11,9 @@ const TeamUpdate = () => {
       title="ویرایش عضو"
       btn={{ text: "ویرایش عضو" }}
       api={{
-        route: "/teams",
-        get: "/teams/:id",
-        update: "/teams/:id",
+        route: "/team-info",
+        get: "/team-info/:id",
+        update: "/team-info/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {
@@ -26,7 +28,8 @@ const TeamUpdate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
-          meta_data: {
+          show_on_prices_page: state.show_on_prices_page ? 1 : 0,
+          social_medias: {
             telegram: state.telegram,
             whatsapp: state.whatsapp,
             instagram: state.instagram,
@@ -35,18 +38,18 @@ const TeamUpdate = () => {
       }}
       update={true}
       sortGet={(state) => {
-        console.log({ state });
         return {
           ...state,
           ...state.teaminfo,
-          telegram: state?.meta_data?.telegram,
-          whatsapp: state?.meta_data?.whatsapp,
-          instagram: state?.meta_data?.instagram,
+          telegram: state?.social_medias?.telegram,
+          whatsapp: state?.social_medias?.whatsapp,
+          instagram: state?.social_medias?.instagram,
+          avatar: combineImageUrl(state.avatar),
         };
       }}
       elements={[
         {
-          name: "image",
+          name: "avatar",
           type: "imageUploader",
           label: "تصویر",
           cardKey: "1",
@@ -54,18 +57,7 @@ const TeamUpdate = () => {
           wrapperClassName: "flex items-center justify-center",
         },
         {
-          name: "email",
-          label: "ایمیل",
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-          validation: yup
-            .string()
-            .email("ایمیل صحیح نیست")
-            .required("ایمیل اجباری است"),
-        },
-        {
-          name: "name",
+          name: "full_name",
           label: "نام و نام خانوادگی",
           cardKey: "1",
           col: "col-span-12 md:col-span-6",
@@ -79,24 +71,6 @@ const TeamUpdate = () => {
           col: "col-span-12 md:col-span-6",
           validation: yup.string().required("موبایل اجباری است"),
           type: "input",
-        },
-        {
-          type: "selectApi",
-          label: "دسته بندی",
-          name: "category_id",
-          api: {
-            keys: ["categories"],
-            sort: (state) => {
-              return state.categories.map((ele: any) => {
-                return {
-                  value: ele.value,
-                  label: ele.label,
-                };
-              });
-            },
-          },
-          col: "col-span-12 md:col-span-6",
-          cardKey: "1",
         },
         {
           name: "field",
@@ -143,6 +117,13 @@ const TeamUpdate = () => {
           ],
           cardKey: "1",
           col: "col-span-12 md:col-span-6",
+        },
+        {
+          type: "checkbox",
+          name: "show_on_prices_page",
+          label: "مشاهده در صفحه محصول و دسته بندی",
+          cardKey: "1",
+          col: "col-span-12",
         },
       ]}
     />

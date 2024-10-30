@@ -12,6 +12,7 @@ import CategoriesList from "../pages/categories/list";
 import CategoryUpdate from "../pages/categories/update";
 import CommentList from "../pages/comment/list";
 import CommentUpdate from "../pages/comment/update";
+import CommentCreate from "../pages/comment/create";
 import Dashboard from "../pages/dashboard";
 import FaqCreate from "../pages/faq/create";
 import FaqList from "../pages/faq/list";
@@ -242,45 +243,27 @@ export const routes: route[] = [
   // Ticket End
 
   // Comment Start
-
+  {
+    component: CommentCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/comments-create",
+  },
   {
     component: CommentList,
     user: true,
     layout: MainLayout,
-    path: "/comment-list",
+    path: "/comments-list",
   },
   {
     component: CommentUpdate,
     user: true,
     layout: MainLayout,
-    path: "/comment-list/:id",
+    path: "/comments-list/:id",
   },
 
   // Comment End
 
-  //Home Start
-  // Home Comments Start
-  {
-    component: HomeCommentCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/home/comments-create",
-  },
-  {
-    component: HomeCommentList,
-    user: true,
-    layout: MainLayout,
-    path: "/home/comments-list",
-  },
-  {
-    component: HomeCommentUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/home/comments-list/:id",
-  },
-  // Home Comments End
-
-  //Home End
   // Settings Start
   {
     component: SettingPage,

@@ -37,7 +37,6 @@ const CustomTable: React.FC<TableProps> = ({
       api,
       sortAllData,
     });
-  console.log({ table });
   const tableComponent = (
     // table.data.length === 0
     <div className="w-full overflow-x-auto md:overflow-visible table-wrapper  p-6 ">

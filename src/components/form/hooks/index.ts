@@ -49,9 +49,9 @@ export const useCustomForm = ({
         }
       },
     },
-    setError: ob => {
+    setError: (ob) => {
       if (ob) {
-        Object.keys(ob).map(key => {
+        Object.keys(ob).map((key) => {
           setError(key, { message: ob[key][0] });
         });
       }
@@ -70,7 +70,7 @@ export const useCustomForm = ({
   const generateSchema = (elements: FormElement[]) => {
     const schemaFields: Record<string, any> = {};
 
-    elements.forEach(element => {
+    elements.forEach((element) => {
       schemaFields[element.name] = element.validation;
     });
 
@@ -103,13 +103,7 @@ export const useCustomForm = ({
     if (api.onSubmit) {
       api.onSubmit(body);
     } else {
-      send(
-        update
-          ? sortUpdate({ ...body, _method: "PUT" })
-          : sortUpdate({ ...body }),
-        true,
-        notSerialize ? true : false
-      );
+      send(sortUpdate({ ...body }), true, notSerialize ? true : false);
     }
   };
   return {
