@@ -1,18 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Edit, Plus, Trash } from "tabler-icons-react";
-import CustomForm from "../../components/form";
-import Btn from "../../components/form/components/button";
-import Input from "../../components/form/components/input";
-import SelectApi from "../../components/form/components/selectApi";
-import { random } from "../../utils/function";
 import * as yup from "yup";
+import CustomForm from "../../components/form";
+import Input from "../../components/form/components/input";
 import { API } from "../../server";
 
 const ProductCreate = () => {
   const navigate = useNavigate();
   const [properties, setProperties] = useState<any[]>([]);
-  const [propertiesValue, setPropertiesValue] = useState<any[]>([]);
 
   const getProperties = async (id: any) => {
     const { data } = await API.get(`categories/${id}`);

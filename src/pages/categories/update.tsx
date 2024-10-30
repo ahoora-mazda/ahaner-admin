@@ -32,6 +32,7 @@ const CategoryUpdate = () => {
       sortGet={(state) => {
         return {
           ...state,
+          properties: state.Properties.map((p: any) => p.id),
           seo_title: state?.SeoDatum?.title,
           seo_description: state?.SeoDatum?.description,
           seo_schema: state?.SeoDatum?.schema,
@@ -88,14 +89,14 @@ const CategoryUpdate = () => {
           col: "col-span-12",
         },
         {
-          name: "title_seo",
+          name: "seo_title",
           label: "عنوان صفحه",
           type: "input",
           cardKey: "1",
           col: "col-span-12",
         },
         {
-          name: "description_seo",
+          name: "seo_description",
           label: "توضیحات صفحه",
           type: "textarea",
           cardKey: "1",
@@ -103,7 +104,7 @@ const CategoryUpdate = () => {
         },
 
         {
-          name: "schema",
+          name: "seo_schema",
           label: "schema",
           cardKey: "1",
           type: "textarea",

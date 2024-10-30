@@ -56,11 +56,15 @@ export const useTable = ({ api, sortAllData }: Props) => {
       case "image":
         return (
           <div>
-            <img
-              alt=""
-              className="w-[50px] h-[50px] object-contain"
-              src={row[head.key]}
-            />
+            {row[head.key] ? (
+              <img
+                alt=""
+                className="w-[50px] h-[50px] object-contain"
+                src={row[head.key]}
+              />
+            ) : (
+              <p className="text-red-600s">تصویر ندارد!</p>
+            )}
           </div>
         );
 
