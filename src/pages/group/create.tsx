@@ -28,6 +28,7 @@ const GroupCreate = () => {
           },
         };
       }}
+      notSerialize
       elements={[
         {
           label: "عنوان",
@@ -38,9 +39,9 @@ const GroupCreate = () => {
           col: "col-span-12",
         },
         {
-          type: "multiSelectApi",
+          type: "selectApi",
           label: "دسته بندی",
-          name: "category_ids",
+          name: "category_id",
           validation: yup.mixed().required("دسته بندی اجباری است"),
           api: {
             keys: ["categories"],
@@ -64,14 +65,14 @@ const GroupCreate = () => {
           col: "col-span-12",
         },
         {
-          name: "title_seo",
+          name: "seo_title",
           label: "عنوان صفحه",
           type: "input",
           cardKey: "1",
           col: "col-span-12",
         },
         {
-          name: "description_seo",
+          name: "seo_description",
           label: "توضیحات صفحه",
           type: "textarea",
           cardKey: "1",
@@ -79,7 +80,7 @@ const GroupCreate = () => {
         },
 
         {
-          name: "schema",
+          name: "seo_schema",
           label: "schema",
           cardKey: "1",
           type: "textarea",

@@ -270,9 +270,8 @@ const CustomForm: React.FC<Form> = ({
               onChange={(e) => {
                 if (element.onChange) {
                   element.onChange(e, watch, setValue);
-                } else {
-                  setValue(element.name, e);
                 }
+                setValue(element.name, e);
               }}
               readonly={element.readonly}
               value={watch(element.name)}
