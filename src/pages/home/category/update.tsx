@@ -1,14 +1,14 @@
 import React from "react";
-import CustomForm from "../../components/form";
+import CustomForm from "../../../components/form";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
-const HeaderUpdate = () => {
+const HomeCategoryUpdate = () => {
   const navigate = useNavigate();
   return (
     <CustomForm
-      title="ویرایش هدر"
-      btn={{ text: "ویرایش هدر" }}
+      title="ویرایش دسته بندی صفحه اصلی"
+      btn={{ text: "ویرایش دسته بندی صفحه اصلی" }}
       api={{
         route: "/category-views",
         get: "/category-views/:id",
@@ -16,7 +16,7 @@ const HeaderUpdate = () => {
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {
-        navigate("/header-list");
+        navigate("/home-category-list");
       }}
       sortGet={(state) => {
         return {
@@ -28,7 +28,7 @@ const HeaderUpdate = () => {
       }}
       cards={[
         {
-          title: "اطلاعات هدر",
+          title: "اطلاعات دسته بندی صفحه اصلی",
           key: "1",
         },
       ]}
@@ -61,20 +61,6 @@ const HeaderUpdate = () => {
           col: "col-span-12",
         },
         {
-          type: "selectApi",
-          label: "والد",
-          name: "parent_id",
-          api: {
-            keys: ["category_views_header"],
-            sort: (state) => {
-              return state.category_views.map((e: any) => e.Category);
-            },
-          },
-          col: "col-span-12",
-          cardKey: "1",
-        },
-
-        {
           label: "تصویر",
           name: "image",
           type: "fileUploader",
@@ -86,4 +72,4 @@ const HeaderUpdate = () => {
   );
 };
 
-export default HeaderUpdate;
+export default HomeCategoryUpdate;

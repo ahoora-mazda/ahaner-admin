@@ -26,6 +26,9 @@ import HeaderUpdate from "../pages/header/update";
 import HistoryCreate from "../pages/history/create";
 import HistoryLists from "../pages/history/list";
 import HistoryUpdate from "../pages/history/update";
+import HomeCategoryCreate from "../pages/home/category/create";
+import HomeCategoryLists from "../pages/home/category/list";
+import HomeCategoryUpdate from "../pages/home/category/update";
 import DayPriceCreate from "../pages/home/dayPrices/create";
 import DayPriceList from "../pages/home/dayPrices/list";
 import DayPriceUpdate from "../pages/home/dayPrices/update";
@@ -430,6 +433,26 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/history-list/:id",
+  },
+  // Recent Prices End
+  // Recent Prices Start
+  {
+    component: HomeCategoryCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/home-category-create",
+  },
+  {
+    component: HomeCategoryLists,
+    user: true,
+    layout: MainLayout,
+    path: "/home-category-list",
+  },
+  {
+    component: HomeCategoryUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/home-category-list/:id",
   },
   // Recent Prices End
 ];

@@ -263,6 +263,27 @@ export const Menuitems: MenuitemProps[] = [
   },
   {
     id: uniqueId(),
+    title: "دسته بندی های صفحه اصلی",
+    icon: Square,
+    children: [
+      {
+        id: uniqueId(),
+        title: "افزودن",
+        icon: Point,
+        href: "/home-category-create",
+        accessKey: ["doc-create"],
+      },
+      {
+        id: uniqueId(),
+        title: "لیست",
+        icon: Point,
+        href: "/home-category-list",
+        accessKey: ["normal-doc-list"],
+      },
+    ],
+  },
+  {
+    id: uniqueId(),
     subheader: "تنظمیات سایت",
     navlabel: true,
     accessKey: ["smart-doc"],

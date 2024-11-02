@@ -31,13 +31,27 @@ const SettingPage = () => {
         sortUpdate={(state) => {
           return {
             address: state.address,
-            social_medias: { ...state },
+            social_medias: {
+              telegram: state.telegram,
+              instagram: state.instagram,
+              whatsapp: state.whatsapp,
+              facebook: state.facebook,
+              twiter: state.twiter,
+            },
+            meta_data: {
+              phone: state.phone,
+              sub_phone: state.sub_phone,
+              about_footer: state.about_footer,
+              copyright: state.copyright,
+              about_us: state.about_us,
+            },
           };
         }}
         sortGet={(state) => {
           return {
             ...state,
             ...state.social_medias,
+            ...state.meta_data,
           };
         }}
         elements={[

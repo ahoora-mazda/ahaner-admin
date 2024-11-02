@@ -23,6 +23,7 @@ const FaqCreate = () => {
           key: "1",
         },
       ]}
+      notSerialize
       elements={[
         {
           name: "question",

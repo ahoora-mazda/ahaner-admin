@@ -51,14 +51,19 @@ const HeaderCreate = () => {
           cardKey: "1",
           col: "col-span-12",
         },
-        // {
-        //   label: "لینک",
-        //   name: "link",
-        //   type: "input",
-        //   cardKey: "1",
-        //   col: "col-span-12 ",
-        //   help: "لینک رو داخلی وارد کنید (بدون دامین)",
-        // },
+        {
+          type: "selectApi",
+          label: "والد",
+          name: "parent_id",
+          api: {
+            keys: ["category_views_header"],
+            sort: (state) => {
+              return state.category_views.map((e: any) => e.Category);
+            },
+          },
+          col: "col-span-12",
+          cardKey: "1",
+        },
 
         {
           label: "تصویر",

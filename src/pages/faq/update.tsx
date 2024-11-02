@@ -28,6 +28,8 @@ const FaqUpdate = () => {
           ...state,
         };
       }}
+      notSerialize
+
       update={true}
       elements={[
         {

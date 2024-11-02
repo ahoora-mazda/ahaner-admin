@@ -57,6 +57,7 @@ const CategoryUpdate = () => {
           col: "col-span-12 md:col-span-6",
           help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
         },
+     
         {
           type: "multiSelectApi",
           label: "ویژگی ها",
