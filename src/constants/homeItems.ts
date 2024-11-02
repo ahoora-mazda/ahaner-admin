@@ -2,137 +2,103 @@ import { HomeItem } from "../types/homeItem";
 
 export const homeItems: HomeItem[] = [
   {
-    title: "مدیریت همکاران",
+    title: "مدیریت کاربران",
     classNames: "bg-info",
     accessKey: ["admin_create", "admin_list"],
     links: [
       {
-        title: "لیست همکاران",
+        title: "لیست کاربران",
         accessKey: ["admin_list"],
-        to: "/admins-list",
+        to: "/user-list",
       },
       {
-        title: "افزودن همکاران",
-        to: "/admin-create",
+        title: "افزودن کاربران",
+        to: "/user-create",
         accessKey: ["admin_create"],
       },
     ],
   },
   {
-    title: "مدیریت اعضا صندوق",
+    title: "مدیریت اعضا",
     classNames: "bg-green text-white",
     accessKey: ["user_create", "user_list"],
     links: [
       {
-        title: "لیست اعضا صندوق",
-        to: "/users-list",
+        title: "لیست اعضا",
+        to: "/team-list",
         accessKey: ["user_list"],
       },
       {
-        title: "افزودن اعضا صندوق",
-        to: "/user-create",
+        title: "افزودن اعضا",
+        to: "/team-create",
         accessKey: ["user_create"],
       },
     ],
   },
   {
-    title: "مدیریت گروه حساب",
+    title: "مدیریت دسته بندی ها",
     classNames: "bg-redLight",
     accessKey: ["group_account_create", "group_account_list"],
     links: [
       {
-        title: "لیست گروه حساب",
-        to: "/group-accounts-list",
+        title: "لیست دسته بندی ها",
+        to: "/category-list",
         accessKey: ["group_account_list"],
       },
       {
-        title: "افزودن گروه حساب",
-        to: "/group-account-create",
+        title: "افزودن دسته بندی ها",
+        to: "/category-create",
         accessKey: ["group_account_create"],
       },
     ],
   },
   {
-    title: "مدیریت حساب",
+    title: "مدیریت محصولات",
     classNames: "bg-subPrimary text-white",
     accessKey: ["account_list"],
     links: [
       {
-        title: "لیست حساب",
+        title: "لیست محصولات",
         accessKey: ["account_list"],
-        to: "/accounts-list",
+        to: "/product-list",
+      },
+      {
+        title: "افزودن محصولات",
+        to: "/product-create",
+        accessKey: ["group_account_create"],
       },
     ],
   },
   {
-    title: "مدیریت دسته چک",
+    title: "مدیریت گروه ها",
     classNames: "bg-yellowLight",
     accessKey: ["cheque_create", "cheque_list"],
     links: [
       {
-        title: "لیست دسته چک",
-        to: "/cheques-list",
+        title: "لیست گروه ها",
+        to: "/group-list",
         accessKey: ["cheque_list"],
       },
       {
-        title: "افزودن دسته چک",
-        to: "/cheque-create",
+        title: "افزودن گروه ها",
+        to: "/group-create",
         accessKey: ["cheque_create"],
       },
     ],
   },
   {
-    title: "پیکیربندی اسناد",
+    title: "پیکیربندی ویژگی های محصول",
     classNames: "bg-subPrimary text-white",
     accessKey: ["cheque_create", "cheque_list"],
     links: [
       {
-        title: "پیکیربندی اسناد هوشمند",
-        to: "/smart-doc",
-        accessKey: ["cheque_list"],
-      },
-      {
-        title: "افزودن سند عادی",
-        to: "/doc-create",
+        title: "افزودن ویژگی های محصول",
+        to: "/property-create",
         accessKey: ["cheque_create"],
       },
       {
-        title: "لیست اسناد عادی",
-        to: "/normal-doc",
-        accessKey: ["cheque_create"],
-      },
-    ],
-  },
-  {
-    title: "مدیریت تسهیلات",
-    classNames: "bg-redLight",
-    accessKey: ["cheque_create", "cheque_list"],
-    links: [
-      {
-        title: "افزودن تسهیلات",
-        to: "/facilities-create",
-        accessKey: ["cheque_create"],
-      },
-      {
-        title: "لیست تسهیلات",
-        to: "/facilities-list",
-        accessKey: ["cheque_create"],
-      },
-    ],
-  },
-  {
-    title: "مدیریت سال مالی",
-    classNames: "bg-info",
-    accessKey: ["cheque_create", "cheque_list"],
-    links: [
-      {
-        title: "افزودن سال مالی",
-        to: "/facilities-create",
-        accessKey: ["cheque_create"],
-      },
-      {
-        title: "لیست سال مالی",
-        to: "/facilities-list",
+        title: "لیست ویژگی های محصول",
+        to: "/property-doc",
         accessKey: ["cheque_create"],
       },
     ],

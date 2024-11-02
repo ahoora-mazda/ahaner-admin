@@ -14,9 +14,9 @@ const MomentPriceUpdate = () => {
       title="ویرایش قیمت لحظه ای و رقابتی"
       btn={{ text: "ویرایش قیمت لحظه ای و رقابتی" }}
       api={{
-        route: "/home_momentPrices",
-        get: "/home_momentPrices/:id",
-        update: "/home_momentPrices/:id",
+        route: "/moment-prices",
+        get: "/moment-prices/:id",
+        update: "/moment-prices/:id",
       }}
       cards={[
         {
@@ -27,19 +27,30 @@ const MomentPriceUpdate = () => {
       elements={[
         {
           label: "عنوان",
-          name: "title",
+          name: "text",
           validation: yup.string().required("عنوان اجباری است"),
           type: "input",
           cardKey: "1",
           col: "col-span-12",
         },
         {
-          label: "لینک",
-          name: "link",
-          validation: yup.string().required("لینک اجباری است"),
-          type: "input",
+          label: "دسته بندی",
+          name: "category_id",
+          type: "selectApi",
+          api: {
+            keys: ["categories"],
+            sort: (state) => {
+              return state.categories.map((ele: any) => {
+                return {
+                  value: ele.value,
+                  label: ele.label,
+                  properties: ele.Properties,
+                };
+              });
+            },
+          },
           cardKey: "1",
-          help: "لینک رو داخلی وارد کنید (بدون دامین)",
+          validation: yup.string().required("دسته بندی اجباری است"),
           col: "col-span-12",
         },
         {

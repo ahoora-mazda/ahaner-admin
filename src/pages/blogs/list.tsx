@@ -7,7 +7,7 @@ const BlogList = () => {
         add="/blog-create"
         title="لیست مقالات"
         subTitle="مقالات"
-        api={{ route: "/blogs" }}
+        api={{ route: "/blog" }}
         sort={(state) => {
           return {
             ...state,
@@ -48,7 +48,7 @@ const BlogList = () => {
               {
                 title: "حذف",
                 type: "delete",
-                route: "/blogs",
+                route: "/blog",
                 accessKey: "cheque_remove",
               },
             ],

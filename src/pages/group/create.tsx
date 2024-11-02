@@ -21,11 +21,7 @@ const GroupCreate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
-          seo: {
-            title: state.title_seo,
-            description: state.description_seo,
-            schema: state.schema,
-          },
+          show_in_homepage: state.show_in_homepage ? 1 : 0,
         };
       }}
       notSerialize
@@ -62,6 +58,13 @@ const GroupCreate = () => {
           label: "توضیحات",
           cardKey: "1",
           type: "editor",
+          col: "col-span-12",
+        },
+        {
+          type: "checkbox",
+          name: "show_in_homepage",
+          label: "مشاهده در صفحه اصلی",
+          cardKey: "1",
           col: "col-span-12",
         },
         {

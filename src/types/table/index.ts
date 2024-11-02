@@ -28,7 +28,8 @@ export interface Header {
     | "month"
     | "longText"
     | "checkbox"
-    | "image";
+    | "image"
+    | "price";
   options?: OptionHeader[];
   filterType?: "input" | "select" | "sort" | "selectApi";
   keyFilter?: string;

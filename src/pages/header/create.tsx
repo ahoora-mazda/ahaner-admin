@@ -64,7 +64,6 @@ const HeaderCreate = () => {
           label: "تصویر",
           name: "image",
           type: "fileUploader",
-          validation: yup.mixed().required("تصویر اجباری است"),
           cardKey: "1",
           col: "col-span-12",
         },

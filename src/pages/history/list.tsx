@@ -1,15 +1,16 @@
-import CustomTable from "../../../components/table";
+import CustomTable from "../../components/table";
 
-const MomentPriceList = () => {
+const HistoryLists = () => {
   return (
     <>
       <CustomTable
-        add="/home_momentPrices-create"
-        title="لیست قیمت لحظه ای و رقابتی"
-        subTitle="قیمت لحظه ای و رقابتی"
-        api={{ route: "/moment-prices" }}
+        add="/history-create"
+        title="لیست تاریخچه قیمت"
+        subTitle="تاریخچه قیمت"
+        api={{ route: "/product-price-history" }}
         sort={(state) => {
           return {
+            ...state.Product,
             ...state,
           };
         }}
@@ -21,13 +22,18 @@ const MomentPriceList = () => {
             filterType: "sort",
           },
           {
-            key: "image",
-            title: "تصویر",
-            type: "image",
+            key: "name",
+            title: "محصول",
           },
           {
-            key: "text",
-            title: "عنوان",
+            key: "price",
+            title: "قیمت",
+            type: "price",
+          },
+          {
+            key: "price_date",
+            title: "تاریخ",
+            type: "date",
           },
           {
             key: "",
@@ -37,13 +43,13 @@ const MomentPriceList = () => {
               {
                 title: "ویرایش",
                 type: "edit",
-                route: "/home_momentPrices-list/:id",
+                route: "/history-list/:id",
                 accessKey: "permission_show",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/moment-prices",
+                route: "/product-price-history",
                 accessKey: "cheque_remove",
               },
             ],
@@ -54,4 +60,4 @@ const MomentPriceList = () => {
   );
 };
 
-export default MomentPriceList;
+export default HistoryLists;

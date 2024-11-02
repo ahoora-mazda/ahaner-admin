@@ -4,7 +4,12 @@ import { useQuery } from "../../../hooks/useQuery";
 import { API } from "../../../server";
 import { RootState } from "../../../store";
 import { Header } from "../../../types/table";
-import { counter, renderMonth, toDate } from "../../../utils/function";
+import {
+  counter,
+  renderMonth,
+  renderPrice,
+  toDate,
+} from "../../../utils/function";
 import ActionCell from "../components/actionCell";
 import { usePermission } from "../../../hooks/usePermission";
 import LongText from "../components/longText";
@@ -53,6 +58,8 @@ export const useTable = ({ api, sortAllData }: Props) => {
             onClick={() => head.onClick && head.onClick(+row.id, row)}
           ></Checkbox>
         );
+      case "price":
+        return <p>{row[head.key] && renderPrice(row[head.key])}</p>;
       case "image":
         return (
           <div>

@@ -16,7 +16,7 @@ const SettingPage = () => {
         btn={{ text: "ویرایش تنظیمات" }}
         api={{
           route: "/settings/1",
-          get: "/settings?id=1",
+          get: "/settings",
           update: "/settings?id=1",
         }}
         cards={[
@@ -25,17 +25,19 @@ const SettingPage = () => {
             key: "1",
           },
         ]}
+        notSerialize
         update
         accessUpdate={"permission_update"}
         sortUpdate={(state) => {
           return {
-            ...state,
+            address: state.address,
+            social_medias: { ...state },
           };
         }}
         sortGet={(state) => {
           return {
             ...state,
-            ...state.meta_data,
+            ...state.social_medias,
           };
         }}
         elements={[

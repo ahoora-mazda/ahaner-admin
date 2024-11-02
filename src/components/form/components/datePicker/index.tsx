@@ -27,15 +27,18 @@ const CustomDatePicker: React.FC<Props> = ({
   };
   return (
     <div className="date-picker" data-error={error?.message ? true : false}>
-      <label className="text-sm	font-semibold mb-1 text-right">
-        {" "}
-        {label}
-        {optional && (
-          <span className="text-xs font-normal mx-1 text-primary">
-            (اختیاری)
-          </span>
-        )}
-      </label>
+      {label ? (
+        <>
+          <label className="text-sm	font-semibold mb-1 text-right">
+            {label}
+            {!optional && (
+              <span className="text-xs font-normal mx-1 text-red-800">*</span>
+            )}
+          </label>
+        </>
+      ) : (
+        <></>
+      )}
       <DatePicker
         range={false}
         onChange={(data: any, e) => {

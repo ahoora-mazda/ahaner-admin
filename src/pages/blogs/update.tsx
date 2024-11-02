@@ -11,9 +11,9 @@ const BlogUpdate = () => {
       title="ویرایش مقاله"
       btn={{ text: "ویرایش مقاله" }}
       api={{
-        route: "/blogs",
-        get: "/blogs/:id",
-        update: "/blogs/:id",
+        route: "/blog",
+        get: "/blog/:id",
+        update: "/blog/:id",
       }}
       accessUpdate={"permission_update"}
       onEnd={() => {

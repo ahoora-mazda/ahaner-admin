@@ -10,9 +10,9 @@ import BlogUpdate from "../pages/blogs/update";
 import CategoryCreate from "../pages/categories/create";
 import CategoriesList from "../pages/categories/list";
 import CategoryUpdate from "../pages/categories/update";
+import CommentCreate from "../pages/comment/create";
 import CommentList from "../pages/comment/list";
 import CommentUpdate from "../pages/comment/update";
-import CommentCreate from "../pages/comment/create";
 import Dashboard from "../pages/dashboard";
 import FaqCreate from "../pages/faq/create";
 import FaqList from "../pages/faq/list";
@@ -23,10 +23,18 @@ import GroupUpdate from "../pages/group/update";
 import HeaderCreate from "../pages/header/create";
 import HeaderLists from "../pages/header/list";
 import HeaderUpdate from "../pages/header/update";
-import HomeCommentCreate from "../pages/home/momentPrices/create";
-import HomeCommentList from "../pages/home/momentPrices/list";
-import HomeCommentUpdate from "../pages/home/momentPrices/update";
-
+import HistoryCreate from "../pages/history/create";
+import HistoryLists from "../pages/history/list";
+import HistoryUpdate from "../pages/history/update";
+import DayPriceCreate from "../pages/home/dayPrices/create";
+import DayPriceList from "../pages/home/dayPrices/list";
+import DayPriceUpdate from "../pages/home/dayPrices/update";
+import MomentPriceCreate from "../pages/home/momentPrices/create";
+import MomentPriceList from "../pages/home/momentPrices/list";
+import MomentPriceUpdate from "../pages/home/momentPrices/update";
+import RecentPriceCreate from "../pages/home/recentPrices/create";
+import RecentPriceList from "../pages/home/recentPrices/list";
+import RecentPriceUpdate from "../pages/home/recentPrices/update";
 import ProductCreate from "../pages/product/create";
 import ProductList from "../pages/product/list";
 import ProductUpdate from "../pages/product/update";
@@ -39,22 +47,13 @@ import TeamCreate from "../pages/team/create";
 import TeamList from "../pages/team/list";
 import TeamUpdate from "../pages/team/update";
 import TicketList from "../pages/ticket/list";
+import UsefulLinksCreate from "../pages/usefulLinks/create";
+import UsefulLinksList from "../pages/usefulLinks/list";
+import UsefulLinkUpdate from "../pages/usefulLinks/update";
 import UserCreate from "../pages/user/create";
 import UserList from "../pages/user/list";
 import UserUpdate from "../pages/user/update";
 import { route } from "../types/route";
-import UsefulLinksCreate from "../pages/usefulLinks/create";
-import UsefulLinksList from "../pages/usefulLinks/list";
-import UsefulLinkUpdate from "../pages/usefulLinks/update";
-import DayPriceCreate from "../pages/home/dayPrices/create";
-import DayPriceList from "../pages/home/dayPrices/list";
-import DayPriceUpdate from "../pages/home/dayPrices/update";
-import MomentPriceCreate from "../pages/home/momentPrices/create";
-import MomentPriceList from "../pages/home/momentPrices/list";
-import MomentPriceUpdate from "../pages/home/momentPrices/update";
-import RecentPriceCreate from "../pages/home/recentPrices/create";
-import RecentPriceList from "../pages/home/recentPrices/list";
-import RecentPriceUpdate from "../pages/home/recentPrices/update";
 
 export const routes: route[] = [
   // Auth Start
@@ -411,6 +410,26 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/home_recentPrices-list/:id",
+  },
+  // Recent Prices End
+  // Recent Prices Start
+  {
+    component: HistoryCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/history-create",
+  },
+  {
+    component: HistoryLists,
+    user: true,
+    layout: MainLayout,
+    path: "/history-list",
+  },
+  {
+    component: HistoryUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/history-list/:id",
   },
   // Recent Prices End
 ];

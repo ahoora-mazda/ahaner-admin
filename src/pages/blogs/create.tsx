@@ -11,7 +11,7 @@ const BlogCreate = () => {
       }}
       title="ایجاد مقاله ها"
       btn={{ text: "ایجاد مقاله" }}
-      api={{ route: "/blogs" }}
+      api={{ route: "/blog" }}
       cards={[
         {
           title: "اطلاعات مقاله",

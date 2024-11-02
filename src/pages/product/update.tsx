@@ -40,6 +40,7 @@ const ProductCreate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
+          show_in_homepage: state.show_in_homepage ? 1 : 0,
           property_values: properties.map((p) => {
             return {
               property_id: p.id,
@@ -54,7 +55,7 @@ const ProductCreate = () => {
             return { name: p.Property?.name, id: p.id, value: p.value };
           })
         );
-        return state;
+        return { ...state };
       }}
       elements={[
         {
@@ -120,16 +121,21 @@ const ProductCreate = () => {
           label: "تصویر",
           name: "image",
           type: "fileUploader",
-          validation: yup.mixed().required("تصویر اجباری است"),
           cardKey: "1",
           col: "col-span-12",
         },
         {
           name: "description",
-          validation: yup.string().required("توضیحات اجباری است"),
           label: "توضیحات",
           cardKey: "1",
           type: "textarea",
+          col: "col-span-12",
+        },
+        {
+          type: "checkbox",
+          name: "show_in_homepage",
+          label: "مشاهده در صفحه اصلی",
+          cardKey: "1",
           col: "col-span-12",
         },
         {
