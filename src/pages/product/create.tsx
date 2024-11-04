@@ -36,12 +36,17 @@ const ProductCreate = () => {
           ...state,
           show_in_homepage: state.show_in_homepage ? 1 : 0,
 
-          property_values: properties.map((p) => {
-            return {
-              property_id: p.id,
-              property_value: p.value,
-            };
-          }),
+          property_values: properties
+            .map((p) => {
+              if (p.value) {
+                return {
+                  property_id: p.id,
+                  property_value: p.value,
+                };
+              }
+              return false
+            })
+            .filter(Boolean),
         };
       }}
       elements={[

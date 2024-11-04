@@ -219,48 +219,48 @@ export const Menuitems: MenuitemProps[] = [
       },
     ],
   },
-  {
-    id: uniqueId(),
-    title: "قیمت روز آهن آلات",
-    icon: Video,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/home_dayPrices-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/home_dayPrices-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
-  {
-    id: uniqueId(),
-    title: "قیمت روز محصولات",
-    icon: Square,
-    children: [
-      {
-        id: uniqueId(),
-        title: "افزودن",
-        icon: Point,
-        href: "/home_recentPrices-create",
-        accessKey: ["doc-create"],
-      },
-      {
-        id: uniqueId(),
-        title: "لیست",
-        icon: Point,
-        href: "/home_recentPrices-list",
-        accessKey: ["normal-doc-list"],
-      },
-    ],
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: "قیمت روز آهن آلات",
+  //   icon: Video,
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: "افزودن",
+  //       icon: Point,
+  //       href: "/home_dayPrices-create",
+  //       accessKey: ["doc-create"],
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: "لیست",
+  //       icon: Point,
+  //       href: "/home_dayPrices-list",
+  //       accessKey: ["normal-doc-list"],
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "قیمت روز محصولات",
+  //   icon: Square,
+  //   children: [
+  //     {
+  //       id: uniqueId(),
+  //       title: "افزودن",
+  //       icon: Point,
+  //       href: "/home_recentPrices-create",
+  //       accessKey: ["doc-create"],
+  //     },
+  //     {
+  //       id: uniqueId(),
+  //       title: "لیست",
+  //       icon: Point,
+  //       href: "/home_recentPrices-list",
+  //       accessKey: ["normal-doc-list"],
+  //     },
+  //   ],
+  // },
   {
     id: uniqueId(),
     title: "دسته بندی های صفحه اصلی",

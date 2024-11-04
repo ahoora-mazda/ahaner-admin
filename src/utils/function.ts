@@ -2,6 +2,8 @@ import packageJson from "../../package.json";
 import moment from "jalali-moment";
 import { v4 as uuidv4 } from "uuid";
 import { baseURL } from "../server";
+import urlJoin from "url-join";
+
 export const timeout = (delay: number) => {
   return new Promise((res) => setTimeout(res, delay));
 };
@@ -525,6 +527,7 @@ export const convertToFormData = (
 
   return formData;
 };
-export const combineImageUrl = (url: string) => {
-  return url ? baseURL + "/" + url : "";
+export const combineImageUrl = (url: string | null) => {
+  if (!url) return false;
+  return urlJoin(baseURL as string, url);
 };

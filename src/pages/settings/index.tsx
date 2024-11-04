@@ -56,6 +56,20 @@ const SettingPage = () => {
         }}
         elements={[
           {
+            label: "محصول صفحه اصلی",
+            name: "landing_product_id",
+            type: "selectApi",
+            api: {
+              keys: ["products"],
+              sort: (state) => {
+                return state.products;
+              },
+            },
+            cardKey: "1",
+            validation: yup.string().required("محصول صفحه اصلی اجباری است"),
+            col: "col-span-12",
+          },
+          {
             name: "phone",
             label: "تلفن تماس مشاوره",
             type: "input",

@@ -43,7 +43,7 @@ const FaqCreate = () => {
         },
         {
           label: "دسته بندی",
-          name: "questionable_id",
+          name: "category_id",
           type: "selectApi",
           api: {
             keys: ["categories"],
