@@ -12,7 +12,6 @@ const CategoriesList = () => {
         sort={(state) => {
           return {
             ...state,
-            image: combineImageUrl(state.image),
           };
         }}
         headers={[

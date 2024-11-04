@@ -84,17 +84,10 @@ const BlogUpdate = () => {
             },
           },
         },
-        {
-          label: "نویسنده",
-          name: "writer",
-          validation: yup.string().required("نویسنده اجباری است"),
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12 ",
-        },
+
         {
           label: "توضیحات",
-          name: "short_description",
+          name: "short_content",
           validation: yup.string().required("توضیحات اجباری است"),
           type: "textarea",
           cardKey: "1",
@@ -108,7 +101,18 @@ const BlogUpdate = () => {
           cardKey: "1",
           col: "col-span-12",
         },
-
+        {
+          label: "وضعیت",
+          name: "status",
+          type: "select",
+          cardKey: "1",
+          validation: yup.string().required("وضعیت اجباری است"),
+          col: "col-span-12",
+          options: [
+            { label: "فعال", value: "active" },
+            { label: "غیر فعال", value: "inactive" },
+          ],
+        },
         {
           label: "تصویر",
           name: "image",

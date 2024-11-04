@@ -21,6 +21,7 @@ const CategoryCreate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
+          properties: state.properties || [],
         };
       }}
       elements={[
@@ -46,7 +47,6 @@ const CategoryCreate = () => {
           type: "multiSelectApi",
           label: "ویژگی ها",
           name: "properties",
-          validation: yup.mixed().required("ویژگی ها اجباری است"),
           api: {
             keys: ["properties"],
             sort: (state) => {

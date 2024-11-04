@@ -5,6 +5,7 @@ import { API } from "../../../server";
 import { RootState } from "../../../store";
 import { Header } from "../../../types/table";
 import {
+  combineImageUrl,
   counter,
   renderMonth,
   renderPrice,
@@ -67,7 +68,7 @@ export const useTable = ({ api, sortAllData }: Props) => {
               <img
                 alt=""
                 className="w-[50px] h-[50px] object-contain"
-                src={row[head.key]}
+                src={combineImageUrl(row[head.key]) || ""}
               />
             ) : (
               <p className="text-red-600s">تصویر ندارد!</p>

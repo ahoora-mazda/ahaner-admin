@@ -63,11 +63,10 @@ const CommentUpdate = () => {
           type: "selectApi",
           label: "دسته بندی",
           name: "category_id",
-          validation: yup.mixed().required("دسته بندی اجباری است"),
           api: {
             keys: ["categories"],
             sort: (state) => {
-              return state.users;
+              return state.categories;
             },
           },
           col: "col-span-12",

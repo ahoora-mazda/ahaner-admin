@@ -30,7 +30,11 @@ const BlogList = () => {
             title: "عنوان",
           },
           {
-            key: "short_description",
+            key: "slug",
+            title: "slug",
+          },
+          {
+            key: "short_content",
             title: "توضیحات",
           },
 

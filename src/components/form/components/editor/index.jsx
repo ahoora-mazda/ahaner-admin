@@ -59,7 +59,7 @@ import {
   Undo,
 } from "ckeditor5";
 import { API } from "../../../../server";
-import { convertToFormData } from "../../../../utils/function";
+import { combineImageUrl, convertToFormData } from "../../../../utils/function";
 import { motion } from "framer-motion";
 
 import "ckeditor5/ckeditor5.css";
@@ -96,8 +96,8 @@ export default function Editor({
             API.post(UPLOAD_ENDPOINT, convertToFormData({ image: file }))
               .then((res) => {
                 console.log("sakan", res);
-                if (res.data) {
-                  resolve({ default: res.data.url });
+                if (res?.data?.data) {
+                  resolve({ default: combineImageUrl(res.data?.data?.url) });
                 }
               })
               .catch((err) => {
