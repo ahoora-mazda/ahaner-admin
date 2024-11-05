@@ -23,6 +23,7 @@ interface Props {
   onEnd?: (data?: any, body?: any) => void;
   initial?: any;
   notSerialize: boolean;
+  isProgress?: boolean;
 }
 export const useCustomForm = ({
   api,
@@ -33,10 +34,11 @@ export const useCustomForm = ({
   onEnd,
   initial = {},
   notSerialize = false,
+  isProgress,
 }: Props) => {
   const [loadingGet, setLoadingGet] = useState(true);
   const { id } = useParams();
-  const [, , send, loading] = usePost({
+  const [, , send, loading, progress] = usePost({
     route: update ? api.update?.replace(":id", id || "") ?? "" : api.route,
     redirect: {
       status: true,
@@ -56,6 +58,7 @@ export const useCustomForm = ({
         });
       }
     },
+    isProgress,
   });
   const { check } = usePermission();
   const getData = async () => {
@@ -120,5 +123,6 @@ export const useCustomForm = ({
     loadingGet,
     check,
     setError,
+    progress,
   };
 };

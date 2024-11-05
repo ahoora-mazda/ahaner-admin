@@ -40,6 +40,7 @@ const CustomForm: React.FC<Form> = ({
   initial,
   notSerialize = false,
   subBtn = () => {},
+  isProgress,
 }) => {
   const {
     loading,
@@ -53,6 +54,7 @@ const CustomForm: React.FC<Form> = ({
     loadingGet,
     check,
     setError,
+    progress,
   } = useCustomForm({
     api,
     elements,
@@ -62,8 +64,9 @@ const CustomForm: React.FC<Form> = ({
     onEnd,
     initial,
     notSerialize,
+    isProgress,
   });
-  console.log(watch("properties"));
+  console.log({ progress });
   const render = (element: FormElement, key: number) => {
     switch (element.type) {
       case "input":
@@ -491,6 +494,7 @@ const CustomForm: React.FC<Form> = ({
         text={btn.text}
         type="submit"
         loading={loading.send || btn.loading}
+        progress={progress}
         onClick={handleSubmit(onSubmit)}
         classNames="bg-primary mt-6 hover:bg-subPrimary h-[40px] text-white justify-center  px-6 py-2  min-w-[140px]"
       />
@@ -501,6 +505,7 @@ const CustomForm: React.FC<Form> = ({
         <Btn
           text={btn.text}
           type="submit"
+          progress={progress}
           loading={loading.send || btn.loading}
           onClick={handleSubmit(onSubmit)}
           classNames="bg-primary mt-6 hover:bg-subPrimary h-[40px] text-white justify-center  px-6 py-2  min-w-[140px]"

@@ -7,4 +7,5 @@ export interface BtnProps {
   type?: "button" | "submit";
   loading?: boolean;
   variant?: "contained" | "outline";
+  progress?: number;
 }

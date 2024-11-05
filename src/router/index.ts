@@ -41,6 +41,9 @@ import RecentPriceUpdate from "../pages/home/recentPrices/update";
 import ProductCreate from "../pages/product/create";
 import ProductList from "../pages/product/list";
 import ProductUpdate from "../pages/product/update";
+import ProductCoreCreate from "../pages/productCore/create";
+import ProductCoreList from "../pages/productCore/list";
+import ProductCoreUpdate from "../pages/productCore/update";
 import Profile from "../pages/profile";
 import PropertyCreate from "../pages/property/create";
 import PropertyList from "../pages/property/list";
@@ -56,6 +59,9 @@ import UsefulLinkUpdate from "../pages/usefulLinks/update";
 import UserCreate from "../pages/user/create";
 import UserList from "../pages/user/list";
 import UserUpdate from "../pages/user/update";
+import VideoCreate from "../pages/video/create";
+import VideoList from "../pages/video/list";
+import VideoUpdate from "../pages/video/update";
 import { route } from "../types/route";
 
 export const routes: route[] = [
@@ -453,6 +459,46 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/home-category-list/:id",
+  },
+  // Recent Prices End
+  // ProductCoreCreate Start
+  {
+    component: ProductCoreCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/product-core-create",
+  },
+  {
+    component: ProductCoreList,
+    user: true,
+    layout: MainLayout,
+    path: "/product-core-list",
+  },
+  {
+    component: ProductCoreUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/product-core-list/:id",
+  },
+  // ProductCoreCreate End
+  // Recent Prices Start
+  {
+    component: VideoCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/videos-create",
+  },
+  {
+    component: VideoList,
+    user: true,
+    layout: MainLayout,
+    path: "/videos-list",
+  },
+  {
+    component: VideoUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/videos-list/:id",
   },
   // Recent Prices End
 ];

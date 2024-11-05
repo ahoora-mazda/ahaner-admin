@@ -28,6 +28,7 @@ const BlogCreate = () => {
           },
         };
       }}
+      isProgress
       elements={[
         {
           label: "عنوان",
@@ -68,7 +69,7 @@ const BlogCreate = () => {
             },
           },
         },
-  
+
         {
           label: "توضیحات",
           name: "short_content",

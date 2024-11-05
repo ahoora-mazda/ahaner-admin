@@ -21,6 +21,7 @@ const ProductCreate = () => {
       title="ایجاد محصول"
       btn={{ text: "ایجاد محصول" }}
       api={{ route: "/products" }}
+      notSerialize
       cards={[
         {
           title: "اطلاعات محصول",
@@ -44,7 +45,7 @@ const ProductCreate = () => {
                   property_value: p.value,
                 };
               }
-              return false
+              return false;
             })
             .filter(Boolean),
         };
@@ -70,14 +71,29 @@ const ProductCreate = () => {
         {
           label: "دسته بندی",
           name: "category_id",
+          validation: yup.string().required("دسته بندی اجباری است"),
           type: "selectApi",
           onChange: (e) => {
             getProperties(e);
           },
+          cardKey: "1",
+          col: "col-span-12",
           api: {
             keys: ["categories"],
             sort: (state) => {
-              return state.categories.map((ele: any) => {
+              return state.categories;
+            },
+          },
+        },
+        {
+          label: "محصول اصلی",
+          name: "product_core_id",
+          type: "selectApi",
+
+          api: {
+            keys: ["product_cores"],
+            sort: (state) => {
+              return state.product_cores.map((ele: any) => {
                 return {
                   value: ele.value,
                   label: ele.label,
@@ -87,7 +103,7 @@ const ProductCreate = () => {
             },
           },
           cardKey: "1",
-          validation: yup.string().required("دسته بندی اجباری است"),
+          validation: yup.string().required("محصول اصلی اجباری است"),
           col: "col-span-12",
         },
         {
@@ -108,13 +124,6 @@ const ProductCreate = () => {
           cardKey: "1",
           col: "col-span-12",
           validation: yup.string().required("گروه اجباری است"),
-        },
-        {
-          label: "تصویر",
-          name: "image",
-          type: "fileUploader",
-          cardKey: "1",
-          col: "col-span-12",
         },
         {
           name: "description",

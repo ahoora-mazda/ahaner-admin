@@ -10,11 +10,13 @@ export const usePost = ({
   initialState = {},
   redirect,
   message,
+  isProgress,
   setError = (err: any) => {},
   errorAction = (err: any, body: any) => {},
 }: UsePost) => {
   const [form, setForm] = useState({ ...initialState });
   const [loading, setLoading] = useState({ send: false });
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const send = async (body: any, needToast?: boolean, ser?: boolean) => {
     try {
@@ -23,7 +25,17 @@ export const usePost = ({
         newBody = convertToFormData(newBody);
       }
       setLoading({ ...loading, send: true });
-      const { status, data } = await API.post(route, newBody);
+      const { status, data } = await API.post(route, newBody, {
+        onUploadProgress: (progressEvent) => {
+          if (progressEvent.total && isProgress) {
+            const percentCompleted = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            );
+            console.log({ percentCompleted });
+            setUploadProgress(percentCompleted);
+          }
+        },
+      });
       if (+status === 200 || +status === 201) {
         if (needToast) {
           toast.success(data.message);
@@ -45,5 +57,5 @@ export const usePost = ({
     }
   };
 
-  return [form, setForm, send, loading] as const;
+  return [form, setForm, send, loading, uploadProgress] as const;
 };

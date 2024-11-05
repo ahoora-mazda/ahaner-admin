@@ -19,7 +19,7 @@ const ProductCreate = () => {
         navigate("/product-list");
       }}
       title="ایجاد محصول"
-      btn={{ text: "ایجاد محصول" }}
+      btn={{ text: "ویرایش محصول" }}
       api={{
         route: "/products",
         get: "/products/:id",
@@ -76,16 +76,13 @@ const ProductCreate = () => {
           col: "col-span-12 md:col-span-6",
         },
         {
-          label: "دسته بندی",
-          name: "category_id",
+          label: "محصول اصلی",
+          name: "product_core_id",
           type: "selectApi",
-          onChange: (e) => {
-            getProperties(e);
-          },
           api: {
-            keys: ["categories"],
+            keys: ["product_cores"],
             sort: (state) => {
-              return state.categories.map((ele: any) => {
+              return state.product_cores.map((ele: any) => {
                 return {
                   value: ele.value,
                   label: ele.label,
@@ -95,7 +92,7 @@ const ProductCreate = () => {
             },
           },
           cardKey: "1",
-          validation: yup.string().required("دسته بندی اجباری است"),
+          validation: yup.string().required("محصول اصلی اجباری است"),
           col: "col-span-12",
         },
         {
@@ -116,13 +113,6 @@ const ProductCreate = () => {
           cardKey: "1",
           col: "col-span-12",
           validation: yup.string().required("گروه اجباری است"),
-        },
-        {
-          label: "تصویر",
-          name: "image",
-          type: "fileUploader",
-          cardKey: "1",
-          col: "col-span-12",
         },
         {
           name: "description",

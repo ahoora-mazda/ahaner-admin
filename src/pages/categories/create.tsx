@@ -42,7 +42,25 @@ const CategoryCreate = () => {
           col: "col-span-12 md:col-span-6",
           help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
         },
-
+        {
+          label: "ویدیو",
+          name: "video_id",
+          type: "selectApi",
+          api: {
+            keys: ["videos"],
+            sort: (state) => {
+              return state.videos.map((ele: any) => {
+                return {
+                  value: ele.value,
+                  label: ele.label,
+                  properties: ele.Properties,
+                };
+              });
+            },
+          },
+          cardKey: "1",
+          col: "col-span-12",
+        },
         {
           type: "multiSelectApi",
           label: "ویژگی ها",

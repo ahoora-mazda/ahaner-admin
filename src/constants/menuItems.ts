@@ -2,6 +2,7 @@ import {
   GroupOutlined,
   LinkOutlined,
   PropertySafetyFilled,
+  VideoCameraOutlined,
 } from "@ant-design/icons";
 import { uniqueId } from "lodash";
 import {
@@ -104,6 +105,27 @@ export const Menuitems: MenuitemProps[] = [
         title: "لیست",
         icon: Point,
         href: "/category-list",
+        accessKey: ["normal-doc-list"],
+      },
+    ],
+  },
+  {
+    id: uniqueId(),
+    title: "محصولات اصلی",
+    icon: BrandProducthunt,
+    children: [
+      {
+        id: uniqueId(),
+        title: "افزودن",
+        icon: Point,
+        href: "/product-core-create",
+        accessKey: ["doc-create"],
+      },
+      {
+        id: uniqueId(),
+        title: "لیست",
+        icon: Point,
+        href: "/product-core-list",
         accessKey: ["normal-doc-list"],
       },
     ],
@@ -219,48 +241,6 @@ export const Menuitems: MenuitemProps[] = [
       },
     ],
   },
-  // {
-  //   id: uniqueId(),
-  //   title: "قیمت روز آهن آلات",
-  //   icon: Video,
-  //   children: [
-  //     {
-  //       id: uniqueId(),
-  //       title: "افزودن",
-  //       icon: Point,
-  //       href: "/home_dayPrices-create",
-  //       accessKey: ["doc-create"],
-  //     },
-  //     {
-  //       id: uniqueId(),
-  //       title: "لیست",
-  //       icon: Point,
-  //       href: "/home_dayPrices-list",
-  //       accessKey: ["normal-doc-list"],
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: uniqueId(),
-  //   title: "قیمت روز محصولات",
-  //   icon: Square,
-  //   children: [
-  //     {
-  //       id: uniqueId(),
-  //       title: "افزودن",
-  //       icon: Point,
-  //       href: "/home_recentPrices-create",
-  //       accessKey: ["doc-create"],
-  //     },
-  //     {
-  //       id: uniqueId(),
-  //       title: "لیست",
-  //       icon: Point,
-  //       href: "/home_recentPrices-list",
-  //       accessKey: ["normal-doc-list"],
-  //     },
-  //   ],
-  // },
   {
     id: uniqueId(),
     title: "دسته بندی های صفحه اصلی",
@@ -305,6 +285,27 @@ export const Menuitems: MenuitemProps[] = [
         title: "لیست",
         icon: Point,
         href: "/blog-list",
+        accessKey: ["normal-doc-list"],
+      },
+    ],
+  },
+  {
+    id: uniqueId(),
+    title: "ویدیو ها",
+    icon: VideoCameraOutlined,
+    children: [
+      {
+        id: uniqueId(),
+        title: "افزودن",
+        icon: Point,
+        href: "/videos-create",
+        accessKey: ["doc-create"],
+      },
+      {
+        id: uniqueId(),
+        title: "لیست",
+        icon: Point,
+        href: "/videos-list",
         accessKey: ["normal-doc-list"],
       },
     ],
@@ -395,12 +396,6 @@ export const Menuitems: MenuitemProps[] = [
       },
     ],
   },
-  // {
-  //   id: uniqueId(),
-  //   title: "تیکت ها",
-  //   icon: Speakerphone,
-  //   href: "/ticket-list",
-  // },
 
   {
     id: uniqueId(),

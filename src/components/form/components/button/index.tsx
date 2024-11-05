@@ -1,6 +1,7 @@
 import React from "react";
 import { BtnProps } from "../../../../types/form/btn";
 import RingLoader from "react-spinners/RingLoader";
+import { Progress } from "antd";
 
 const Btn = ({
   text,
@@ -11,9 +12,12 @@ const Btn = ({
   loading,
   type,
   variant = "contained",
+  progress,
 }: BtnProps) => {
   return (
     <>
+      {progress ? <Progress percent={progress} size="small" /> : <></>}
+
       <button
         onClick={onClick}
         className={`flex items-center gap-2  cursor-pointer rounded-lg disabled:opacity-60 ${

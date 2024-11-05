@@ -16,4 +16,5 @@ export interface UsePost {
   message?: boolean;
   setError?: (body: any) => void;
   errorAction?: (error: any, body: any) => void;
+  isProgress?: boolean;
 }

@@ -44,6 +44,7 @@ const BlogUpdate = () => {
           desc_s: state?.seo?.description,
         };
       }}
+      isProgress
       elements={[
         {
           label: "عنوان",

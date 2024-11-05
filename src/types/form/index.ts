@@ -24,6 +24,7 @@ export interface Form {
   initial?: any;
   notSerialize?: boolean;
   subBtn?: () => JSX.Element;
+  isProgress?: boolean;
 }
 
 export interface FormElement {
