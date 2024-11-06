@@ -38,6 +38,9 @@ const ProductCreate = () => {
         },
       ]}
       sortUpdate={(state) => {
+        delete state.Product_Core;
+        delete state.Property_Values;
+        delete state.Group;
         return {
           ...state,
           show_in_homepage: state.show_in_homepage ? 1 : 0,
@@ -57,6 +60,7 @@ const ProductCreate = () => {
         );
         return { ...state };
       }}
+      notSerialize
       elements={[
         {
           label: "عنوان",

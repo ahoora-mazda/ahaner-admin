@@ -3,8 +3,8 @@ import Cookie from "js-cookie";
 import { User } from "../types/user";
 import { toast } from "react-toastify";
 
-export const baseURL = "https://server.ahaner.site";
-// export const baseURL = "http://192.168.1.5:9582";
+// export const baseURL = "https://server.ahaner.site";
+export const baseURL = "http://192.168.1.5:9582";
 
 export const API = axios.create({
   // baseURL: "https://server.ahaner.site/api/admin",

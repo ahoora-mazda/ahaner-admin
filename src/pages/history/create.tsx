@@ -32,7 +32,9 @@ const HistoryCreate = () => {
           api: {
             keys: ["products"],
             sort: (state) => {
-              return state.products;
+              return state.products.map((ele: any) => {
+                return { ...ele, label: `${ele.label} - ${ele.Group.name}` };
+              });
             },
           },
           cardKey: "1",

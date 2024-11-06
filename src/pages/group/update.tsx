@@ -37,6 +37,8 @@ const GroupUpdate = () => {
           category_id: state?.category?.map((c: any) => c.id),
         };
       }}
+      notSerialize
+
       elements={[
         {
           label: "عنوان",
