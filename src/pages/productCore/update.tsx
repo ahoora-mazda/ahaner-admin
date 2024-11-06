@@ -80,6 +80,13 @@ const ProductCoreUpdate = () => {
           type: "editor",
           col: "col-span-12",
         },
+        {
+          type: "fileUploader",
+          cardKey: "1",
+          name: "image",
+          label: "تصویر",
+          col: "col-span-12",
+        },
       ]}
     />
   );
