@@ -8,9 +8,11 @@ const PropertyList = () => {
         title="لیست ویژگی محصول"
         subTitle="ویژگی محصول"
         api={{ route: "/properties" }}
+        search={{}}
         sort={(state) => {
           return {
             ...state,
+            categories_count: state.categories_count || "0",
           };
         }}
         headers={[
@@ -23,8 +25,25 @@ const PropertyList = () => {
           {
             key: "name",
             title: "عنوان",
-            // filterType: "input",
-            // keyFilter: "text",
+            sort: {
+              key: "name",
+            },
+            isSearchAble: true,
+          },
+          {
+            key: "categories_count",
+            title: "تعداد دسته بندی",
+            sort: {
+              key: "categories_count",
+            },
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",

@@ -75,6 +75,11 @@ export interface FormElement {
   defaultValue?: any;
   route?: string;
   help?: string;
+  onAdd?: () => void;
+  addInline?: {
+    api: string;
+    key: string;
+  };
 }
 export interface Card {
   title: string;

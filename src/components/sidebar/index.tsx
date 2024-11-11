@@ -1,7 +1,7 @@
 import { Button, Tooltip } from "antd";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { Power, User, UserCircle } from "tabler-icons-react";
+import { Power, User, UserCircle, X } from "tabler-icons-react";
 import { Menuitems } from "../../constants/menuItems";
 import { logout } from "../../features/user";
 import { usePost } from "../../hooks";
@@ -10,6 +10,7 @@ import { RootState } from "../../store";
 import Loading from "../loading";
 import Menu from "../menu";
 import { usePermission } from "../../hooks/usePermission";
+import { closeDrawer } from "../../features/theme";
 
 const Sidebar = () => {
   const drawer = useSelector((state: RootState) => state.themeReducer.drawer);
@@ -45,11 +46,14 @@ const Sidebar = () => {
       <div className="px-[21px]">
         <div className="flex gap-2 pb-8">
           {drawer ? (
-            <img
-              src={require("../../assets/images/logo/logo.svg").default}
-              alt=""
-              className="h-[150px] w-full object-contain"
-            />
+            <div className="flex flex-1 items-center justify-between">
+              <img
+                src={require("../../assets/images/logo/logo.svg").default}
+                alt=""
+                className="h-10 md:h-[150px] object-contain"
+              />
+             
+            </div>
           ) : (
             <img
               className="h-[50px] object-contain"

@@ -4,6 +4,7 @@ import userReducer from "../features/user";
 import isLogin from "../features/isLogin";
 import modalDelete from "../features/modalDelete";
 import tableReducer from "../features/table";
+import formReducer from "../features/form";
 export const store = configureStore({
   reducer: {
     themeReducer,
@@ -11,6 +12,7 @@ export const store = configureStore({
     isLogin,
     modalDelete,
     tableReducer,
+    formReducer,
   },
 });
 

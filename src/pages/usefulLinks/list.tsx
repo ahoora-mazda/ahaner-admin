@@ -8,6 +8,7 @@ const UsefulLinksList = () => {
         title="لیست لینک های مفید"
         subTitle="لینک های مفید"
         api={{ route: "/useful-links" }}
+        search={{}}
         sort={(state) => {
           return {
             ...state,
@@ -23,6 +24,12 @@ const UsefulLinksList = () => {
           {
             key: "text",
             title: "عنوان",
+            isSearchAble: true,
+          },
+          {
+            key: "url",
+            isSearchAble: true,
+            title: "آدرس",
           },
           {
             key: "",

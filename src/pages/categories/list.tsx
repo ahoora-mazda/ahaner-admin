@@ -1,5 +1,4 @@
 import CustomTable from "../../components/table";
-import { combineImageUrl } from "../../utils/function";
 
 const CategoriesList = () => {
   return (
@@ -14,6 +13,7 @@ const CategoriesList = () => {
             ...state,
           };
         }}
+        search={{}}
         headers={[
           {
             title: "ردیف",
@@ -29,10 +29,28 @@ const CategoriesList = () => {
           {
             key: "name",
             title: "عنوان",
+            filterType: "input",
+            sort: {
+              key: "name",
+            },
+            isSearchAble: true,
           },
           {
             key: "slug",
+            filterType: "input",
             title: "اسلاگ",
+            sort: {
+              key: "slug",
+            },
+            isSearchAble: true,
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",

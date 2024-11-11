@@ -8,6 +8,8 @@ const MomentPriceList = () => {
         title="لیست قیمت لحظه ای و رقابتی"
         subTitle="قیمت لحظه ای و رقابتی"
         api={{ route: "/moment-prices" }}
+        search={{}}
+
         sort={(state) => {
           return {
             ...state,
@@ -28,6 +30,7 @@ const MomentPriceList = () => {
           {
             key: "text",
             title: "عنوان",
+            isSearchAble: true,
           },
           {
             key: "",

@@ -8,9 +8,11 @@ const BlogList = () => {
         title="لیست مقالات"
         subTitle="مقالات"
         api={{ route: "/blog" }}
+        search={{}}
         sort={(state) => {
           return {
             ...state,
+            views: state.views || "0",
           };
         }}
         headers={[
@@ -28,16 +30,31 @@ const BlogList = () => {
           {
             key: "title",
             title: "عنوان",
+            sort: {
+              key: "title",
+            },
+            isSearchAble: true,
           },
           {
             key: "slug",
             title: "slug",
+            isSearchAble: true,
           },
           {
-            key: "short_content",
-            title: "توضیحات",
+            key: "views",
+            title: "تعداد مشاهده",
+            sort: {
+              key: "views",
+            },
           },
-
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
+          },
           {
             key: "",
             title: "عملیات",

@@ -29,11 +29,25 @@ const HistoryLists = () => {
             key: "price",
             title: "قیمت",
             type: "price",
+            sort: {
+              key: "price",
+            },
           },
           {
             key: "price_date",
             title: "تاریخ",
             type: "date",
+            sort: {
+              key: "price_date",
+            },
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",

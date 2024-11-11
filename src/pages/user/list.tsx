@@ -17,14 +17,28 @@ const UserList = () => {
           {
             key: "full_name",
             title: "نام و نام خانوادگی",
+            sort: {
+              key: "full_name",
+            },
+            isSearchAble: true,
           },
           {
             key: "mobile",
+            isSearchAble: true,
             title: "موبایل",
           },
           {
             key: "email",
+            isSearchAble: true,
             title: "ایمیل",
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",

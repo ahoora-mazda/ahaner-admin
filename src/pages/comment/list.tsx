@@ -66,12 +66,27 @@ const CommentList = () => {
             title: "موبایل",
           },
           {
+            key: "rate",
+            title: "امتیاز",
+            sort: {
+              key: "rate",
+            },
+          },
+          {
             key: "status",
             title: "وضعیت",
             type: "enum",
             enum: {
               published: "فعال",
               pending: "غیر فعال",
+            },
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
             },
           },
 
@@ -116,7 +131,8 @@ const CommentList = () => {
         }}
       >
         <h2 className="text-right mb-2">
-          آیا برای {status === "published" ? "رد نظر" : "تایید نظر"} مطمئن هستید؟
+          آیا برای {status === "published" ? "رد نظر" : "تایید نظر"} مطمئن
+          هستید؟
         </h2>
         <p className="text-xs text-right">
           {status === "published"

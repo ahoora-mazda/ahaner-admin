@@ -9,6 +9,7 @@ const FaqList = () => {
         title="لیست سوالات متداول"
         subTitle="سوالات متداول"
         api={{ route: "/faqs" }}
+        search={{}}
         sort={(state) => {
           return {
             ...state,
@@ -24,6 +25,7 @@ const FaqList = () => {
           {
             key: "question",
             title: "سوال",
+            isSearchAble: true,
           },
           {
             key: "answer",

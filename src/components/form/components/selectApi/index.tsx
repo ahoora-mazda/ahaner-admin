@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { API } from "../../../../server";
 import { Select } from "antd";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Plus } from "tabler-icons-react";
+import { API } from "../../../../server";
+import { RootState } from "../../../../store";
+import Input from "../input";
 interface Props {
   label?: string;
   error?: any;
@@ -21,6 +25,11 @@ interface Props {
   readonly?: boolean;
   onEnter?: () => void;
   id?: string;
+  onAdd?: () => void;
+  addInline?: {
+    api: string;
+    key: string;
+  };
 }
 
 const SelectApi = ({
@@ -37,10 +46,17 @@ const SelectApi = ({
   readonly,
   onEnter,
   id,
+  onAdd,
+  addInline,
 }: Props) => {
   const [loading, setLoading] = useState(true);
   const [options, setOptions] = useState<any>([]);
-  console.log(dependValue());
+  const [add, setAdd] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [errorInput, setErrorInput] = useState<any>({});
+  const { depend: dependReducer } = useSelector((state: RootState) => {
+    return state.formReducer;
+  });
   const getOptions = async () => {
     setLoading(true);
     const { data } = await API.post(
@@ -64,7 +80,7 @@ const SelectApi = ({
     } else {
       getOptions();
     }
-  }, [dependValue()]);
+  }, [dependValue(), dependReducer]);
 
   const variants = {
     open: { opacity: 1, y: 0 },
@@ -74,47 +90,75 @@ const SelectApi = ({
   return (
     <div className="flex flex-col ">
       {label ? (
-        <>
-          <label className="text-sm	font-semibold mb-1 text-right">
+        <div className="flex items-center mb-1 gap-2">
+          <label className="text-sm	font-semibold text-right">
             {label}
             {!optional && (
               <span className="text-xs font-normal mx-1 text-red-800">*</span>
             )}
           </label>
-        </>
+          {(onAdd || addInline) && (
+            <button
+              type="button"
+              onClick={() => {
+                if (onAdd) {
+                  onAdd();
+                } else {
+                  setAdd(true);
+                }
+              }}
+              className="flex items-center gap-1 text-xs text-primary font-medium"
+            >
+              <Plus color="#5D87FF" size={"0.8rem"} />
+              افزودن
+            </button>
+          )}
+        </div>
       ) : (
         <></>
       )}
-
-      <Select
-        id={id}
-        showSearch
-        allowClear={allowClear}
-        placeholder={"انتخاب کنید"}
-        disabled={loading || readonly}
-        notFoundContent={
-          <div>
-            <p className="text-center py-2">موردی یافت نشد</p>
-          </div>
-        }
-        options={options}
-        onChange={onChange}
-        value={value}
-        onBlur={onBlur}
-        optionFilterProp="label"
-        onKeyDown={(e) => {
-          if (e.code === "Enter" && onEnter) {
-            onEnter();
-          }
-        }}
-      ></Select>
-      <motion.p
-        animate={error ? "open" : "closed"}
-        variants={variants}
-        className="text-red text-xs mt-2"
-      >
-        {error?.message}
-      </motion.p>
+      {add ? (
+        <>
+          <Input
+            error={errorInput ? { message: `${label} الزامی است` } : {}}
+            label={label}
+            onChange={({ target: { value } }) => setInputValue(value)}
+          />
+        </>
+      ) : (
+        <>
+          {" "}
+          <Select
+            id={id}
+            showSearch
+            allowClear={allowClear}
+            placeholder={"انتخاب کنید"}
+            disabled={loading || readonly}
+            notFoundContent={
+              <div>
+                <p className="text-center py-2">موردی یافت نشد</p>
+              </div>
+            }
+            options={options}
+            onChange={onChange}
+            value={value}
+            onBlur={onBlur}
+            optionFilterProp="label"
+            onKeyDown={(e) => {
+              if (e.code === "Enter" && onEnter) {
+                onEnter();
+              }
+            }}
+          ></Select>
+          <motion.p
+            animate={error ? "open" : "closed"}
+            variants={variants}
+            className="text-red text-xs mt-2"
+          >
+            {error?.message}
+          </motion.p>
+        </>
+      )}
     </div>
   );
 };

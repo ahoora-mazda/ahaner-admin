@@ -16,6 +16,9 @@ export interface TableProps {
   hero?: () => JSX.Element;
   dashboard?: boolean;
   depend?: boolean;
+  search?: {
+    key?: string;
+  };
 }
 export interface Header {
   title: string;
@@ -43,6 +46,11 @@ export interface Header {
   };
   onClick?: (id: number, row: any) => void;
   checked?: boolean;
+  sort?: {
+    key: string;
+    defaultValue?: boolean;
+  };
+  isSearchAble?: boolean;
 }
 export interface OptionHeader {
   title: string;

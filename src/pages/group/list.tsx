@@ -7,6 +7,7 @@ const GroupList = () => {
         add="/group-create"
         title="لیست گروه ها"
         subTitle="گروه ها"
+        search={{}}
         api={{ route: "/groups" }}
         sort={(state) => {
           return {
@@ -23,8 +24,18 @@ const GroupList = () => {
           {
             key: "name",
             title: "عنوان",
-            // filterType: "input",
-            // keyFilter: "text",
+            sort: {
+              key: "name",
+            },
+            isSearchAble: true,
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",

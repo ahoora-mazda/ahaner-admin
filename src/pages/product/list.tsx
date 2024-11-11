@@ -8,7 +8,8 @@ const ProductList = () => {
         title="لیست محصولات"
         subTitle="محصولات"
         api={{ route: "/products" }}
-        sort={state => {
+        search={{}}
+        sort={(state) => {
           return {
             ...state,
           };
@@ -23,10 +24,27 @@ const ProductList = () => {
           {
             key: "name",
             title: "عنوان",
+            filterType: "input",
+            sort: {
+              key: "name",
+            },
+            isSearchAble: true,
           },
           {
             key: "slug",
             title: "اسلاگ",
+            sort: {
+              key: "slug",
+            },
+            isSearchAble: true,
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",
