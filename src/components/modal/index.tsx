@@ -52,7 +52,7 @@ const Modal: React.FC<ModalProps> = ({
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div
-              className={`inline-block w-full px-4 pt-5 pb-4 overflow-hidden   align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-sm sm:p-6 ${className}`}
+              className={`inline-block w-full px-4 pt-5 pb-4  align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-sm sm:p-6 ${className}`}
             >
               <div className="flex items-center justify-between">
                 <Dialog.Title

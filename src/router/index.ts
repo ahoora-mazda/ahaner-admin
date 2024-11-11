@@ -39,6 +39,7 @@ import RecentPriceCreate from "../pages/home/recentPrices/create";
 import RecentPriceList from "../pages/home/recentPrices/list";
 import RecentPriceUpdate from "../pages/home/recentPrices/update";
 import ProductCreate from "../pages/product/create";
+import ProductInfo from "../pages/product/info";
 import ProductList from "../pages/product/list";
 import ProductUpdate from "../pages/product/update";
 import ProductCoreCreate from "../pages/productCore/create";
@@ -48,6 +49,7 @@ import Profile from "../pages/profile";
 import PropertyCreate from "../pages/property/create";
 import PropertyList from "../pages/property/list";
 import PropertyUpdate from "../pages/property/update";
+import RequestPrices from "../pages/requestPrices/list";
 import SettingPage from "../pages/settings";
 import TeamCreate from "../pages/team/create";
 import TeamList from "../pages/team/list";
@@ -216,6 +218,13 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/product-list/:id",
+  },
+  {
+    component: ProductInfo,
+    user: true,
+    layout: MainLayout,
+    path: "/product-info/:id",
+
   },
   // Products End
   // Headers Start
@@ -501,4 +510,10 @@ export const routes: route[] = [
     path: "/videos-list/:id",
   },
   // Recent Prices End
+  {
+    component: RequestPrices,
+    user: true,
+    layout: MainLayout,
+    path: "/request-prices-list",
+  },
 ];

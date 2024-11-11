@@ -5,6 +5,7 @@ import persian_fa from "react-date-object/locales/persian_fa";
 import DatePicker from "react-multi-date-picker";
 import "./style.scss";
 import { convertDate } from "../../../../utils/function";
+import TimePicker from "react-multi-date-picker/plugins/time_picker";
 interface Props {
   label?: string;
   value: any;
@@ -12,6 +13,7 @@ interface Props {
   error?: any;
   optional?: boolean;
   readonly?: boolean;
+  time?: boolean;
 }
 const CustomDatePicker: React.FC<Props> = ({
   label,
@@ -20,6 +22,7 @@ const CustomDatePicker: React.FC<Props> = ({
   value,
   optional,
   readonly,
+  time,
 }) => {
   const variants = {
     open: { opacity: 1, y: 0 },
@@ -50,6 +53,13 @@ const CustomDatePicker: React.FC<Props> = ({
         calendar={persian}
         locale={persian_fa}
         {...(value ? { value: new Date(value) } : {})}
+        {...(time
+          ? {
+              format: "Date:YYYY/MM/DD, Time:HH:mm:ss",
+              formattingIgnoreList: ["Date", "Time"],
+              plugins: [<TimePicker position="bottom" />],
+            }
+          : {})}
       />
       <motion.p
         animate={error ? "open" : "closed"}

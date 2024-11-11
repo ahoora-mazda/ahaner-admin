@@ -217,6 +217,7 @@ const CustomForm: React.FC<Form> = ({
               value={watch(element.name)}
               readonly={element.readonly}
               error={errors[element.name]}
+              time={element.time}
             />
           </Wrapper>
         );

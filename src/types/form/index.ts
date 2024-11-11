@@ -80,6 +80,7 @@ export interface FormElement {
     api: string;
     key: string;
   };
+  time?: boolean;
 }
 export interface Card {
   title: string;

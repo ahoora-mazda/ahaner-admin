@@ -10,6 +10,7 @@ import {
   Article,
   BrandProducthunt,
   Category,
+  Headphones,
   History,
   Home,
   Message2,
@@ -351,6 +352,12 @@ export const Menuitems: MenuitemProps[] = [
         accessKey: ["normal-doc-list"],
       },
     ],
+  },
+  {
+    id: uniqueId(),
+    title: "درخواست های قیمت",
+    icon: Headphones,
+    href: "/request-prices-list",
   },
   {
     id: uniqueId(),

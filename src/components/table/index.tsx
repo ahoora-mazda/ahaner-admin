@@ -124,7 +124,7 @@ const CustomTable: React.FC<TableProps> = ({
             classNames="mt-4"
             title={subTitle}
             action={
-              <div className="flex flex-col">
+              <>
                 <div className="flex items-center gap-2">
                   {hero && hero()}
                   {typeof pdf === "string" && accessPdf && check(accessPdf) && (
@@ -197,7 +197,7 @@ const CustomTable: React.FC<TableProps> = ({
                     </Tooltip>
                   )}
                 </div>
-              </div>
+              </>
             }
           >
             {tableComponent}
