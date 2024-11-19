@@ -36,6 +36,14 @@ const HeaderCreate = () => {
             col: "col-span-12",
           },
           {
+            label: "آدرس",
+            name: "url",
+            validation: yup.string().required("آدرس اجباری است"),
+            type: "input",
+            cardKey: "1",
+            col: "col-span-12",
+          },
+          {
             label: "ترتیب",
             name: "view_order",
             type: "input",

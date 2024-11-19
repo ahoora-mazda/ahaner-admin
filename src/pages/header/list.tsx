@@ -24,7 +24,10 @@ const HeaderLists = () => {
             key: "title",
             title: "عنوان",
           },
-
+          {
+            key: "url",
+            title: "آدرس",
+          },
           {
             key: "",
             title: "عملیات",
