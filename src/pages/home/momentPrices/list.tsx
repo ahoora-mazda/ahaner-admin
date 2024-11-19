@@ -5,11 +5,11 @@ const MomentPriceList = () => {
     <>
       <CustomTable
         add="/home_momentPrices-create"
+        accessAdd={"admin_moment_price_create"}
         title="لیست قیمت لحظه ای و رقابتی"
         subTitle="قیمت لحظه ای و رقابتی"
         api={{ route: "/moment-prices" }}
         search={{}}
-
         sort={(state) => {
           return {
             ...state,
@@ -41,13 +41,13 @@ const MomentPriceList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/home_momentPrices-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_moment_price_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/moment-prices",
-                accessKey: "cheque_remove",
+                accessKey: "admin_moment_price_delete",
               },
             ],
           },

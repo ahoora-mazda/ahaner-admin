@@ -5,6 +5,7 @@ const BlogList = () => {
     <>
       <CustomTable
         add="/blog-create"
+        accessAdd={"admin_blog_create"}
         title="لیست مقالات"
         subTitle="مقالات"
         api={{ route: "/blog" }}
@@ -64,13 +65,13 @@ const BlogList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/blog-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_blog_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/blog",
-                accessKey: "cheque_remove",
+                accessKey: "admin_blog_delete",
               },
             ],
           },

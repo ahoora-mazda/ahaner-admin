@@ -4,21 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/header";
 import Loading from "../components/loading";
 import Sidebar from "../components/sidebar";
-import TabBar from "../components/tabBar";
 import { setTrue } from "../features/isLogin";
 import { setProfile } from "../features/user";
 import useScreenBreakpoint from "../hooks/useScreenBreakpoint";
 import { API } from "../server";
 import { RootState } from "../store";
-import { useLocation } from "react-router-dom";
 interface Props {
   children: React.ReactNode;
 }
 const MainLayout: React.FC<Props> = ({ children }) => {
   const drawer = useSelector((state: RootState) => state.themeReducer.drawer);
-  const roleOne = useSelector((state: RootState) => state.userReducer.roleOne);
   const breakPoint = useScreenBreakpoint();
-  const { pathname } = useLocation();
   const variants = {
     open: {
       marginRight: breakPoint === "sm" || breakPoint === "md" ? 0 : 270,
@@ -36,27 +32,15 @@ const MainLayout: React.FC<Props> = ({ children }) => {
     check();
   }, []);
 
-  const sortRoles = (roles: any, permissions: any) => {
-    let arr: any[] = [];
-    permissions.forEach((ele: any) => {
-      arr.push(ele.title_en);
-    });
-    roles.forEach((ele: any) => {
-      ele.permissions.forEach((p: any) => {
-        arr.push(p.title_en);
-      });
-    });
-    return arr;
-  };
-
   const check = async () => {
     try {
-      const { data } = await API.get(`/user`);
+      const { data } = await API.get(`/profile`);
       dispatch(setTrue());
 
       dispatch(
         setProfile({
-          fullName: data?.name,
+          fullName: data?.full_name,
+          permissions: data?.Role?.Permissions.map((ele: any) => ele.name),
         })
       );
     } catch (error) {

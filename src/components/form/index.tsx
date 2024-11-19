@@ -286,6 +286,7 @@ const CustomForm: React.FC<Form> = ({
                   },
                 }
               }
+              addPermission={element.addPermission}
               onAdd={element.onAdd}
               addInline={element.addInline}
             />

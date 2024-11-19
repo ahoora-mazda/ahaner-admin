@@ -60,6 +60,7 @@ const MomentPriceCreate = () => {
             onAdd: () => {
               setIsOpen(true);
             },
+            addPermission: "admin_category_create",
           },
           {
             label: "تصویر",

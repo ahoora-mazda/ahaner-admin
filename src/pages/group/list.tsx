@@ -5,6 +5,7 @@ const GroupList = () => {
     <>
       <CustomTable
         add="/group-create"
+        accessAdd={'admin_group_create'}
         title="لیست گروه ها"
         subTitle="گروه ها"
         search={{}}
@@ -46,13 +47,13 @@ const GroupList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/group-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_group_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/groups",
-                accessKey: "cheque_remove",
+                accessKey: "admin_group_delete",
               },
             ],
           },

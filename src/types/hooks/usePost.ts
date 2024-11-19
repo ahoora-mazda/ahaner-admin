@@ -8,10 +8,7 @@ export interface UsePost {
   };
   redirect: {
     status: boolean;
-    action?: (
-      data: { [key: string]: string | number | boolean },
-      body: any
-    ) => void;
+    action?: (data: any, body: any) => void;
   };
   message?: boolean;
   setError?: (body: any) => void;

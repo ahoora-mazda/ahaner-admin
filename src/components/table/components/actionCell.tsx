@@ -14,21 +14,24 @@ const ActionCell: FC<Props> = ({ headers, row }) => {
   const dispatch = useDispatch();
   const { check } = usePermission();
   const onClickHandler = (op: OptionHeader) => {
-    switch (op.type) {
-      case "edit":
-        navigate(op?.route?.replace(":id", row.id) || "");
-        break;
-      case "delete":
-        dispatch(open({ ...row, route: op.route }));
-        break;
-      case "custom":
-        if (op.onClick) {
-          op.onClick(row.id, row);
-        }
-        break;
-      default:
-        break;
+    if (check(op.accessKey)) {
+      switch (op.type) {
+        case "edit":
+          navigate(op?.route?.replace(":id", row.id) || "");
+          break;
+        case "delete":
+          dispatch(open({ ...row, route: op.route }));
+          break;
+        case "custom":
+          if (op.onClick) {
+            op.onClick(row.id, row);
+          }
+          break;
+        default:
+          break;
+      }
     }
+    return <></>;
   };
   return (
     <div className="">

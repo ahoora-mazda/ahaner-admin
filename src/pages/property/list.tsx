@@ -5,6 +5,7 @@ const PropertyList = () => {
     <>
       <CustomTable
         add="/property-create"
+        accessAdd={'admin_property_create'}
         title="لیست ویژگی محصول"
         subTitle="ویژگی محصول"
         api={{ route: "/properties" }}
@@ -54,13 +55,13 @@ const PropertyList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/property-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_property_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/properties",
-                accessKey: "cheque_remove",
+                accessKey: "admin_property_delete",
               },
             ],
           },

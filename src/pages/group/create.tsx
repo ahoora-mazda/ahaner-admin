@@ -52,6 +52,7 @@ export const groupCreateForm: Form = {
       },
       col: "col-span-12",
       cardKey: "1",
+      addPermission: "admin_category_create",
     },
     {
       name: "description",

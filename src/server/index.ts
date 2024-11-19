@@ -3,8 +3,9 @@ import Cookie from "js-cookie";
 import { User } from "../types/user";
 import { toast } from "react-toastify";
 
-export const baseURL = "https://server.ahaner.site";
-// export const baseURL = "http://192.168.1.5:9582";
+// export const baseURL = "https://api.ahaner.com";
+// export const baseURL = "https://api.ahaner.com";
+export const baseURL = "http://192.168.1.3:9582";
 
 export const API = axios.create({
   // baseURL: "https://server.ahaner.site/api/admin",
@@ -18,6 +19,7 @@ API.interceptors.request.use(
     if (_userJson) {
       _user = JSON.parse(_userJson);
     }
+    console.log({ _user });
     if (_user?.token) config.headers.Authorization = `Bearer ${_user?.token}`;
     return config;
   },
@@ -36,6 +38,9 @@ API.interceptors.response.use(
     if (error?.response?.status === 401) {
       Cookie.remove("user");
       window.location.replace("/login");
+    }
+    if (error?.response?.status === 403) {
+      window.location.replace("/");
     } else if (error?.response?.status === 422) {
       let _errors = error.response.data.errors;
       Object.keys(_errors).map((ele) => toast.error(_errors[ele][0]));

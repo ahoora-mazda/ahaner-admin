@@ -62,6 +62,7 @@ const CommentCreate = () => {
             onAdd: () => {
               setIsOpen(true);
             },
+            addPermission: "admin_user_create",
           },
           {
             type: "selectApi",
@@ -78,6 +79,7 @@ const CommentCreate = () => {
             onAdd: () => {
               setIsOpenCategory(true);
             },
+            addPermission: "admin_category_create",
           },
           {
             name: "status",

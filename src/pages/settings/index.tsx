@@ -27,7 +27,7 @@ const SettingPage = () => {
         ]}
         notSerialize
         update
-        accessUpdate={"permission_update"}
+        accessUpdate={"admin_settings_create_or_update"}
         sortUpdate={(state) => {
           return {
             address: state.address,

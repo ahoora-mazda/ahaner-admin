@@ -80,18 +80,19 @@ const RequestPrices = () => {
                 title: "حذف",
                 type: "delete",
                 route: "/tickets",
-                accessKey: "cheque_remove",
+                accessKey: "admin_price_request_delete",
               },
-              // {
-              //   title: "تغییر وضعیت",
-              //   type: "custom",
-              //   accessKey: "",
-              //   onClick: (id, data) => {
-              //     setId(+id);
-              //     setModal(true);
-              //     setStatus(data.status);
-              //   },
-              // },
+              {
+                title: "تغییر وضعیت",
+                type: "custom",
+                accessKey: "admin_price_request_status_update",
+
+                onClick: (id, data) => {
+                  setId(+id);
+                  setModal(true);
+                  setStatus(data.status);
+                },
+              },
             ],
           },
         ]}

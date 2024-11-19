@@ -5,6 +5,7 @@ const VideoList = () => {
     <>
       <CustomTable
         add="/videos-create"
+        accessAdd={"admin_video_create"}
         title="لیست ویدیو"
         subTitle="ویدیو"
         api={{ route: "/videos" }}
@@ -27,13 +28,13 @@ const VideoList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/videos-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_video_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/videos",
-                accessKey: "cheque_remove",
+                accessKey: "admin_video_delete",
               },
             ],
           },

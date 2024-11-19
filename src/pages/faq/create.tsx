@@ -1,12 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import CustomForm from "../../components/form";
 import Modal from "../../components/modal";
-import { userCreateForm } from "../user/create";
-import { random } from "../../utils/function";
-import { useDispatch } from "react-redux";
 import { toggle } from "../../features/form";
+import { random } from "../../utils/function";
 import { categoryCreateForm } from "../categories/create";
 
 const FaqCreate = () => {
@@ -70,6 +69,7 @@ const FaqCreate = () => {
             onAdd: () => {
               setIsOpen(true);
             },
+            addPermission: "admin_category_create",
           },
         ]}
       />

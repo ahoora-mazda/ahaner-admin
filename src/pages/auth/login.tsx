@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import Btn from "../../components/form/components/button";
 import Input from "../../components/form/components/input";
-import { login, setPayment } from "../../features/user";
+import { login } from "../../features/user";
 import { usePost } from "../../hooks";
 import { AuthProps } from "../../types/auth";
 const schema = yup
@@ -32,8 +32,11 @@ const Login = () => {
     redirect: {
       status: true,
       action: (data) => {
+        console.log({ data });
         navigate("/");
-        dispatch(login({ token: data.token }));
+        dispatch(
+          login({ token: data.token, permissions: data.Role.Permissions })
+        );
       },
     },
     setError: (ob) => {

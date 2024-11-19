@@ -85,6 +85,7 @@ const BlogCreate = () => {
                 return state.categories;
               },
             },
+            addPermission: "admin_category_create",
           },
 
           {

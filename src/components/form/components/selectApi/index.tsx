@@ -6,6 +6,7 @@ import { Plus } from "tabler-icons-react";
 import { API } from "../../../../server";
 import { RootState } from "../../../../store";
 import Input from "../input";
+import { usePermission } from "../../../../hooks/usePermission";
 interface Props {
   label?: string;
   error?: any;
@@ -30,6 +31,7 @@ interface Props {
     api: string;
     key: string;
   };
+  addPermission?: string;
 }
 
 const SelectApi = ({
@@ -48,6 +50,7 @@ const SelectApi = ({
   id,
   onAdd,
   addInline,
+  addPermission,
 }: Props) => {
   const [loading, setLoading] = useState(true);
   const [options, setOptions] = useState<any>([]);
@@ -86,7 +89,7 @@ const SelectApi = ({
     open: { opacity: 1, y: 0 },
     closed: { opacity: 0, y: "-100%" },
   };
-
+  const { check } = usePermission();
   return (
     <div className="flex flex-col ">
       {label ? (
@@ -97,7 +100,7 @@ const SelectApi = ({
               <span className="text-xs font-normal mx-1 text-red-800">*</span>
             )}
           </label>
-          {(onAdd || addInline) && (
+          {(onAdd || addInline) && check(addPermission || "") && (
             <button
               type="button"
               onClick={() => {

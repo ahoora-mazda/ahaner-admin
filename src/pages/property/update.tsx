@@ -14,7 +14,7 @@ const PropertyCreate = () => {
         get: "/properties/:id",
         update: "/properties/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_property_read"}
       onEnd={() => {
         navigate("/property-list");
       }}

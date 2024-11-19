@@ -58,6 +58,7 @@ const HomeCategoryCreate = () => {
             onAdd: () => {
               setIsOpen(true);
             },
+            addPermission: "admin_category_create",
           },
           {
             label: "ترتیب",

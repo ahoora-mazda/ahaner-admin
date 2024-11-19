@@ -81,6 +81,7 @@ export interface FormElement {
     key: string;
   };
   time?: boolean;
+  addPermission?: string;
 }
 export interface Card {
   title: string;

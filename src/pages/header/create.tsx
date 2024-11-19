@@ -1,20 +1,9 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import CustomForm from "../../components/form";
-import Modal from "../../components/modal";
-import { categoryCreateForm } from "../categories/create";
-import { random } from "../../utils/function";
-import { useDispatch } from "react-redux";
-import { toggle } from "../../features/form";
 
 const HeaderCreate = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
-  const [reset, setReset] = useState("");
-  delete categoryCreateForm.cards;
-  delete categoryCreateForm.title;
-  const dispatch = useDispatch();
   return (
     <>
       {" "}
@@ -24,7 +13,7 @@ const HeaderCreate = () => {
         }}
         title="ایجاد هدر"
         btn={{ text: "ایجاد هدر" }}
-        api={{ route: "/category-views" }}
+        api={{ route: "/headers" }}
         cards={[
           {
             title: "اطلاعات هدر",
@@ -39,26 +28,12 @@ const HeaderCreate = () => {
         }}
         elements={[
           {
-            label: "دسته بندی",
-            name: "category_id",
-            type: "selectApi",
-            api: {
-              keys: ["categories"],
-              sort: (state) => {
-                return state.categories.map((ele: any) => {
-                  return {
-                    value: ele.value,
-                    label: ele.label,
-                  };
-                });
-              },
-            },
+            label: "عنوان",
+            name: "title",
+            validation: yup.string().required("عنوان اجباری است"),
+            type: "input",
             cardKey: "1",
-            validation: yup.string().required("دسته بندی اجباری است"),
             col: "col-span-12",
-            onAdd: () => {
-              setIsOpen(true);
-            },
           },
           {
             label: "ترتیب",
@@ -72,44 +47,16 @@ const HeaderCreate = () => {
             label: "والد",
             name: "parent_id",
             api: {
-              keys: ["category_views_header"],
+              keys: ["headers"],
               sort: (state) => {
-                return state.category_views.map((e: any) => e.Category);
+                return state.headers;
               },
             },
             col: "col-span-12",
             cardKey: "1",
           },
-
-          {
-            label: "تصویر",
-            name: "image",
-            type: "fileUploader",
-            cardKey: "1",
-            col: "col-span-12",
-          },
         ]}
       />
-      <Modal
-        isOpen={isOpen}
-        className="!max-w-2xl"
-        title="افزودن دسته بندی"
-        onClose={() => {
-          setIsOpen(false);
-          setReset(random());
-        }}
-      >
-        <CustomForm
-          key={reset}
-          {...categoryCreateForm}
-          elements={categoryCreateForm.elements.filter((ele) => ele.validation)}
-          onEnd={() => {
-            setIsOpen(false);
-            setReset(random());
-            dispatch(toggle());
-          }}
-        />
-      </Modal>
     </>
   );
 };

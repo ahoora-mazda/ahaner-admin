@@ -5,6 +5,7 @@ const UsefulLinksList = () => {
     <>
       <CustomTable
         add="/usefullinks-create"
+        accessAdd={'admin_useful_link_create'}
         title="لیست لینک های مفید"
         subTitle="لینک های مفید"
         api={{ route: "/useful-links" }}
@@ -40,13 +41,13 @@ const UsefulLinksList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/usefullinks-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_useful_link_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/useful-links",
-                accessKey: "cheque_remove",
+                accessKey: "admin_useful_link_delete",
               },
             ],
           },

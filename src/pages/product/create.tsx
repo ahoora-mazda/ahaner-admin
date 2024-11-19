@@ -107,6 +107,7 @@ const ProductCreate = () => {
             onAdd: () => {
               setIsOpen(true);
             },
+            addPermission: "admin_category_create",
           },
           {
             label: "محصول اصلی",
@@ -131,6 +132,7 @@ const ProductCreate = () => {
             onAdd: () => {
               setIsOpenProduct(true);
             },
+            addPermission: "admin_product_core_create",
           },
           {
             label: "گروه",
@@ -153,6 +155,7 @@ const ProductCreate = () => {
             onAdd: () => {
               setIsOpenGroup(true);
             },
+            addPermission: "admin_group_create",
           },
           {
             name: "description",

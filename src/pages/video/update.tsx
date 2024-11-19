@@ -13,7 +13,7 @@ const VideoUpdate = () => {
         get: "/videos/:id",
         update: "/videos/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_video_update"}
       onEnd={() => {
         navigate("/videos-list");
       }}

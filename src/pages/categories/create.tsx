@@ -65,6 +65,7 @@ export const categoryCreateForm: Form = {
       },
       cardKey: "1",
       col: "col-span-12",
+      addPermission: "admin_video_create",
     },
     {
       type: "multiSelectApi",
@@ -84,6 +85,7 @@ export const categoryCreateForm: Form = {
         api: "properties",
         key: "name",
       },
+      addPermission: "admin_property_create",
     },
     {
       name: "description",

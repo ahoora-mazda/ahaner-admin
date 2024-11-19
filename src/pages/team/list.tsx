@@ -6,6 +6,7 @@ const TeamList = () => {
       <CustomTable
         add="/team-create"
         title="لیست اعضا"
+        accessAdd={'admin_team_info_create'}
         subTitle="اعضا"
         api={{ route: "/team-info" }}
         sort={(state) => {
@@ -56,13 +57,13 @@ const TeamList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/team-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_team_info_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/team-info",
-                accessKey: "cheque_remove",
+                accessKey: "admin_team_info_delete",
               },
             ],
           },

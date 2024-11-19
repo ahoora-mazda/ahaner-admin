@@ -6,6 +6,7 @@ const ProductCoreList = () => {
       <CustomTable
         add="/product-core-create"
         title="لیست محصولات اصلی"
+        accessAdd={"admin_product_core_create"}
         subTitle="محصولات اصلی"
         api={{ route: "/product-core" }}
         sort={(state) => {
@@ -62,13 +63,13 @@ const ProductCoreList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/product-core-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_product_core_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/product-core",
-                accessKey: "cheque_remove",
+                accessKey: "admin_product_core_delete",
               },
             ],
           },

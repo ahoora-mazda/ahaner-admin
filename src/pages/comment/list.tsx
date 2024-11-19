@@ -33,6 +33,7 @@ const CommentList = () => {
   return (
     <>
       <CustomTable
+        accessAdd={"admin_comment_create"}
         add="/comments-create"
         key={depend}
         title="لیست نظرات"
@@ -99,18 +100,18 @@ const CommentList = () => {
                 title: "حذف",
                 type: "delete",
                 route: "/comments",
-                accessKey: "cheque_remove",
+                accessKey: "admin_comment_delete",
               },
               {
                 title: "ویرایش",
                 type: "edit",
                 route: "/comments-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_comment_read",
               },
               {
                 title: "تغییر وضعیت",
                 type: "custom",
-                accessKey: "",
+                accessKey: "admin_comment_update",
                 onClick: (id, data) => {
                   setId(+id);
                   setModal(true);

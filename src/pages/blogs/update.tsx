@@ -15,7 +15,7 @@ const BlogUpdate = () => {
         get: "/blog/:id",
         update: "/blog/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_blog_update"}
       onEnd={() => {
         navigate("/blog-list");
       }}

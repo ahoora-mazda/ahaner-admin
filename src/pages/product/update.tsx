@@ -10,6 +10,9 @@ import Modal from "../../components/modal";
 import { useDispatch } from "react-redux";
 import { formattedPrice, random, unFormattedPrice } from "../../utils/function";
 import { toggle } from "../../features/table";
+import { Button, Tooltip } from "antd";
+import { FileExcelOutlined } from "@ant-design/icons";
+import { API } from "../../server";
 
 const ProductCreate = () => {
   const navigate = useNavigate();
@@ -38,7 +41,7 @@ const ProductCreate = () => {
               update: "/products/:id",
             }}
             update
-            accessUpdate={"dawdawd"}
+            accessUpdate={"admin_product_update"}
             cards={[
               {
                 title: "اطلاعات محصول",
@@ -217,11 +220,26 @@ const HistoryTab = () => {
   const navigate = useNavigate();
   const [reset, setReset] = useState("");
   const dispatch = useDispatch();
+  const [exportModal, setExportModal] = useState(true);
   return (
     <>
       <CustomTable
         onClickAdd={() => {
           setAddModal(true);
+        }}
+        btn={() => {
+          return (
+            <Tooltip trigger={["hover", "focus"]} title="افزودن ردیف جدید">
+              <Button
+                type="text"
+                onClick={() => {
+                  setExportModal(true);
+                }}
+                icon={<FileExcelOutlined size={30} />}
+                className="h-[40px] px-2  text-base ant-btn css-xu9wm8 ant-btn-default border-none bg-primary text-white hover:!bg-primary hover:!text-white"
+              ></Button>
+            </Tooltip>
+          );
         }}
         add="/"
         subTitle="تاریخچه قیمت"
@@ -288,6 +306,72 @@ const HistoryTab = () => {
           },
         ]}
       />
+      <Modal
+        title="خروجی اکسل قیمت ها"
+        isOpen={exportModal}
+        onClose={() => setExportModal(false)}
+      >
+        <CustomForm
+
+          notSerialize
+          key={reset}
+          btn={{ text: "دریافت اکسل" }}
+          api={{
+            route: "/product-price-history/export",
+            onSubmit: async (data) => {
+              try {
+                const response = await API.post(
+                  "/product-price-history/export",
+                  { ...data, product_id: id },
+                  {
+                    responseType: "blob",
+                  }
+                );
+
+                const url = window.URL.createObjectURL(
+                  new Blob([response.data])
+                );
+                const link = document.createElement("a");
+                link.href = url;
+                link.setAttribute("download", `price-history-${id}.xlsx`); // نام فایل
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+              } finally {
+                setExportModal(false);
+              }
+            },
+          }}
+          sortUpdate={(state) => {
+            return {
+              ...state,
+              product_id: id,
+            };
+          }}
+          onEnd={() => {
+            setAddModal(false);
+            setReset(random());
+          }}
+          elements={[
+            {
+              label: "تاریخ شروع",
+              name: "start_date",
+              validation: yup.string().required("تاریخ شروع اجباری است"),
+              type: "datePicker",
+              cardKey: "1",
+              col: "col-span-12",
+            },
+            {
+              label: "تاریخ پایان",
+              name: "end_date",
+              validation: yup.string().required("تاریخ پایان اجباری است"),
+              type: "datePicker",
+              cardKey: "1",
+              col: "col-span-12",
+            },
+          ]}
+        />
+      </Modal>
       <Modal
         title={
           typeof addModal === "number"

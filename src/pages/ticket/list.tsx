@@ -83,16 +83,7 @@ const TicketList = () => {
                 route: "/tickets",
                 accessKey: "cheque_remove",
               },
-              // {
-              //   title: "تغییر وضعیت",
-              //   type: "custom",
-              //   accessKey: "",
-              //   onClick: (id, data) => {
-              //     setId(+id);
-              //     setModal(true);
-              //     setStatus(data.status);
-              //   },
-              // },
+           
             ],
           },
         ]}

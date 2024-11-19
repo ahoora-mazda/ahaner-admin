@@ -62,6 +62,7 @@ export const productCorCreateForm: Form = {
       cardKey: "1",
       validation: yup.string().required("دسته بندی اجباری است"),
       col: "col-span-12",
+      addPermission: "admin_category_create",
     },
     {
       name: "content",

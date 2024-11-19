@@ -5,6 +5,7 @@ const UserList = () => {
     <>
       <CustomTable
         add="/user-create"
+        accessAdd={"admin_user_create"}
         title="لیست کاربران"
         subTitle="کاربران"
         api={{ route: "/users" }}
@@ -49,13 +50,13 @@ const UserList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/user-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_user_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/users",
-                accessKey: "cheque_remove",
+                accessKey: "admin_user_delete",
               },
             ],
           },

@@ -10,11 +10,11 @@ const HeaderUpdate = () => {
       title="ویرایش هدر"
       btn={{ text: "ویرایش هدر" }}
       api={{
-        route: "/category-views",
-        get: "/category-views/:id",
-        update: "/category-views/:id",
+        route: "/headers",
+        get: "/headers/:id",
+        update: "/headers/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_header_update"}
       onEnd={() => {
         navigate("/header-list");
       }}
@@ -24,6 +24,13 @@ const HeaderUpdate = () => {
         };
       }}
       sortUpdate={(state) => {
+        if (
+          typeof state.parent_id === "string" ||
+          typeof state.parent_id === "number"
+        ) {
+          return { ...state };
+        }
+        delete state.parent_id;
         return { ...state };
       }}
       cards={[
@@ -35,22 +42,11 @@ const HeaderUpdate = () => {
       update={true}
       elements={[
         {
-          label: "دسته بندی",
-          name: "category_id",
-          type: "selectApi",
-          api: {
-            keys: ["categories"],
-            sort: (state) => {
-              return state.categories.map((ele: any) => {
-                return {
-                  value: ele.value,
-                  label: ele.label,
-                };
-              });
-            },
-          },
+          label: "عنوان",
+          name: "title",
+          validation: yup.string().required("عنوان اجباری است"),
+          type: "input",
           cardKey: "1",
-          validation: yup.string().required("دسته بندی اجباری است"),
           col: "col-span-12",
         },
         {
@@ -65,21 +61,13 @@ const HeaderUpdate = () => {
           label: "والد",
           name: "parent_id",
           api: {
-            keys: ["category_views_header"],
+            keys: ["headers"],
             sort: (state) => {
-              return state.category_views.map((e: any) => e.Category);
+              return state.headers;
             },
           },
           col: "col-span-12",
           cardKey: "1",
-        },
-
-        {
-          label: "تصویر",
-          name: "image",
-          type: "fileUploader",
-          cardKey: "1",
-          col: "col-span-12",
         },
       ]}
     />

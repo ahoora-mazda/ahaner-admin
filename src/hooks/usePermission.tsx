@@ -2,25 +2,25 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store";
 
 export const usePermission = () => {
-  const { role } = useSelector((state: RootState) => {
+  const { permissions } = useSelector((state: RootState) => {
     return state.userReducer;
   });
   const check = (permission: string | string[]) => {
-    return true;
-    // let isAccess = false;
+    let isAccess = false;
 
-    // if (Array.isArray(permission)) {
-    //   permission.forEach(ele => {
-    //     if (role?.includes(ele)) {
-    //       isAccess = true;
-    //     }
-    //   });
-    // } else {
-    //   if (role?.includes(permission)) {
-    //     isAccess = true;
-    //   }
-    // }
-    // return isAccess;
+    if (Array.isArray(permission)) {
+      permission.forEach((ele) => {
+        if (permissions?.includes(ele)) {
+          isAccess = true;
+        }
+      });
+    } else {
+      if (permissions?.includes(permission)) {
+        isAccess = true;
+      }
+    }
+    console.log({ isAccess, permissions });
+    return isAccess;
   };
 
   return {

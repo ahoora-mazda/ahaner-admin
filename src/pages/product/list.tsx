@@ -5,6 +5,7 @@ const ProductList = () => {
     <>
       <CustomTable
         add="/product-create"
+        accessAdd={"admin_product_create"}
         title="لیست محصولات"
         subTitle="محصولات"
         api={{ route: "/products" }}
@@ -55,13 +56,13 @@ const ProductList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/product-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_product_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/products",
-                accessKey: "cheque_remove",
+                accessKey: "admin_product_delete",
               },
             ],
           },

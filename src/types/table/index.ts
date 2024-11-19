@@ -19,6 +19,7 @@ export interface TableProps {
   search?: {
     key?: string;
   };
+  btn?: () => React.ReactElement;
 }
 export interface Header {
   title: string;

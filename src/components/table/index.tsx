@@ -29,6 +29,7 @@ const CustomTable: React.FC<TableProps> = ({
   hero,
   dashboard,
   search,
+  btn,
 }) => {
   const handlePageChange = (page: number) => {
     changeObj("page", page);
@@ -176,7 +177,7 @@ const CustomTable: React.FC<TableProps> = ({
                     </Tooltip>
                   )}
 
-                  {typeof add === "string" && (
+                  {typeof add === "string" && check("accessAdd") && (
                     <Tooltip
                       trigger={["hover", "focus"]}
                       title="افزودن ردیف جدید"
@@ -196,6 +197,7 @@ const CustomTable: React.FC<TableProps> = ({
                       </Button>
                     </Tooltip>
                   )}
+                  {btn && btn()}
                 </div>
               </>
             }
