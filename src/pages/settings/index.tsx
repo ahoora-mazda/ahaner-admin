@@ -97,7 +97,16 @@ const SettingPage = () => {
             name: "telegram",
             type: "input",
             label: "لینک تلگرام",
-            validation: yup.string().required("عنوان اجباری است"),
+            help: "اگر وارد می‌کنید، لینک تلگرام باید با 'https://t.me/' شروع شود.",
+            validation: yup
+              .string()
+              .nullable()
+              .notRequired()
+              .test(
+                "is-valid-telegram-link",
+                "لینک تلگرام باید با 'https://t.me/' شروع شود",
+                (value) => !value || /^https:\/\/t\.me\/.+/.test(value) // فقط بررسی شود اگر مقدار وجود داشته باشد
+              ),
             col: "col-span-12",
             cardKey: "1",
           },
@@ -105,7 +114,17 @@ const SettingPage = () => {
             name: "instagram",
             label: "لینک اینستاگرام",
             type: "input",
-            validation: yup.string().required("عنوان اجباری است"),
+            help: "اگر وارد می‌کنید، لینک اینستاگرام باید با 'https://instagram.com/' شروع شود.",
+            validation: yup
+              .string()
+              .nullable()
+              .notRequired()
+              .test(
+                "is-valid-instagram-link",
+                "لینک اینستاگرام باید با 'https://instagram.com/' شروع شود",
+                (value) =>
+                  !value || /^https:\/\/(www\.)?instagram\.com\/.+/.test(value)
+              ),
             col: "col-span-12",
             cardKey: "1",
           },
@@ -113,7 +132,16 @@ const SettingPage = () => {
             name: "whatsapp",
             label: "لینک واتساپ",
             type: "input",
-            validation: yup.string().required("عنوان اجباری است"),
+            help: "اگر وارد می‌کنید، لینک واتساپ باید با 'https://wa.me/' شروع شود و شماره تلفن را شامل باشد.",
+            validation: yup
+              .string()
+              .nullable()
+              .notRequired()
+              .test(
+                "is-valid-whatsapp-link",
+                "لینک واتساپ باید با 'https://wa.me/' شروع شود و شامل شماره تلفن باشد",
+                (value) => !value || /^https:\/\/wa\.me\/\d+/.test(value)
+              ),
             col: "col-span-12",
             cardKey: "1",
           },
@@ -121,15 +149,35 @@ const SettingPage = () => {
             name: "facebook",
             label: "لینک فیسبوک",
             type: "input",
-            validation: yup.string().required("عنوان اجباری است"),
+            help: "اگر وارد می‌کنید، لینک فیسبوک باید با 'https://facebook.com/' شروع شود.",
+            validation: yup
+              .string()
+              .nullable()
+              .notRequired()
+              .test(
+                "is-valid-facebook-link",
+                "لینک فیسبوک باید با 'https://facebook.com/' شروع شود",
+                (value) =>
+                  !value || /^https:\/\/(www\.)?facebook\.com\/.+/.test(value)
+              ),
             col: "col-span-12",
             cardKey: "1",
           },
           {
-            name: "twiter",
+            name: "twitter",
             label: "لینک توییتر",
             type: "input",
-            validation: yup.string().required("عنوان اجباری است"),
+            help: "اگر وارد می‌کنید، لینک توییتر باید با 'https://twitter.com/' شروع شود.",
+            validation: yup
+              .string()
+              .nullable()
+              .notRequired()
+              .test(
+                "is-valid-twitter-link",
+                "لینک توییتر باید با 'https://twitter.com/' شروع شود",
+                (value) =>
+                  !value || /^https:\/\/(www\.)?twitter\.com\/.+/.test(value)
+              ),
             col: "col-span-12",
             cardKey: "1",
           },
