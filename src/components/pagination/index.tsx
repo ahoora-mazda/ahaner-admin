@@ -1,6 +1,6 @@
 import React from "react";
 import { ChevronLeft, ChevronRight } from "tabler-icons-react";
-
+import "./style.css";
 interface PaginationProps {
   currentPage: number;
   totalPages: number;

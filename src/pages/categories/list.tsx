@@ -1,11 +1,11 @@
 import CustomTable from "../../components/table";
-import { combineImageUrl } from "../../utils/function";
 
 const CategoriesList = () => {
   return (
     <>
       <CustomTable
         add="/category-create"
+        accessAdd={"admin_category_create"}
         title="لیست دسته بندی ها"
         subTitle="دسته بندی ها"
         api={{ route: "/categories" }}
@@ -14,6 +14,7 @@ const CategoriesList = () => {
             ...state,
           };
         }}
+        search={{}}
         headers={[
           {
             title: "ردیف",
@@ -29,10 +30,28 @@ const CategoriesList = () => {
           {
             key: "name",
             title: "عنوان",
+            filterType: "input",
+            sort: {
+              key: "name",
+            },
+            isSearchAble: true,
           },
           {
             key: "slug",
+            filterType: "input",
             title: "اسلاگ",
+            sort: {
+              key: "slug",
+            },
+            isSearchAble: true,
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",
@@ -43,13 +62,13 @@ const CategoriesList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/category-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_category_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/categories",
-                accessKey: "cheque_remove",
+                accessKey: "admin_category_delete",
               },
             ],
           },

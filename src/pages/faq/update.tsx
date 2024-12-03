@@ -13,7 +13,7 @@ const FaqUpdate = () => {
         get: "/faqs/:id",
         update: "/faqs/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_faq_update"}
       onEnd={() => {
         navigate("/faq-list");
       }}

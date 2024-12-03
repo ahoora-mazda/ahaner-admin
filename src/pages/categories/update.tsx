@@ -14,7 +14,7 @@ const CategoryUpdate = () => {
         get: "/categories/:id",
         update: "/categories/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_category_update"}
       onEnd={() => {
         navigate("/category-list");
       }}

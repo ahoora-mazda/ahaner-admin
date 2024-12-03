@@ -10,6 +10,7 @@ interface FileUploaderProps {
   error?: any;
   onChange: (e: any) => void;
   name: string;
+  index: number;
 }
 
 const FileUploader: React.FC<FileUploaderProps> = ({
@@ -20,14 +21,13 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   onChange,
   error,
   name,
+  index,
 }) => {
   const variants = {
     open: { opacity: 1, y: 0 },
     closed: { opacity: 0, y: "-100%" },
   };
-  const deletePicture = async (id: number | string) => {
-    // await API.delete(`/seller/product/picture/${id}/delete`);
-  };
+
   const render = () => {
     if (value) {
       if (typeof value === "string") {
@@ -87,13 +87,13 @@ const FileUploader: React.FC<FileUploaderProps> = ({
       >
         <input
           type="file"
-          id={`fileInput-${name}`}
+          id={`fileInput-${name}-${index}`}
           multiple
           onChange={onChange}
           style={{ display: "none" }}
         />
         <label
-          htmlFor={`fileInput-${name}`}
+          htmlFor={`fileInput-${name}-${index}`}
           className="flex flex-col items-center gap-2"
         >
           <Upload className="text-primary" size={"2rem"} />

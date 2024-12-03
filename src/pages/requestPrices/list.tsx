@@ -4,8 +4,7 @@ import Modal from "../../components/modal";
 import CustomTable from "../../components/table";
 import { API } from "../../server";
 import { random } from "../../utils/function";
-import { PhoneCalling } from "tabler-icons-react";
-const TicketList = () => {
+const RequestPrices = () => {
   const [modal, setModal] = useState<boolean>(false);
   const [id, setId] = useState<number>(0);
   const [loading, setLoading] = useState(false);
@@ -30,9 +29,9 @@ const TicketList = () => {
   return (
     <>
       <CustomTable
-        title="لیست تیکت ها"
-        subTitle="تیکت ها"
-        api={{ route: "/tickets" }}
+        title="لیست درخواست ها"
+        subTitle="درخواست ها"
+        api={{ route: "/price-request" }}
         sort={(state) => {
           return {
             ...state,
@@ -81,9 +80,19 @@ const TicketList = () => {
                 title: "حذف",
                 type: "delete",
                 route: "/tickets",
-                accessKey: "cheque_remove",
+                accessKey: "admin_price_request_delete",
               },
-           
+              {
+                title: "تغییر وضعیت",
+                type: "custom",
+                accessKey: "admin_price_request_status_update",
+
+                onClick: (id, data) => {
+                  setId(+id);
+                  setModal(true);
+                  setStatus(data.status);
+                },
+              },
             ],
           },
         ]}
@@ -118,4 +127,4 @@ const TicketList = () => {
   );
 };
 
-export default TicketList;
+export default RequestPrices;

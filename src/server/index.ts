@@ -20,6 +20,7 @@ API.interceptors.request.use(
     if (_userJson) {
       _user = JSON.parse(_userJson);
     }
+    console.log({ _user });
     if (_user?.token) config.headers.Authorization = `Bearer ${_user?.token}`;
     return config;
   },
@@ -38,6 +39,9 @@ API.interceptors.response.use(
     if (error?.response?.status === 401) {
       Cookie.remove("user");
       window.location.replace("/login");
+    }
+    if (error?.response?.status === 403) {
+      window.location.replace("/");
     } else if (error?.response?.status === 422) {
       let _errors = error.response.data.errors;
       Object.keys(_errors).map((ele) => toast.error(_errors[ele][0]));

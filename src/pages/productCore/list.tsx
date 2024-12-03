@@ -6,13 +6,16 @@ const ProductCoreList = () => {
       <CustomTable
         add="/product-core-create"
         title="لیست محصولات اصلی"
+        accessAdd={"admin_product_core_create"}
         subTitle="محصولات اصلی"
         api={{ route: "/product-core" }}
-        sort={state => {
+        sort={(state) => {
           return {
             ...state,
+            products_count: state.products_count || "0",
           };
         }}
+        search={{}}
         headers={[
           {
             title: "ردیف",
@@ -23,10 +26,33 @@ const ProductCoreList = () => {
           {
             key: "name",
             title: "عنوان",
+            sort: {
+              key: "name",
+            },
+            isSearchAble: true,
           },
           {
             key: "slug",
             title: "اسلاگ",
+            sort: {
+              key: "slug",
+            },
+            isSearchAble: true,
+          },
+          {
+            key: "products_count",
+            title: "تعداد محصول",
+            sort: {
+              key: "products_count",
+            },
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",
@@ -37,13 +63,13 @@ const ProductCoreList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/product-core-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_product_core_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/product-core",
-                accessKey: "cheque_remove",
+                accessKey: "admin_product_core_delete",
               },
             ],
           },

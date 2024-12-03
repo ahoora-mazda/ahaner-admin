@@ -66,7 +66,6 @@ const CustomForm: React.FC<Form> = ({
     notSerialize,
     isProgress,
   });
-  console.log({ progress });
   const render = (element: FormElement, key: number) => {
     switch (element.type) {
       case "input":
@@ -218,6 +217,7 @@ const CustomForm: React.FC<Form> = ({
               value={watch(element.name)}
               readonly={element.readonly}
               error={errors[element.name]}
+              time={element.time}
             />
           </Wrapper>
         );
@@ -286,6 +286,9 @@ const CustomForm: React.FC<Form> = ({
                   },
                 }
               }
+              addPermission={element.addPermission}
+              onAdd={element.onAdd}
+              addInline={element.addInline}
             />
           </Wrapper>
         );
@@ -384,6 +387,8 @@ const CustomForm: React.FC<Form> = ({
                   },
                 }
               }
+              onAdd={element.onAdd}
+              addInline={element.addInline}
               help={element.help}
             />
           </Wrapper>
@@ -452,6 +457,7 @@ const CustomForm: React.FC<Form> = ({
               error={errors[element.name]}
               value={watch(element.name)}
               name={element.name}
+              index={key}
             />
           </Wrapper>
         );

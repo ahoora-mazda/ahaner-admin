@@ -5,8 +5,10 @@ const GroupList = () => {
     <>
       <CustomTable
         add="/group-create"
+        accessAdd={'admin_group_create'}
         title="لیست گروه ها"
         subTitle="گروه ها"
+        search={{}}
         api={{ route: "/groups" }}
         sort={(state) => {
           return {
@@ -23,8 +25,18 @@ const GroupList = () => {
           {
             key: "name",
             title: "عنوان",
-            // filterType: "input",
-            // keyFilter: "text",
+            sort: {
+              key: "name",
+            },
+            isSearchAble: true,
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",
@@ -35,13 +47,13 @@ const GroupList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/group-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_group_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/groups",
-                accessKey: "cheque_remove",
+                accessKey: "admin_group_delete",
               },
             ],
           },

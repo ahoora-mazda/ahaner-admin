@@ -19,7 +19,7 @@ const ProductCoreUpdate = () => {
       }}
       update
       notSerialize
-      accessUpdate={"dawdawd"}
+      accessUpdate={"admin_product_core_update"}
       cards={[
         {
           title: "اطلاعات محصول اصلی",

@@ -14,7 +14,7 @@ const UsefulLinkUpdate = () => {
         get: "/useful-links/:id",
         update: "/useful-links/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_useful_link_update"}
       onEnd={() => {
         navigate("/usefullinks-list");
       }}

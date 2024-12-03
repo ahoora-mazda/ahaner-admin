@@ -7,6 +7,7 @@ const GroupUpdate = () => {
   const navigate = useNavigate();
   return (
     <CustomForm
+    
       title="ایجاد گروه"
       btn={{ text: "ویرایش گروه" }}
       api={{
@@ -14,7 +15,7 @@ const GroupUpdate = () => {
         get: "/groups/:id",
         update: "/groups/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_group_update"}
       onEnd={() => {
         navigate("/group-list");
       }}

@@ -33,6 +33,7 @@ const CommentList = () => {
   return (
     <>
       <CustomTable
+        accessAdd={"admin_comment_create"}
         add="/comments-create"
         key={depend}
         title="لیست نظرات"
@@ -66,12 +67,27 @@ const CommentList = () => {
             title: "موبایل",
           },
           {
+            key: "rate",
+            title: "امتیاز",
+            sort: {
+              key: "rate",
+            },
+          },
+          {
             key: "status",
             title: "وضعیت",
             type: "enum",
             enum: {
               published: "فعال",
               pending: "غیر فعال",
+            },
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
             },
           },
 
@@ -84,18 +100,18 @@ const CommentList = () => {
                 title: "حذف",
                 type: "delete",
                 route: "/comments",
-                accessKey: "cheque_remove",
+                accessKey: "admin_comment_delete",
               },
               {
                 title: "ویرایش",
                 type: "edit",
                 route: "/comments-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_comment_read",
               },
               {
                 title: "تغییر وضعیت",
                 type: "custom",
-                accessKey: "",
+                accessKey: "admin_comment_update",
                 onClick: (id, data) => {
                   setId(+id);
                   setModal(true);
@@ -116,7 +132,8 @@ const CommentList = () => {
         }}
       >
         <h2 className="text-right mb-2">
-          آیا برای {status === "published" ? "رد نظر" : "تایید نظر"} مطمئن هستید؟
+          آیا برای {status === "published" ? "رد نظر" : "تایید نظر"} مطمئن
+          هستید؟
         </h2>
         <p className="text-xs text-right">
           {status === "published"

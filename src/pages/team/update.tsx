@@ -15,7 +15,7 @@ const TeamUpdate = () => {
         get: "/team-info/:id",
         update: "/team-info/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_team_info_update"}
       onEnd={() => {
         navigate("/team-list");
       }}

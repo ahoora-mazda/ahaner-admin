@@ -6,9 +6,11 @@ const FaqList = () => {
     <>
       <CustomTable
         add="/faq-create"
+        accessAdd={"admin_faq_create"}
         title="لیست سوالات متداول"
         subTitle="سوالات متداول"
         api={{ route: "/faqs" }}
+        search={{}}
         sort={(state) => {
           return {
             ...state,
@@ -24,6 +26,7 @@ const FaqList = () => {
           {
             key: "question",
             title: "سوال",
+            isSearchAble: true,
           },
           {
             key: "answer",
@@ -47,13 +50,13 @@ const FaqList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/faq-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_faq_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/faqs",
-                accessKey: "cheque_remove",
+                accessKey: "admin_faq_delete",
               },
             ],
           },

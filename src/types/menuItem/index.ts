@@ -13,5 +13,5 @@ export interface MenuitemProps {
   chipColor?: string;
   variant?: string;
   external?: boolean;
-  accessKey?: string[];
+  accessKey: string | string[];
 }

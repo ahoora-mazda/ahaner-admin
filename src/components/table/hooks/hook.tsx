@@ -1,20 +1,20 @@
+import { Checkbox } from "antd";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { usePermission } from "../../../hooks/usePermission";
 import { useQuery } from "../../../hooks/useQuery";
 import { API } from "../../../server";
 import { RootState } from "../../../store";
 import { Header } from "../../../types/table";
 import {
   combineImageUrl,
-  counter,
   renderMonth,
   renderPrice,
   toDate,
 } from "../../../utils/function";
 import ActionCell from "../components/actionCell";
-import { usePermission } from "../../../hooks/usePermission";
 import LongText from "../components/longText";
-import { Checkbox } from "antd";
+import HighlightedText from "../components/highlightedText";
 interface Props {
   api: {
     route: string;
@@ -52,7 +52,7 @@ export const useTable = ({ api, sortAllData }: Props) => {
       case "longText":
         return <LongText text={row[head.key]} />;
       case "_idx":
-        return id + 1;
+        return <>{id + 1}</>;
       case "checkbox":
         return (
           <Checkbox
@@ -77,7 +77,7 @@ export const useTable = ({ api, sortAllData }: Props) => {
         );
 
       default:
-        return row[head.key] || "ثبت نشده";
+        return <HighlightedText text={row[head.key]} />;
     }
   };
   const getData = async () => {

@@ -13,7 +13,7 @@ const UserUpdate = () => {
         get: "/users/:id",
         update: "/users/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_user_update"}
       onEnd={() => {
         navigate("/user-list");
       }}

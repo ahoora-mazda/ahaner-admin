@@ -1,10 +1,12 @@
 import CustomTable from "../../components/table";
 
 const HistoryLists = () => {
+  //
   return (
     <>
       <CustomTable
         add="/history-create"
+        accessAdd={"admin_product_price_history_create"}
         title="لیست تاریخچه قیمت"
         subTitle="تاریخچه قیمت"
         api={{ route: "/product-price-history" }}
@@ -29,11 +31,25 @@ const HistoryLists = () => {
             key: "price",
             title: "قیمت",
             type: "price",
+            sort: {
+              key: "price",
+            },
           },
           {
             key: "price_date",
             title: "تاریخ",
             type: "date",
+            sort: {
+              key: "price_date",
+            },
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",
@@ -44,13 +60,13 @@ const HistoryLists = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/history-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_product_price_history_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/product-price-history",
-                accessKey: "cheque_remove",
+                accessKey: "admin_product_price_history_delete",
               },
             ],
           },

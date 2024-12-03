@@ -5,10 +5,12 @@ const ProductList = () => {
     <>
       <CustomTable
         add="/product-create"
+        accessAdd={"admin_product_create"}
         title="لیست محصولات"
         subTitle="محصولات"
         api={{ route: "/products" }}
-        sort={state => {
+        search={{}}
+        sort={(state) => {
           return {
             ...state,
           };
@@ -23,10 +25,27 @@ const ProductList = () => {
           {
             key: "name",
             title: "عنوان",
+            filterType: "input",
+            sort: {
+              key: "name",
+            },
+            isSearchAble: true,
           },
           {
             key: "slug",
             title: "اسلاگ",
+            sort: {
+              key: "slug",
+            },
+            isSearchAble: true,
+          },
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
           },
           {
             key: "",
@@ -37,13 +56,13 @@ const ProductList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/product-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_product_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/products",
-                accessKey: "cheque_remove",
+                accessKey: "admin_product_delete",
               },
             ],
           },

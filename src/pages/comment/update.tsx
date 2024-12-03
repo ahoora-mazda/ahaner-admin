@@ -14,7 +14,7 @@ const CommentUpdate = () => {
         get: "/comments/:id",
         update: "/comments/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_comment_update"}
       onEnd={() => {
         navigate("/comments-list");
       }}

@@ -14,7 +14,7 @@ const HistoryUpdate = () => {
         get: "/product-price-history/:id",
         update: "/product-price-history/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_product_price_history_update"}
       onEnd={() => {
         navigate("/history-list");
       }}

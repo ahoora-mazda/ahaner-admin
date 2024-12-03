@@ -14,7 +14,7 @@ const HomeCategoryUpdate = () => {
         get: "/category-views/:id",
         update: "/category-views/:id",
       }}
-      accessUpdate={"permission_update"}
+      accessUpdate={"admin_category_view_update"}
       onEnd={() => {
         navigate("/home-category-list");
       }}

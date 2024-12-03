@@ -1,10 +1,10 @@
 import React from "react";
-import { Header } from "../../../types/table";
-import { useSearchParams } from "react-router-dom";
 import { ArrowDown, ArrowUp } from "tabler-icons-react";
-import SelectHead from "./selectHead";
-import SelectApiHead from "./SelectApiHead";
 import { useQuery } from "../../../hooks/useQuery";
+import { Header } from "../../../types/table";
+import SelectApiHead from "./SelectApiHead";
+import SelectHead from "./selectHead";
+import Sort from "./sort";
 interface HeadCellProps {
   head: Header;
 }
@@ -32,33 +32,6 @@ const HeadCell: React.FC<HeadCellProps> = ({ head }) => {
         return <SelectHead head={head} />;
       case "selectApi":
         return <SelectApiHead head={head} />;
-      case "sort":
-        return (
-          <div
-            className="h-[42px] flex items-center justify-center mt-2 cursor-pointer"
-            onClick={() => {
-              if (
-                !searchParams.get("orderby") ||
-                searchParams.get("orderby") === "desc"
-              ) {
-                changeObj("orderby", "asc");
-              } else {
-                changeObj("orderby", "desc");
-              }
-            }}
-          >
-            {!searchParams.get("orderby") ||
-            searchParams.get("orderby") === "desc" ? (
-              <>
-                <ArrowUp size={"1rem"} />
-              </>
-            ) : (
-              <>
-                <ArrowDown size={"1rem"} />
-              </>
-            )}
-          </div>
-        );
       default:
         return <div className="h-[42px] mt-2"></div>;
     }
@@ -66,7 +39,10 @@ const HeadCell: React.FC<HeadCellProps> = ({ head }) => {
   return (
     <th className="font-semibold  ">
       <div className="flex flex-col">
-        <p className="text-sm">{head.title}</p>
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-medium">{head.title}</span>
+          {head.sort && <Sort sort={head.sort} />}
+        </div>
         {render()}
       </div>
     </th>

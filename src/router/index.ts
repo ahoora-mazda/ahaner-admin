@@ -1,8 +1,5 @@
 import AuthLayout from "../layout/auth";
 import MainLayout from "../layout/main";
-import AdsCreate from "../pages/ads/create";
-import AdsLists from "../pages/ads/list";
-import AdsUpdate from "../pages/ads/update";
 import Login from "../pages/auth/login";
 import BlogCreate from "../pages/blogs/create";
 import BlogList from "../pages/blogs/list";
@@ -29,16 +26,11 @@ import HistoryUpdate from "../pages/history/update";
 import HomeCategoryCreate from "../pages/home/category/create";
 import HomeCategoryLists from "../pages/home/category/list";
 import HomeCategoryUpdate from "../pages/home/category/update";
-import DayPriceCreate from "../pages/home/dayPrices/create";
-import DayPriceList from "../pages/home/dayPrices/list";
-import DayPriceUpdate from "../pages/home/dayPrices/update";
 import MomentPriceCreate from "../pages/home/momentPrices/create";
 import MomentPriceList from "../pages/home/momentPrices/list";
 import MomentPriceUpdate from "../pages/home/momentPrices/update";
-import RecentPriceCreate from "../pages/home/recentPrices/create";
-import RecentPriceList from "../pages/home/recentPrices/list";
-import RecentPriceUpdate from "../pages/home/recentPrices/update";
 import ProductCreate from "../pages/product/create";
+import ProductInfo from "../pages/product/info";
 import ProductList from "../pages/product/list";
 import ProductUpdate from "../pages/product/update";
 import ProductCoreCreate from "../pages/productCore/create";
@@ -48,11 +40,11 @@ import Profile from "../pages/profile";
 import PropertyCreate from "../pages/property/create";
 import PropertyList from "../pages/property/list";
 import PropertyUpdate from "../pages/property/update";
+import RequestPrices from "../pages/requestPrices/list";
 import SettingPage from "../pages/settings";
 import TeamCreate from "../pages/team/create";
 import TeamList from "../pages/team/list";
 import TeamUpdate from "../pages/team/update";
-import TicketList from "../pages/ticket/list";
 import UsefulLinksCreate from "../pages/usefulLinks/create";
 import UsefulLinksList from "../pages/usefulLinks/list";
 import UsefulLinkUpdate from "../pages/usefulLinks/update";
@@ -99,18 +91,21 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/category-create",
+    accessKey: ["admin_category_create"],
   },
   {
     component: CategoriesList,
     user: true,
     layout: MainLayout,
     path: "/category-list",
+    accessKey: ["admin_categories_read"],
   },
   {
     component: CategoryUpdate,
     user: true,
     layout: MainLayout,
     path: "/category-list/:id",
+    accessKey: "admin_category_read",
   },
   // Category End
 
@@ -120,18 +115,21 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/blog-create",
+    accessKey: ["admin_blog_create"],
   },
   {
     component: BlogList,
     user: true,
     layout: MainLayout,
     path: "/blog-list",
+    accessKey: ["admin_blogs_read"],
   },
   {
     component: BlogUpdate,
     user: true,
     layout: MainLayout,
     path: "/blog-list/:id",
+    accessKey: ["admin_blog_read"],
   },
   // blog End
 
@@ -141,18 +139,21 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/faq-create",
+    accessKey: ["admin_faq_create"],
   },
   {
     component: FaqList,
     user: true,
     layout: MainLayout,
     path: "/faq-list",
+    accessKey: ["admin_faqs_read"],
   },
   {
     component: FaqUpdate,
     user: true,
     layout: MainLayout,
     path: "/faq-list/:id",
+    accessKey: ["admin_faq_read"],
   },
   // faq End
 
@@ -162,41 +163,23 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/group-create",
+    accessKey: ["admin_group_create"],
   },
   {
     component: GroupList,
     user: true,
     layout: MainLayout,
     path: "/group-list",
+    accessKey: ["admin_groups_read"],
   },
   {
     component: GroupUpdate,
     user: true,
     layout: MainLayout,
     path: "/group-list/:id",
+    accessKey: ["admin_group_read"],
   },
   // Group End
-
-  // Ads Start
-  {
-    component: AdsCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/ads-create",
-  },
-  {
-    component: AdsLists,
-    user: true,
-    layout: MainLayout,
-    path: "/ads-list",
-  },
-  {
-    component: AdsUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/ads-list/:id",
-  },
-  // Ads End
 
   // Products Start
   {
@@ -204,18 +187,21 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/product-create",
+    accessKey: ["admin_product_create"],
   },
   {
     component: ProductList,
     user: true,
     layout: MainLayout,
     path: "/product-list",
+    accessKey: ["admin_products_read"],
   },
   {
     component: ProductUpdate,
     user: true,
     layout: MainLayout,
     path: "/product-list/:id",
+    accessKey: ["admin_product_read", "admin_product_price_history_read"],
   },
   // Products End
   // Headers Start
@@ -224,31 +210,23 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/header-create",
+    accessKey: ["admin_header_create"],
   },
   {
     component: HeaderLists,
     user: true,
     layout: MainLayout,
     path: "/header-list",
+    accessKey: ["admin_headers_read"],
   },
   {
     component: HeaderUpdate,
     user: true,
     layout: MainLayout,
     path: "/header-list/:id",
+    accessKey: ["admin_header_read"],
   },
   // Headers End
-
-  // Ticket Start
-
-  {
-    component: TicketList,
-    user: true,
-    layout: MainLayout,
-    path: "/ticket-list",
-  },
-
-  // Ticket End
 
   // Comment Start
   {
@@ -256,18 +234,22 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/comments-create",
+    accessKey: ["admin_comment_create"],
   },
   {
     component: CommentList,
     user: true,
     layout: MainLayout,
     path: "/comments-list",
+    accessKey: ["admin_comments_read"],
   },
   {
     component: CommentUpdate,
     user: true,
     layout: MainLayout,
     path: "/comments-list/:id",
+
+    accessKey: ["admin_comment_read"],
   },
 
   // Comment End
@@ -278,6 +260,7 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/settings",
+    accessKey: ["admin_settings_read"],
   },
   // Settings End
 
@@ -287,18 +270,21 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/user-create",
+    accessKey: ["admin_user_create"],
   },
   {
     component: UserList,
     user: true,
     layout: MainLayout,
     path: "/user-list",
+    accessKey: ["admin_users_read"],
   },
   {
     component: UserUpdate,
     user: true,
     layout: MainLayout,
     path: "/user-list/:id",
+    accessKey: ["admin_user_read"],
   },
   // Users Page End
   // Teams Page Start
@@ -307,11 +293,13 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/team-create",
+    accessKey: ["admin_team_info_create"],
   },
   {
     component: TeamList,
     user: true,
     layout: MainLayout,
+    accessKey: ["admin_team_infos_read"],
     path: "/team-list",
   },
   {
@@ -319,6 +307,7 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/team-list/:id",
+    accessKey: ["admin_team_info_read"],
   },
   // Teams Page End
   // property Start
@@ -327,17 +316,20 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/property-create",
+    accessKey: ["admin_property_create"],
   },
   {
     component: PropertyList,
     user: true,
     layout: MainLayout,
     path: "/property-list",
+    accessKey: ["admin_properties_read"],
   },
   {
     component: PropertyUpdate,
     user: true,
     layout: MainLayout,
+    accessKey: ["admin_property_read"],
     path: "/property-list/:id",
   },
   // property End
@@ -347,98 +339,67 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/usefullinks-create",
+    accessKey: ["admin_useful_link_create"],
   },
   {
     component: UsefulLinksList,
     user: true,
     layout: MainLayout,
     path: "/usefullinks-list",
+    accessKey: ["admin_useful_links_read"],
   },
   {
     component: UsefulLinkUpdate,
     user: true,
     layout: MainLayout,
     path: "/usefullinks-list/:id",
+    accessKey: ["admin_useful_link_read"],
   },
   // usefullinks End
-  // Day Prices Start
-  {
-    component: DayPriceCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/home_dayPrices-create",
-  },
-  {
-    component: DayPriceList,
-    user: true,
-    layout: MainLayout,
-    path: "/home_dayPrices-list",
-  },
-  {
-    component: DayPriceUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/home_dayPrices-list/:id",
-  },
-  // Day Prices End
   // Moment Prices Start
   {
     component: MomentPriceCreate,
     user: true,
     layout: MainLayout,
     path: "/home_momentPrices-create",
+    accessKey: "admin_moment_price_create",
   },
   {
     component: MomentPriceList,
     user: true,
     layout: MainLayout,
     path: "/home_momentPrices-list",
+    accessKey: "admin_moment_prices_read",
   },
   {
     component: MomentPriceUpdate,
     user: true,
     layout: MainLayout,
+    accessKey: "admin_moment_price_read",
     path: "/home_momentPrices-list/:id",
   },
   // Moment Prices End
-  // Recent Prices Start
-  {
-    component: RecentPriceCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/home_recentPrices-create",
-  },
-  {
-    component: RecentPriceList,
-    user: true,
-    layout: MainLayout,
-    path: "/home_recentPrices-list",
-  },
-  {
-    component: RecentPriceUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/home_recentPrices-list/:id",
-  },
-  // Recent Prices End
   // Recent Prices Start
   {
     component: HistoryCreate,
     user: true,
     layout: MainLayout,
     path: "/history-create",
+    accessKey: "admin_product_price_history_create",
   },
   {
     component: HistoryLists,
     user: true,
     layout: MainLayout,
     path: "/history-list",
+    accessKey: ["admin_product_price_histories_read"],
   },
   {
     component: HistoryUpdate,
     user: true,
     layout: MainLayout,
     path: "/history-list/:id",
+    accessKey: ["admin_product_price_history_read"],
   },
   // Recent Prices End
   // Recent Prices Start
@@ -447,18 +408,21 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/home-category-create",
+    accessKey: "admin_category_view_create",
   },
   {
     component: HomeCategoryLists,
     user: true,
     layout: MainLayout,
     path: "/home-category-list",
+    accessKey: "admin_category_views_read",
   },
   {
     component: HomeCategoryUpdate,
     user: true,
     layout: MainLayout,
     path: "/home-category-list/:id",
+    accessKey: "admin_category_view_read",
   },
   // Recent Prices End
   // ProductCoreCreate Start
@@ -467,18 +431,21 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/product-core-create",
+    accessKey: "admin_product_core_create",
   },
   {
     component: ProductCoreList,
     user: true,
     layout: MainLayout,
     path: "/product-core-list",
+    accessKey: "admin_product_cores_read",
   },
   {
     component: ProductCoreUpdate,
     user: true,
     layout: MainLayout,
     path: "/product-core-list/:id",
+    accessKey: "admin_product_core_read",
   },
   // ProductCoreCreate End
   // Recent Prices Start
@@ -487,11 +454,13 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/videos-create",
+    accessKey: "admin_video_create",
   },
   {
     component: VideoList,
     user: true,
     layout: MainLayout,
+    accessKey: "admin_videos_read",
     path: "/videos-list",
   },
   {
@@ -499,6 +468,14 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/videos-list/:id",
+    accessKey: "admin_video_read",
   },
   // Recent Prices End
+  {
+    component: RequestPrices,
+    user: true,
+    layout: MainLayout,
+    path: "/request-prices-list",
+    accessKey: "admin_price_requests_read",
+  },
 ];

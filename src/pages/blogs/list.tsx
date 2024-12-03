@@ -5,12 +5,15 @@ const BlogList = () => {
     <>
       <CustomTable
         add="/blog-create"
+        accessAdd={"admin_blog_create"}
         title="لیست مقالات"
         subTitle="مقالات"
         api={{ route: "/blog" }}
+        search={{}}
         sort={(state) => {
           return {
             ...state,
+            views: state.views || "0",
           };
         }}
         headers={[
@@ -28,16 +31,31 @@ const BlogList = () => {
           {
             key: "title",
             title: "عنوان",
+            sort: {
+              key: "title",
+            },
+            isSearchAble: true,
           },
           {
             key: "slug",
             title: "slug",
+            isSearchAble: true,
           },
           {
-            key: "short_content",
-            title: "توضیحات",
+            key: "views",
+            title: "تعداد مشاهده",
+            sort: {
+              key: "views",
+            },
           },
-
+          {
+            key: "created_at",
+            title: "تاریخ ایجاد",
+            type: "date",
+            sort: {
+              key: "date",
+            },
+          },
           {
             key: "",
             title: "عملیات",
@@ -47,13 +65,13 @@ const BlogList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/blog-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_blog_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/blog",
-                accessKey: "cheque_remove",
+                accessKey: "admin_blog_delete",
               },
             ],
           },

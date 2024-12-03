@@ -7,10 +7,9 @@ const HeaderLists = () => {
         add="/header-create"
         title="لیست هدر"
         subTitle="هدر"
-        api={{ route: "/category-views?view_type=header" }}
+        api={{ route: "/headers" }}
         sort={(state) => {
           return {
-            ...state.Category,
             ...state,
           };
         }}
@@ -22,17 +21,13 @@ const HeaderLists = () => {
             filterType: "sort",
           },
           {
-            key: "name",
+            key: "title",
             title: "عنوان",
           },
-          // {
-          //   key: "link",
-          //   title: "لینک",
-          // },
-          // {
-          //   key: "parent",
-          //   title: "والد",
-          // },
+          {
+            key: "url",
+            title: "آدرس",
+          },
           {
             key: "",
             title: "عملیات",
@@ -42,13 +37,13 @@ const HeaderLists = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/header-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_header_read",
               },
               {
                 title: "حذف",
                 type: "delete",
-                route: "/category-views",
-                accessKey: "cheque_remove",
+                route: "/headers",
+                accessKey: "admin_header_delete",
               },
             ],
           },

@@ -10,7 +10,7 @@ const MomentPriceUpdate = () => {
         navigate("/home_momentPrices-list");
       }}
       update
-      accessUpdate={"dwad"}
+      accessUpdate={"admin_moment_price_update"}
       title="ویرایش قیمت لحظه ای و رقابتی"
       btn={{ text: "ویرایش قیمت لحظه ای و رقابتی" }}
       api={{
