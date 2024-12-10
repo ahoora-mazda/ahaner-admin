@@ -38,7 +38,8 @@ const UsefulLinksCreate = () => {
           name: "url",
           validation: yup.string().required("آدرس اجباری است"),
           type: "input",
-          cardKey: "1",
+            ltr: true,
+            cardKey: "1",
           col: "col-span-12",
         },
         {

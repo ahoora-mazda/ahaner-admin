@@ -32,30 +32,10 @@ body {
 
 .card-wrapper-shadow {
   box-shadow: rgb(145 158 171 / 30%) 0px 0px 2px 0px,
-    rgb(145 158 171 / 12%) 0px 12px 24px -4px;
+    rgb(145 158 171 / 12%) 0px 12px 22px -4px;
   background-image: none;
 }
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-* {
-  scrollbar-width: auto;
-  scrollbar-color: #5d87ff #ffffff;
-}
 
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 9px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #ffffff;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #5d87ff;
-  border-radius: 10px;
-  border: 3px solid #ffffff;
-}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -63,4 +43,23 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 input:read-only {
   opacity: 0.8;
+}
+
+
+::-webkit-scrollbar {
+  height: 5px; /* ارتفاع اسکرول‌بار در محور X */
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc; /* رنگ دسته اسکرول‌بار */
+  border-radius: 4px; /* گوشه‌های گرد */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent; /* رنگ دسته هنگام هاور */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* رنگ پس‌زمینه اسکرول‌بار */
 }

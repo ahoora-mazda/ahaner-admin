@@ -62,18 +62,18 @@ const SettingPage = () => {
             api: {
               keys: ["products"],
               sort: (state) => {
-                return state.products;
+                return state.products.map((ele : any) => {
+                  return {...ele, label : `${ele.label} - ${ele?.Group?.name}`};
+                });
               },
             },
             cardKey: "1",
-            validation: yup.string().required("محصول صفحه اصلی اجباری است"),
             col: "col-span-12",
           },
           {
             name: "phone",
             label: "تلفن تماس مشاوره",
             type: "input",
-            validation: yup.string().required("عنوان اجباری است"),
             cardKey: "1",
             col: "col-span-12",
           },
@@ -81,7 +81,6 @@ const SettingPage = () => {
             name: "sub_phone",
             type: "input",
             label: "تلفن تماس اعلام قیمت",
-            validation: yup.string().required("عنوان اجباری است"),
             col: "col-span-12",
             cardKey: "1",
           },
@@ -89,7 +88,6 @@ const SettingPage = () => {
             name: "address",
             label: "آدرس",
             type: "input",
-            validation: yup.string().required("عنوان اجباری است"),
             cardKey: "1",
             col: "col-span-12",
           },
@@ -108,6 +106,7 @@ const SettingPage = () => {
                 (value) => !value || /^https:\/\/t\.me\/.+/.test(value) // فقط بررسی شود اگر مقدار وجود داشته باشد
               ),
             col: "col-span-12",
+            ltr: true,
             cardKey: "1",
           },
           {
@@ -126,6 +125,7 @@ const SettingPage = () => {
                   !value || /^https:\/\/(www\.)?instagram\.com\/.+/.test(value)
               ),
             col: "col-span-12",
+            ltr: true,
             cardKey: "1",
           },
           {
@@ -143,6 +143,7 @@ const SettingPage = () => {
                 (value) => !value || /^https:\/\/wa\.me\/\d+/.test(value)
               ),
             col: "col-span-12",
+            ltr: true,
             cardKey: "1",
           },
           {
@@ -161,6 +162,7 @@ const SettingPage = () => {
                   !value || /^https:\/\/(www\.)?facebook\.com\/.+/.test(value)
               ),
             col: "col-span-12",
+            ltr: true,
             cardKey: "1",
           },
           {
@@ -180,12 +182,12 @@ const SettingPage = () => {
               ),
             col: "col-span-12",
             cardKey: "1",
+            ltr: true,
           },
           {
             name: "about_footer",
             label: "درباره آهن یکتا فوتر",
             type: "textarea",
-            validation: yup.string().required("عنوان اجباری است"),
             col: "col-span-12",
             cardKey: "1",
           },
@@ -193,7 +195,6 @@ const SettingPage = () => {
             name: "copyright",
             label: "متن کپی رایت",
             type: "textarea",
-            validation: yup.string().required("عنوان اجباری است"),
             col: "col-span-12",
             cardKey: "1",
           },
@@ -201,7 +202,6 @@ const SettingPage = () => {
             name: "about_us",
             label: "درباره ما",
             type: "editor",
-            validation: yup.string().required("عنوان اجباری است"),
             col: "col-span-12",
             cardKey: "1",
           },

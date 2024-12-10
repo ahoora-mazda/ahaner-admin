@@ -68,28 +68,6 @@ export const groupCreateForm: Form = {
       cardKey: "1",
       col: "col-span-12",
     },
-    {
-      name: "seo_title",
-      label: "عنوان صفحه",
-      type: "input",
-      cardKey: "1",
-      col: "col-span-12",
-    },
-    {
-      name: "seo_description",
-      label: "توضیحات صفحه",
-      type: "textarea",
-      cardKey: "1",
-      col: "col-span-12",
-    },
-
-    {
-      name: "seo_schema",
-      label: "schema",
-      cardKey: "1",
-      type: "textarea",
-      col: "col-span-12",
-    },
   ],
 };
 const GroupCreate = () => {

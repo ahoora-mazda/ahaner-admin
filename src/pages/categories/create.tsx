@@ -43,6 +43,7 @@ export const categoryCreateForm: Form = {
       name: "slug",
       validation: yup.string().required("اسلاگ اجباری است"),
       type: "input",
+      ltr: true,
       cardKey: "1",
       col: "col-span-12 md:col-span-6",
       help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
@@ -98,9 +99,16 @@ export const categoryCreateForm: Form = {
     {
       type: "fileUploader",
       cardKey: "1",
-      validation: yup.mixed().required("تصویر اجباری است"),
+      // validation: yup.mixed().required("تصویر اجباری است"),
       name: "image",
       label: "تصویر",
+      col: "col-span-12",
+    },
+    {
+      type: "checkbox",
+      name: "seoNeed",
+      label: "ساخت اسکیما",
+      cardKey: "1",
       col: "col-span-12",
     },
     {
@@ -108,13 +116,20 @@ export const categoryCreateForm: Form = {
       label: "عنوان صفحه",
       type: "input",
       cardKey: "1",
+      validation: yup.string().when("seoNeed", {
+        is: true,
+        then: () => yup.string().required("عنوان اجباری است"),
+      }),
+
       col: "col-span-12",
+      exists: { keys: ["seoNeed"] },
     },
     {
       name: "seo_description",
       label: "توضیحات صفحه",
       type: "textarea",
       cardKey: "1",
+      exists: { keys: ["seoNeed"] },
       col: "col-span-12",
     },
 
@@ -123,6 +138,7 @@ export const categoryCreateForm: Form = {
       label: "schema",
       cardKey: "1",
       type: "textarea",
+      exists: { keys: ["seoNeed"] },
       col: "col-span-12",
     },
   ],

@@ -14,6 +14,7 @@ const Input = ({
   onEnter,
   onChange = (e) => {},
   help,
+  ltr,
 }: InputProps) => {
   const variants = {
     open: { opacity: 1, y: 0 },
@@ -48,6 +49,7 @@ const Input = ({
             onEnter();
           }
         }}
+        style={{ direction: ltr ? "ltr" : "rtl" }}
       />
       {help && (
         <small className="flex items-center gap-2 mt-2">

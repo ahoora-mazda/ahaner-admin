@@ -74,6 +74,8 @@ const CustomForm: React.FC<Form> = ({
             col={element.col}
             classNames={element.wrapperClassName}
             key={key}
+            exists={element.exists}
+            watch={watch}
           >
             <Input
               {...(element.validation?.required
@@ -94,6 +96,7 @@ const CustomForm: React.FC<Form> = ({
                 }
               }}
               help={element.help}
+              ltr={element.ltr}
             />
           </Wrapper>
         );
@@ -228,6 +231,8 @@ const CustomForm: React.FC<Form> = ({
             col={element.col}
             classNames={element.wrapperClassName}
             key={key}
+            exists={element.exists}
+            watch={watch}
           >
             <TextArea
               {...(element.validation?.required

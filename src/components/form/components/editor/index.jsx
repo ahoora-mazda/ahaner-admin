@@ -116,7 +116,8 @@ export default function Editor({
 
   const editorConfig = {
     extraPlugins: [uploadPlugin],
-
+    contentsLangDirection: "rtl",
+    language : "fa",
     toolbar: {
       items: [
         "undo",
@@ -304,7 +305,7 @@ export default function Editor({
         reversed: true,
       },
     },
-    placeholder: "Type or paste your content here!",
+    placeholder: "",
     style: {
       definitions: [
         {

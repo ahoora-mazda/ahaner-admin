@@ -177,7 +177,7 @@ const CustomTable: React.FC<TableProps> = ({
                     </Tooltip>
                   )}
 
-                  {typeof add === "string" && check("accessAdd") && (
+                  {typeof add === "string" && check(accessAdd || "") && (
                     <Tooltip
                       trigger={["hover", "focus"]}
                       title="افزودن ردیف جدید"

@@ -42,6 +42,7 @@ const HeaderCreate = () => {
             type: "input",
             cardKey: "1",
             col: "col-span-12",
+            ltr: true,
           },
           {
             label: "ترتیب",
@@ -62,6 +63,14 @@ const HeaderCreate = () => {
             },
             col: "col-span-12",
             cardKey: "1",
+          },
+          {
+            type: "fileUploader",
+            cardKey: "1",
+            // validation: yup.mixed().required("تصویر اجباری است"),
+            name: "image",
+            label: "تصویر",
+            col: "col-span-12",
           },
         ]}
       />

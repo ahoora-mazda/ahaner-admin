@@ -84,6 +84,7 @@ const ProductCreate = () => {
             name: "slug",
             validation: yup.string().required("اسلاگ اجباری است"),
             type: "input",
+            ltr: true,
             cardKey: "1",
             help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
             col: "col-span-12 md:col-span-6",
@@ -169,6 +170,43 @@ const ProductCreate = () => {
             name: "show_in_homepage",
             label: "مشاهده در صفحه اصلی",
             cardKey: "1",
+            col: "col-span-12",
+          },
+          {
+            type: "checkbox",
+            name: "seoNeed",
+            label: "ساخت اسکیما",
+            cardKey: "1",
+            col: "col-span-12",
+          },
+          {
+            name: "seo_title",
+            label: "عنوان صفحه",
+            type: "input",
+            cardKey: "1",
+            validation: yup.string().when("seoNeed", {
+              is: true,
+              then: () => yup.string().required("عنوان اجباری است"),
+            }),
+
+            col: "col-span-12",
+            exists: { keys: ["seoNeed"] },
+          },
+          {
+            name: "seo_description",
+            label: "توضیحات صفحه",
+            type: "textarea",
+            cardKey: "1",
+            exists: { keys: ["seoNeed"] },
+            col: "col-span-12",
+          },
+
+          {
+            name: "seo_schema",
+            label: "schema",
+            cardKey: "1",
+            type: "textarea",
+            exists: { keys: ["seoNeed"] },
             col: "col-span-12",
           },
           {

@@ -56,6 +56,7 @@ const BlogCreate = () => {
             label: "اسلاگ",
             name: "slug",
             validation: yup.string().required("اسلاگ اجباری است"),
+            ltr: true,
             type: "input",
             cardKey: "1",
             col: "col-span-12 md:col-span-6",

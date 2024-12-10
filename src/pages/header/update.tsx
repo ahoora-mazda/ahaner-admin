@@ -54,6 +54,7 @@ const HeaderUpdate = () => {
           name: "url",
           validation: yup.string().required("آدرس اجباری است"),
           type: "input",
+          ltr: true,
           cardKey: "1",
           col: "col-span-12",
         },
@@ -76,6 +77,14 @@ const HeaderUpdate = () => {
           },
           col: "col-span-12",
           cardKey: "1",
+        },
+        {
+          type: "fileUploader",
+          cardKey: "1",
+          // validation: yup.mixed().required("تصویر اجباری است"),
+          name: "image",
+          label: "تصویر",
+          col: "col-span-12",
         },
       ]}
     />

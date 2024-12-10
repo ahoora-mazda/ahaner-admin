@@ -53,7 +53,8 @@ const CategoryUpdate = () => {
           name: "slug",
           validation: yup.string().required("اسلاگ اجباری است"),
           type: "input",
-          cardKey: "1",
+            ltr: true,
+            cardKey: "1",
           col: "col-span-12 md:col-span-6",
           help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
         },
@@ -108,17 +109,31 @@ const CategoryUpdate = () => {
           col: "col-span-12",
         },
         {
+          type: "checkbox",
+          name: "seoNeed",
+          label: "ساخت اسکیما",
+          cardKey: "1",
+          col: "col-span-12",
+        },
+        {
           name: "seo_title",
           label: "عنوان صفحه",
           type: "input",
           cardKey: "1",
+          validation: yup.string().when("seoNeed", {
+            is: true,
+            then: () => yup.string().required("عنوان اجباری است"),
+          }),
+
           col: "col-span-12",
+          exists: { keys: ["seoNeed"] },
         },
         {
           name: "seo_description",
           label: "توضیحات صفحه",
           type: "textarea",
           cardKey: "1",
+          exists: { keys: ["seoNeed"] },
           col: "col-span-12",
         },
 
@@ -127,6 +142,7 @@ const CategoryUpdate = () => {
           label: "schema",
           cardKey: "1",
           type: "textarea",
+          exists: { keys: ["seoNeed"] },
           col: "col-span-12",
         },
       ]}

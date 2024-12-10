@@ -40,6 +40,7 @@ export const productCorCreateForm: Form = {
       validation: yup.string().required("اسلاگ اجباری است"),
       type: "input",
       cardKey: "1",
+      ltr: true,
       help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
       col: "col-span-12 md:col-span-6",
     },

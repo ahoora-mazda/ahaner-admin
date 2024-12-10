@@ -35,7 +35,7 @@ const GroupUpdate = () => {
       sortGet={(state) => {
         return {
           ...state,
-          category_id: state?.category?.map((c: any) => c.id),
+          category_id: state?.Category?.id,
         };
       }}
       notSerialize

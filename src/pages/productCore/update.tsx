@@ -48,6 +48,7 @@ const ProductCoreUpdate = () => {
           name: "slug",
           validation: yup.string().required("اسلاگ اجباری است"),
           type: "input",
+          ltr: true,
           cardKey: "1",
           help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
           col: "col-span-12 md:col-span-6",
