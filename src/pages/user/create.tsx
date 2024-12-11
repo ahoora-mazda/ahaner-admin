@@ -33,10 +33,12 @@ export const userCreateForm: Form = {
       type: "input",
       cardKey: "1",
       col: "col-span-12 md:col-span-6",
+    
       validation: yup
         .string()
         .email("ایمیل صحیح نیست")
-        .required("ایمیل اجباری است"),
+        .nullable().optional()
+        // .required("ایمیل اجباری است"),
     },
     {
       name: "mobile",

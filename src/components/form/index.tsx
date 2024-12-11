@@ -67,6 +67,7 @@ const CustomForm: React.FC<Form> = ({
     isProgress,
   });
   const render = (element: FormElement, key: number) => {
+
     switch (element.type) {
       case "input":
         return (
@@ -77,8 +78,9 @@ const CustomForm: React.FC<Form> = ({
             exists={element.exists}
             watch={watch}
           >
+
             <Input
-              {...(element.validation?.required
+              {...(element.validation?.required && !element?.validation?.spec?.nullable
                 ? {
                     optional: false,
                   }

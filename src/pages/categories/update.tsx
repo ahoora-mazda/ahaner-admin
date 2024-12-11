@@ -81,7 +81,7 @@ const CategoryUpdate = () => {
           type: "multiSelectApi",
           label: "ویژگی ها",
           name: "properties",
-          validation: yup.mixed().required("ویژگی ها اجباری است"),
+          validation: yup.mixed().nullable(),
           api: {
             keys: ["properties"],
             sort: (state) => {
