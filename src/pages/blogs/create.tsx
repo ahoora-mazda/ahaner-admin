@@ -34,12 +34,8 @@ const BlogCreate = () => {
         ]}
         sortUpdate={(state) => {
           return {
+            reading_time: +state.reading_time,
             ...state,
-            seo: {
-              title: state.title_s,
-              description: state.desc_s,
-              schema: state.schema,
-            },
           };
         }}
         isProgress
@@ -63,7 +59,7 @@ const BlogCreate = () => {
           },
           {
             label: "زمان خواندن",
-            name: "time",
+            name: "reading_time",
             validation: yup.string().required("زمان خواندن اجباری است"),
             type: "input",
             cardKey: "1",
@@ -128,24 +124,40 @@ const BlogCreate = () => {
             route: "/blogs/upload",
           },
           {
-            label: "عنوان سئو",
-            name: "title_s",
+            type: "checkbox",
+            name: "seoNeed",
+            label: "ساخت اسکیما",
+            cardKey: "1",
+            col: "col-span-12",
+          },
+          {
+            name: "seo_title",
+            label: "عنوان صفحه",
             type: "input",
             cardKey: "1",
+            validation: yup.string().when("seoNeed", {
+              is: true,
+              then: () => yup.string().required("عنوان اجباری است"),
+            }),
+
             col: "col-span-12",
+            exists: { keys: ["seoNeed"] },
           },
           {
-            label: "توضیحات سئو",
-            name: "desc_s",
+            name: "seo_description",
+            label: "توضیحات صفحه",
             type: "textarea",
             cardKey: "1",
+            exists: { keys: ["seoNeed"] },
             col: "col-span-12",
           },
+
           {
+            name: "seo_schema",
             label: "schema",
-            name: "schema",
-            type: "textarea",
             cardKey: "1",
+            type: "textarea",
+            exists: { keys: ["seoNeed"] },
             col: "col-span-12",
           },
         ]}

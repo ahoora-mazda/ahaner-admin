@@ -29,7 +29,6 @@ const CommentList = () => {
       setId(0);
     }
   };
-  console.log({ status });
   return (
     <>
       <CustomTable

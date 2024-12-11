@@ -90,16 +90,13 @@ export const useTable = ({ api, sortAllData }: Props) => {
           ...getQueryParams(window.location),
         },
       });
-      console.log({ data });
       if (typeof sortAllData == "function") {
         setTable(sortAllData(data.data));
       } else {
         setTable(data.data);
       }
       setLoading({ get: false, inner: false });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

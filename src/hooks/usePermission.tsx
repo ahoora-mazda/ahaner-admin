@@ -19,7 +19,6 @@ export const usePermission = () => {
         isAccess = true;
       }
     }
-    console.log({ isAccess, permissions });
     return isAccess;
   };
 

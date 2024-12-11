@@ -95,7 +95,6 @@ export default function Editor({
           loader.file.then((file) => {
             API.post(UPLOAD_ENDPOINT, convertToFormData({ image: file }))
               .then((res) => {
-                console.log("sakan", res);
                 if (res?.data?.data) {
                   resolve({ default: combineImageUrl(res.data?.data?.url) });
                 }
@@ -392,7 +391,6 @@ export default function Editor({
                   onChange={(event, editor) => {
                     const data = editor.getData();
                     if (onChange) {
-                      console.log({ data });
                       onChange(data || "");
                     }
                   }}

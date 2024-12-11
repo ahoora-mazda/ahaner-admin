@@ -73,7 +73,14 @@ const ProductCreate = () => {
                   return { name: p.Property?.name, id: p.id, value: p.value };
                 })
               );
-              return { ...state };
+              return {
+                ...state,
+
+                seoNeed: state.seo_id ? true : false,
+                seo_title: state?.Seo_Datum?.title,
+                seo_description: state?.Seo_Datum?.description,
+                seo_schema: state?.Seo_Datum?.schema,
+              };
             }}
             notSerialize
             elements={[

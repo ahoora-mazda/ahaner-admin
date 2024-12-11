@@ -19,7 +19,6 @@ API.interceptors.request.use(
     if (_userJson) {
       _user = JSON.parse(_userJson);
     }
-    console.log({ _user });
     if (_user?.token) config.headers.Authorization = `Bearer ${_user?.token}`;
     return config;
   },
@@ -34,7 +33,6 @@ API.interceptors.response.use(
     return response;
   },
   function (error) {
-    console.log(error.code);
     if (error?.response?.status === 401) {
       Cookie.remove("user");
       window.location.replace("/login");

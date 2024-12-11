@@ -82,28 +82,7 @@ const GroupUpdate = () => {
           cardKey: "1",
           col: "col-span-12",
         },
-        {
-          name: "title_seo",
-          label: "عنوان صفحه",
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-        {
-          name: "description_seo",
-          label: "توضیحات صفحه",
-          type: "textarea",
-          cardKey: "1",
-          col: "col-span-12",
-        },
-
-        {
-          name: "schema",
-          label: "schema",
-          cardKey: "1",
-          type: "textarea",
-          col: "col-span-12",
-        },
+    
       ]}
     />
   );

@@ -31,7 +31,6 @@ export const usePost = ({
             const percentCompleted = Math.round(
               (progressEvent.loaded * 100) / progressEvent.total
             );
-            console.log({ percentCompleted });
             setUploadProgress(percentCompleted);
           }
         },
@@ -48,7 +47,6 @@ export const usePost = ({
       setForm({});
       setLoading({ ...loading, send: false });
     } catch (error: any) {
-      console.log("er", error);
       errorAction(error, body);
       if (error?.response?.data) {
         setError(error?.response?.data.errors);

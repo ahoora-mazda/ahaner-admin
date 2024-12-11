@@ -32,7 +32,6 @@ const Login = () => {
     redirect: {
       status: true,
       action: (data) => {
-        console.log({ data });
         navigate("/");
         dispatch(
           login({ token: data.token, permissions: data.Role.Permissions })
@@ -40,7 +39,6 @@ const Login = () => {
       },
     },
     setError: (ob) => {
-      console.log({ ob });
       if (ob) {
         Object.keys(ob).forEach((key) => {
           setError(key, { message: ob[key][0] });

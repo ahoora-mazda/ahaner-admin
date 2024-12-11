@@ -216,7 +216,6 @@ export const isExists = (watch: any, keys: string[]) => {
   return valid;
 };
 export const taxCalc = (tax: string | number, value: string | number) => {
-  console.log({ tax });
   if (tax) {
     return Math.ceil(+value - +value * (+tax / 100));
   }

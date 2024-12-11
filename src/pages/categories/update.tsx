@@ -32,10 +32,11 @@ const CategoryUpdate = () => {
       sortGet={(state) => {
         return {
           ...state,
+          seoNeed: state.seo_id ? true : false,
           properties: state.Properties.map((p: any) => p.id),
-          seo_title: state?.SeoDatum?.title,
-          seo_description: state?.SeoDatum?.description,
-          seo_schema: state?.SeoDatum?.schema,
+          seo_title: state?.Seo_Datum?.title,
+          seo_description: state?.Seo_Datum?.description,
+          seo_schema: state?.Seo_Datum?.schema,
         };
       }}
       update={true}
@@ -53,8 +54,8 @@ const CategoryUpdate = () => {
           name: "slug",
           validation: yup.string().required("اسلاگ اجباری است"),
           type: "input",
-            ltr: true,
-            cardKey: "1",
+          ltr: true,
+          cardKey: "1",
           col: "col-span-12 md:col-span-6",
           help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
         },

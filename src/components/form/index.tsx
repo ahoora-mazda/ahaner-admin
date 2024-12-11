@@ -498,7 +498,6 @@ const CustomForm: React.FC<Form> = ({
         break;
     }
   };
-  console.log("ds", btn?.hidden);
   let btnForm = update ? (
     accessUpdate &&
     check(accessUpdate) &&

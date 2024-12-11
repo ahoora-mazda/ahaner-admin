@@ -20,6 +20,7 @@ const HistoryUpdate = () => {
       }}
       sortGet={(state) => {
         return {
+          
           ...state,
         };
       }}
@@ -64,6 +65,7 @@ const HistoryUpdate = () => {
           type: "datePicker",
           cardKey: "1",
           col: "col-span-12",
+          time: true,
         },
       ]}
     />
