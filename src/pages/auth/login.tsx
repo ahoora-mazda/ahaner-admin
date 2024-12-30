@@ -23,7 +23,7 @@ const Login = () => {
     formState: { errors },
   } = useForm<AuthProps>({
     resolver: yupResolver(schema),
-    defaultValues: { mobile: "09155519848", password: "123456" },
+    // defaultValues: { mobile: "09155519848", password: "123456" },
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
