@@ -35,6 +35,8 @@ const BlogCreate = () => {
         sortUpdate={(state) => {
           return {
             reading_time: +state.reading_time,
+            suggest: state.suggest ? 1 : 0,
+
             ...state,
           };
         }}
@@ -122,6 +124,13 @@ const BlogCreate = () => {
             cardKey: "1",
             col: "col-span-12",
             route: "/blogs/upload",
+          },
+          {
+            type: "checkbox",
+            name: "suggest",
+            label: "پیشنهاد سردبیر",
+            cardKey: "1",
+            col: "col-span-12",
           },
           {
             type: "checkbox",

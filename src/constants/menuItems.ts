@@ -6,6 +6,7 @@ import {
 } from "@ant-design/icons";
 import { uniqueId } from "lodash";
 import {
+  AccessPoint,
   Aperture,
   Article,
   BrandProducthunt,
@@ -21,6 +22,7 @@ import {
   Stack3,
   User,
   UserCheck,
+  UserCircle,
   Video,
 } from "tabler-icons-react";
 import { MenuitemProps } from "../types/menuItem";
@@ -44,6 +46,28 @@ export const Menuitems: MenuitemProps[] = [
       "admin_user_create",
       "admin_team_infos_read",
       "admin_team_info_create",
+    ],
+  },
+  {
+    id: uniqueId(),
+    title: "مدیران",
+    icon: UserCircle,
+    accessKey: ["admin_users_read", "admin_user_create"],
+    children: [
+      {
+        id: uniqueId(),
+        title: "افزودن",
+        icon: Point,
+        href: "/admin-create",
+        accessKey: ["admin_user_create"],
+      },
+      {
+        id: uniqueId(),
+        title: "لیست",
+        icon: Point,
+        href: "/admin-list",
+        accessKey: ["admin_users_read"],
+      },
     ],
   },
   {
@@ -86,6 +110,28 @@ export const Menuitems: MenuitemProps[] = [
         title: "لیست",
         icon: Point,
         href: "/team-list",
+        accessKey: ["admin_team_infos_read"],
+      },
+    ],
+  },
+  {
+    id: uniqueId(),
+    title: "نقش ها",
+    icon: AccessPoint,
+    accessKey: ["admin_team_infos_read", "admin_team_info_create"],
+    children: [
+      {
+        id: uniqueId(),
+        title: "افزودن",
+        icon: Point,
+        href: "/role-create",
+        accessKey: ["admin_team_info_create"],
+      },
+      {
+        id: uniqueId(),
+        title: "لیست",
+        icon: Point,
+        href: "/role-list",
         accessKey: ["admin_team_infos_read"],
       },
     ],

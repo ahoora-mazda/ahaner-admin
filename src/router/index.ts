@@ -1,5 +1,8 @@
 import AuthLayout from "../layout/auth";
 import MainLayout from "../layout/main";
+import AdminCreate from "../pages/admin/create";
+import AdminList from "../pages/admin/list";
+import AdminUpdate from "../pages/admin/update";
 import Login from "../pages/auth/login";
 import BlogCreate from "../pages/blogs/create";
 import BlogList from "../pages/blogs/list";
@@ -41,6 +44,9 @@ import PropertyCreate from "../pages/property/create";
 import PropertyList from "../pages/property/list";
 import PropertyUpdate from "../pages/property/update";
 import RequestPrices from "../pages/requestPrices/list";
+import RoleCreate from "../pages/roles/create";
+import RoleList from "../pages/roles/list";
+import RoleUpdate from "../pages/roles/update";
 import SettingPage from "../pages/settings";
 import TeamCreate from "../pages/team/create";
 import TeamList from "../pages/team/list";
@@ -477,5 +483,46 @@ export const routes: route[] = [
     layout: MainLayout,
     path: "/request-prices-list",
     accessKey: "admin_price_requests_read",
+  },
+
+  {
+    component: AdminCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/admin-create",
+  },
+  {
+    component: AdminList,
+    user: true,
+    layout: MainLayout,
+    path: "/admin-list",
+  },
+  {
+    component: AdminUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/admin-list/:id",
+  },
+
+  {
+    component: RoleCreate,
+    user: true,
+    layout: MainLayout,
+    path: "/role-create",
+    accessKey: "admin_admin_create",
+  },
+  {
+    component: RoleList,
+    user: true,
+    layout: MainLayout,
+    path: "/role-list",
+    accessKey: "admin_admins_read",
+  },
+  {
+    component: RoleUpdate,
+    user: true,
+    layout: MainLayout,
+    path: "/role-list/:id",
+    accessKey: "admin_admin_read",
   },
 ];

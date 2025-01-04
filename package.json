@@ -1,6 +1,6 @@
 {
-  "name": "webouyan-admin",
-  "version": "0.4.6",
+  "name": "ahaner-admin",
+  "version": "0.1.2",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.3.1",

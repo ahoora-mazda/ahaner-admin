@@ -530,3 +530,16 @@ export const combineImageUrl = (url: string | null) => {
   if (!url) return false;
   return urlJoin(baseURL as string, url);
 };
+export function comparePartialArrays(arr1: string[], arr2: string[]): boolean {
+  if (arr1.length === 0) return false;
+  return (
+    arr1.every((element) => arr2.includes(element)) ||
+    arr2.every((element) => arr1.includes(element))
+  );
+}
+export function removeElementsFromArray(
+  arr1: string[],
+  arr2: string[]
+): string[] {
+  return arr1.filter((element) => !arr2.includes(element));
+}

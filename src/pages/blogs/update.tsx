@@ -29,6 +29,8 @@ const BlogUpdate = () => {
         return {
           ...state,
           reading_time: +state.reading_time,
+          suggest: state.suggest ? 1 : 0,
+
           seo: {
             title: state.seo_title,
             description: state.seo_description,
@@ -40,6 +42,7 @@ const BlogUpdate = () => {
       sortGet={(state) => {
         return {
           ...state,
+          
           seoNeed: state.seo_id ? true : false,
           seo_title: state?.Seo_Datum?.title,
           seo_schema: state?.Seo_Datum?.schema,
@@ -125,6 +128,13 @@ const BlogUpdate = () => {
           cardKey: "1",
           col: "col-span-12",
           route: "/blogs/upload",
+        },
+        {
+          type: "checkbox",
+          name: "suggest",
+          label: "پیشنهاد سردبیر",
+          cardKey: "1",
+          col: "col-span-12",
         },
         {
           type: "checkbox",
