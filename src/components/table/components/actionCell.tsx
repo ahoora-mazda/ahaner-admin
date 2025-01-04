@@ -24,6 +24,7 @@ const ActionCell: FC<Props> = ({ headers, row }) => {
           break;
         case "custom":
           if (op.onClick) {
+            console.log('sa;');
             op.onClick(row.id, row);
           }
           break;

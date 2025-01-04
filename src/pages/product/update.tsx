@@ -267,6 +267,7 @@ const HistoryTab = () => {
   const dispatch = useDispatch();
   const [exportModal, setExportModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  console.log({ addModal });
   return (
     <>
       <CustomTable
@@ -337,8 +338,9 @@ const HistoryTab = () => {
                 title: "ویرایش",
                 type: "custom",
                 route: "/history-list/:id",
-                accessKey: "permission_show",
+                accessKey: "admin_product_price_history_read",
                 onClick: (id, data) => {
+                  console.log({ id });
                   setAddModal(+id);
                   setUpdateData(data);
                 },
@@ -347,7 +349,7 @@ const HistoryTab = () => {
                 title: "حذف",
                 type: "delete",
                 route: "/product-price-history",
-                accessKey: "cheque_remove",
+                accessKey: "admin_product_price_history_delete",
               },
             ],
           },
@@ -444,7 +446,7 @@ const HistoryTab = () => {
             update: `/product-price-history/${updateData?.id}`,
           }}
           update={typeof addModal === "number"}
-          accessUpdate={"account_update"}
+          accessUpdate={"admin_product_price_history_update"}
           sortUpdate={(state) => {
             return {
               ...state,
