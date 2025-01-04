@@ -35,7 +35,7 @@ const BlogCreate = () => {
         sortUpdate={(state) => {
           return {
             reading_time: +state.reading_time,
-            suggest: state.suggest ? 1 : 0,
+            suggest: state.suggest ? "1" : "0",
 
             ...state,
           };

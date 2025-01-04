@@ -21,7 +21,7 @@ export const groupCreateForm: Form = {
   sortUpdate: (state) => {
     return {
       ...state,
-      show_in_homepage: state.show_in_homepage ? 1 : 0,
+      show_in_homepage: state.show_in_homepage ? "1" : "0",
     };
   },
   notSerialize: true,

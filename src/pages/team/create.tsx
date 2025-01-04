@@ -21,7 +21,7 @@ const TeamCreate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
-          show_on_prices_page: state.show_on_prices_page ? 1 : 0,
+          show_on_prices_page: state.show_on_prices_page ? "1" : "0",
           social_medias: {
             telegram: state.telegram,
             whatsapp: state.whatsapp,

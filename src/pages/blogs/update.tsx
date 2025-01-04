@@ -29,7 +29,7 @@ const BlogUpdate = () => {
         return {
           ...state,
           reading_time: +state.reading_time,
-          suggest: state.suggest ? 1 : 0,
+          suggest: state.suggest ? "1" : "0",
 
           seo: {
             title: state.seo_title,
@@ -42,7 +42,7 @@ const BlogUpdate = () => {
       sortGet={(state) => {
         return {
           ...state,
-          
+
           seoNeed: state.seo_id ? true : false,
           seo_title: state?.Seo_Datum?.title,
           seo_schema: state?.Seo_Datum?.schema,

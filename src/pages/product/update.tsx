@@ -58,7 +58,7 @@ const ProductCreate = () => {
               delete state.Group;
               return {
                 ...state,
-                show_in_homepage: state.show_in_homepage ? 1 : 0,
+                show_in_homepage: state.show_in_homepage ? "1" : "0",
                 property_values: properties.map((p) => {
                   return {
                     property_id: p.id,

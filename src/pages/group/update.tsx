@@ -7,7 +7,6 @@ const GroupUpdate = () => {
   const navigate = useNavigate();
   return (
     <CustomForm
-    
       title="ایجاد گروه"
       btn={{ text: "ویرایش گروه" }}
       api={{
@@ -29,7 +28,7 @@ const GroupUpdate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
-          show_in_homepage: state.show_in_homepage ? 1 : 0,
+          show_in_homepage: state.show_in_homepage ? "1" : "0",
         };
       }}
       sortGet={(state) => {
@@ -39,7 +38,6 @@ const GroupUpdate = () => {
         };
       }}
       notSerialize
-
       elements={[
         {
           label: "عنوان",
@@ -82,7 +80,6 @@ const GroupUpdate = () => {
           cardKey: "1",
           col: "col-span-12",
         },
-    
       ]}
     />
   );
