@@ -483,9 +483,11 @@ export const isIdInArray = (id: number, arrayOfObjects: any[]): boolean => {
   return arrayOfObjects.some((obj) => obj.account_id === id);
 };
 
-export const convertDate = (date: string) => {
+export const convertDate = (date: string, time?: boolean) => {
   if (date) {
-    return moment.from(date, "fa", "YYYY/MM/DD").format("YYYY-MM-DD hh:mm:ss");
+    return time
+      ? moment.from(date, "fa", "YYYY/MM/DD hh:mm:ss").format("YYYY-MM-DD hh:mm:ss")
+      : moment.from(date, "fa", "YYYY/MM/DD").format("YYYY-MM-DD hh:mm:ss");
   } else {
     return null;
   }

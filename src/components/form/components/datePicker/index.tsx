@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
-import DatePicker from "react-multi-date-picker";
+import DatePicker, { DateObject } from "react-multi-date-picker";
 import "./style.scss";
 import { convertDate } from "../../../../utils/function";
 import TimePicker from "react-multi-date-picker/plugins/time_picker";
@@ -28,6 +28,9 @@ const CustomDatePicker: React.FC<Props> = ({
     open: { opacity: 1, y: 0 },
     closed: { opacity: 0, y: "-100%" },
   };
+  console.log({ value });
+  console.log(new Date(value));
+
   return (
     <div className="date-picker" data-error={error?.message ? true : false}>
       {label ? (
@@ -44,10 +47,23 @@ const CustomDatePicker: React.FC<Props> = ({
       )}
       <DatePicker
         range={false}
-        onChange={(data: any, e) => {
-          onChange(
-            convertDate(`${data.year}/${data.month.number}/${data.day}`)
-          );
+        onChange={(data: DateObject, e) => {
+          console.log({ data });
+          if (time) {
+            console.log(
+              `${data.year}/${data.month.number}/${data.day} ${data.hour}:0${data.minute}:0${data.second}`
+            );
+            onChange(
+              convertDate(
+                `${data.year}/${data.month.number}/${data.day} ${data.hour}:${data.minute}:${data.second}`,
+                true
+              )
+            );
+          } else {
+            onChange(
+              convertDate(`${data.year}/${data.month.number}/${data.day}`)
+            );
+          }
         }}
         inputClass="form-control"
         calendar={persian}
