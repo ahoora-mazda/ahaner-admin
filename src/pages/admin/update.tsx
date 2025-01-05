@@ -7,54 +7,35 @@ const AdminUpdate = () => {
   const navigate = useNavigate();
   return (
     <CustomForm
-      title="ویرایش عضو"
-      btn={{ text: "ویرایش عضو" }}
+      title="ویرایش مدیر"
+      btn={{ text: "ویرایش مدیر" }}
       api={{
-        route: "/team-info",
-        get: "/team-info/:id",
-        update: "/team-info/:id",
+        route: "/admins",
+        get: "/admins/:id",
+        update: "/admins/:id",
       }}
-      accessUpdate={"admin_team_info_update"}
+      accessUpdate={"admin_admin_update"}
       onEnd={() => {
-        navigate("/team-list");
+        navigate("/admin-list");
       }}
       cards={[
         {
-          title: "اطلاعات عضو",
+          title: "اطلاعات مدیر",
           key: "1",
         },
       ]}
       sortUpdate={(state) => {
         return {
           ...state,
-          show_on_prices_page: state.show_on_prices_page ? "1" : "0",
-          social_medias: {
-            telegram: state.telegram,
-            whatsapp: state.whatsapp,
-            instagram: state.instagram,
-          },
         };
       }}
       update={true}
       sortGet={(state) => {
         return {
           ...state,
-          ...state.teaminfo,
-          telegram: state?.social_medias?.telegram,
-          whatsapp: state?.social_medias?.whatsapp,
-          instagram: state?.social_medias?.instagram,
-          avatar: combineImageUrl(state.avatar),
         };
       }}
       elements={[
-        {
-          name: "avatar",
-          type: "imageUploader",
-          label: "تصویر",
-          cardKey: "1",
-          col: "col-span-12",
-          wrapperClassName: "flex items-center justify-center",
-        },
         {
           name: "full_name",
           label: "نام و نام خانوادگی",
@@ -64,65 +45,54 @@ const AdminUpdate = () => {
           type: "input",
         },
         {
+          name: "email",
+          label: "ایمیل",
+          cardKey: "1",
+          col: "col-span-12 md:col-span-6",
+          validation: yup
+            .string()
+            .email("ایمیل معتبر نیست")
+            .required("ایمیل اجباری است"),
+          type: "input",
+        },
+        {
           name: "mobile",
-          cardKey: "1",
           label: "موبایل",
+          cardKey: "1",
           col: "col-span-12 md:col-span-6",
-          validation: yup.string().required("موبایل اجباری است"),
+          validation: yup
+            .string()
+            .matches(/^09\d{9}$/, "شماره موبایل معتبر نیست")
+            .required("موبایل اجباری است"),
           type: "input",
         },
         {
-          name: "field",
-          label: "بخش",
+          name: "password",
+          label: "رمز عبور",
+          cardKey: "1",
+          col: "col-span-12 md:col-span-6",
+
           type: "input",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
         },
         {
-          name: "phone_number",
-          label: "داخلی کارشناس",
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-        },
-        {
-          name: "telegram",
-          type: "input",
-          label: "آدرس تلگرام",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-        },
-        {
-          name: "whatsapp",
-          type: "input",
-          label: "آدرس واتساپ",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-        },
-        {
-          name: "instagram",
-          label: "آدرس اینستاگرام",
-          type: "input",
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-        },
-        {
-          type: "select",
-          name: "status",
-          label: "وضعیت",
-          options: [
-            { value: "active", label: "فعال" },
-            { value: "inactive", label: "غیر فعال" },
-          ],
-          cardKey: "1",
-          col: "col-span-12 md:col-span-6",
-        },
-        {
-          type: "checkbox",
-          name: "show_on_prices_page",
-          label: "مشاهده در صفحه محصول و دسته بندی",
-          cardKey: "1",
+          type: "selectApi",
+          label: "نقش",
+          name: "role_id",
+          validation: yup.mixed().required("نقش اجباری است"),
+          api: {
+            keys: ["admin_roles"],
+            sort: (state) => {
+              return state.admin_roles.map((ele: any) => {
+                return {
+                  value: ele.value,
+                  label: ele.label,
+                };
+              });
+            },
+          },
           col: "col-span-12",
+          cardKey: "1",
+          addPermission: "admin_category_create",
         },
       ]}
     />

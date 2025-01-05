@@ -79,7 +79,7 @@ const Sidebar = () => {
               </div>
               <div>
                 <p className="font-semibold	text-sm whitespace-nowrap	">
-                  {fullName} عزیز
+                  {fullName}
                 </p>
                 <p className="font-normal	text-xs	">{role}</p>
               </div>

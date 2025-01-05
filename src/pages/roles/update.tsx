@@ -45,7 +45,7 @@ const RoleUpdate = () => {
         title="ویرایش نقش"
         btn={{ text: "ویرایش نقش" }}
         update
-        accessUpdate={"admin_admin_update"}
+        accessUpdate={"admin_role_update"}
         api={{
           route: "/roles",
           get: "/roles/:id",

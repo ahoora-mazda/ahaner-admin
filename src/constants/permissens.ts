@@ -201,4 +201,14 @@ export const permissions: any = {
       { key: "admin_admin_delete", title: "حذف مدیر" },
     ],
   },
+  roles: {
+    title: "نقش ها",
+    actions: [
+      { key: "admin_roles_read", title: "نمایش نقش ها" },
+      { key: "admin_role_read", title: "نمایش نقش" },
+      { key: "admin_role_create", title: "ایجاد نقش" },
+      { key: "admin_role_update", title: "ویرایش نقش" },
+      { key: "admin_role_delete", title: "حذف نقش" },
+    ],
+  },
 };

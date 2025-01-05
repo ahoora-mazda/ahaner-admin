@@ -5,6 +5,7 @@ const RoleList = () => {
     <>
       <CustomTable
         add="/role-create"
+        accessAdd={"admin_role_create"}
         title="لیست نقش ها"
         subTitle="نقش ها"
         api={{ route: "/roles" }}
@@ -24,7 +25,7 @@ const RoleList = () => {
             key: "title",
             title: "عنوان",
           },
-        
+
           {
             key: "",
             title: "عملیات",
@@ -34,13 +35,13 @@ const RoleList = () => {
                 title: "ویرایش",
                 type: "edit",
                 route: "/role-list/:id",
-                accessKey: "admin_admin_read",
+                accessKey: "admin_role_read",
               },
               {
                 title: "حذف",
                 type: "delete",
                 route: "/roles",
-                accessKey: "admin_admin_update",
+                accessKey: "admin_role_delete",
               },
             ],
           },

@@ -509,20 +509,20 @@ export const routes: route[] = [
     user: true,
     layout: MainLayout,
     path: "/role-create",
-    accessKey: "admin_admin_create",
+    accessKey: "admin_role_create",
   },
   {
     component: RoleList,
     user: true,
     layout: MainLayout,
     path: "/role-list",
-    accessKey: "admin_admins_read",
+    accessKey: "admin_roles_read",
   },
   {
     component: RoleUpdate,
     user: true,
     layout: MainLayout,
     path: "/role-list/:id",
-    accessKey: "admin_admin_read",
+    accessKey: "admin_role_read",
   },
 ];
