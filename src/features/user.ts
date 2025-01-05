@@ -6,6 +6,7 @@ export interface User {
   fullName: string;
   permissions: string[];
   avatar: string;
+  role?: string;
 }
 const initialState: User = {
   token: "",
@@ -45,6 +46,7 @@ export const user = createSlice({
     setProfile: (state, userData) => {
       state.fullName = userData.payload.fullName;
       state.permissions = userData.payload.permissions;
+      state.role = userData.payload.role;
     },
   },
 });

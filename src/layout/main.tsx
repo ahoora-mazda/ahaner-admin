@@ -41,6 +41,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
         setProfile({
           fullName: data?.full_name,
           permissions: data?.Role?.Permissions.map((ele: any) => ele.name),
+          role: data.Role.title,
         })
       );
     } catch (error) {

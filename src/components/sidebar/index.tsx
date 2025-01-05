@@ -21,7 +21,7 @@ const Sidebar = () => {
   };
   const { check } = usePermission();
   const dispatch = useDispatch();
-  const { fullName, avatar } = useSelector(
+  const { fullName, avatar, role } = useSelector(
     (state: RootState) => state.userReducer
   );
   const [, , send, loading] = usePost({
@@ -52,7 +52,6 @@ const Sidebar = () => {
                 alt=""
                 className="h-10 md:h-[150px] object-contain"
               />
-             
             </div>
           ) : (
             <img
@@ -80,9 +79,9 @@ const Sidebar = () => {
               </div>
               <div>
                 <p className="font-semibold	text-sm whitespace-nowrap	">
-                  {fullName}
+                  {fullName} عزیز
                 </p>
-                {/* <p className="font-normal	text-xs	">برنامه نویس</p> */}
+                <p className="font-normal	text-xs	">{role}</p>
               </div>
               <Tooltip title="خروج از سیستم" trigger={["hover", "focus"]}>
                 <Button

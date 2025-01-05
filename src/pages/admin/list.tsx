@@ -4,14 +4,15 @@ const AdminList = () => {
   return (
     <>
       <CustomTable
-        add="/team-create"
+        add="/admin-create"
         title="لیست مدیران"
-        accessAdd={'admin_team_info_create'}
+        accessAdd={"admin_admin_create"}
         subTitle="مدیران"
         api={{ route: "/admins" }}
         sort={(state) => {
           return {
             ...state,
+            Role: state.Role.title,
           };
         }}
         search={{}}
@@ -31,14 +32,8 @@ const AdminList = () => {
             title: "موبایل",
           },
           {
-            key: "field",
-            title: "بخش",
-            isSearchAble: true,
-          },
-          {
-            key: "phone_number",
-            title: "داخلی کارشناس",
-            isSearchAble: true,
+            key: "Role",
+            title: "نقش",
           },
           {
             key: "created_at",
