@@ -63,6 +63,7 @@ const ProductCreate = () => {
                   return {
                     property_id: p.id,
                     property_value: p.value,
+                    test_to : p || "aa"
                   };
                 }),
               };
@@ -70,7 +71,7 @@ const ProductCreate = () => {
             sortGet={(state) => {
               setProperties(
                 state.Property_Values.map((p: any) => {
-                  return { name: p.Property?.name, id: p.id, value: p.value };
+                  return { name: p.Property?.name, id: p?.Property?.id, value: p.value };
                 })
               );
               return {
