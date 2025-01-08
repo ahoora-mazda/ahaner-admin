@@ -30,6 +30,7 @@ const SettingPage = () => {
         accessUpdate={"admin_settings_create_or_update"}
         sortUpdate={(state) => {
           return {
+            landing_product_id : state.landing_product_id,
             address: state.address,
             social_medias: {
               telegram: state.telegram,
