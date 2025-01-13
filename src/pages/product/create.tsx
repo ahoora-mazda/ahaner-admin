@@ -9,19 +9,15 @@ import { useDispatch } from "react-redux";
 import { toggle } from "../../features/form";
 import Input from "../../components/form/components/input";
 import { API } from "../../server";
-import { productCorCreateForm } from "../productCore/create";
 import { groupCreateForm } from "../group/create";
 
 const ProductCreate = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpenProduct, setIsOpenProduct] = useState(false);
   const [isOpenGroup, setIsOpenGroup] = useState(false);
   const [reset, setReset] = useState("");
   delete categoryCreateForm.cards;
   delete categoryCreateForm.title;
-  delete productCorCreateForm.cards;
-  delete productCorCreateForm.title;
   delete groupCreateForm.cards;
   delete groupCreateForm.title;
   const dispatch = useDispatch();
@@ -109,31 +105,6 @@ const ProductCreate = () => {
               setIsOpen(true);
             },
             addPermission: "admin_category_create",
-          },
-          {
-            label: "محصول اصلی",
-            name: "product_core_id",
-            type: "selectApi",
-
-            api: {
-              keys: ["product_cores"],
-              sort: (state) => {
-                return state.product_cores.map((ele: any) => {
-                  return {
-                    value: ele.value,
-                    label: ele.label,
-                    properties: ele.Properties,
-                  };
-                });
-              },
-            },
-            cardKey: "1",
-            validation: yup.string().required("محصول اصلی اجباری است"),
-            col: "col-span-12",
-            onAdd: () => {
-              setIsOpenProduct(true);
-            },
-            addPermission: "admin_product_core_create",
           },
           {
             label: "گروه",
@@ -270,28 +241,6 @@ const ProductCreate = () => {
           }}
         />
       </Modal>
-      <Modal
-        isOpen={isOpenProduct}
-        className="!max-w-2xl"
-        title="افزودن محصول اصلی"
-        onClose={() => {
-          setIsOpenProduct(false);
-          setReset(random());
-        }}
-      >
-        <CustomForm
-          key={reset}
-          {...productCorCreateForm}
-          elements={productCorCreateForm.elements.filter(
-            (ele) => ele.validation
-          )}
-          onEnd={() => {
-            setIsOpenProduct(false);
-            setReset(random());
-            dispatch(toggle());
-          }}
-        />
-      </Modal>{" "}
       <Modal
         isOpen={isOpenGroup}
         className="!max-w-2xl"

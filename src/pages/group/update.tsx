@@ -28,13 +28,14 @@ const GroupUpdate = () => {
       sortUpdate={(state) => {
         return {
           ...state,
+
           show_in_homepage: state.show_in_homepage ? "1" : "0",
         };
       }}
       sortGet={(state) => {
         return {
           ...state,
-          category_id: state?.Category?.id,
+          category_ids: state?.Categories.map((ele: any) => ele.id),
         };
       }}
       notSerialize
@@ -48,9 +49,9 @@ const GroupUpdate = () => {
           col: "col-span-12",
         },
         {
-          type: "selectApi",
+          type: "multiSelectApi",
           label: "دسته بندی",
-          name: "category_id",
+          name: "category_ids",
           validation: yup.mixed().required("دسته بندی اجباری است"),
           api: {
             keys: ["categories"],

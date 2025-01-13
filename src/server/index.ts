@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 export const baseURL = "https://api.ahaner.com";
 // export const baseURL = "https://server.ahaner.site";
-// export const baseURL = "http://192.168.1.3:9582";
+// export const baseURL = "http://192.168.1.6:9582";
 
 export const API = axios.create({
   // baseURL: "https://server.ahaner.site/api/admin",

@@ -36,9 +36,6 @@ import ProductCreate from "../pages/product/create";
 import ProductInfo from "../pages/product/info";
 import ProductList from "../pages/product/list";
 import ProductUpdate from "../pages/product/update";
-import ProductCoreCreate from "../pages/productCore/create";
-import ProductCoreList from "../pages/productCore/list";
-import ProductCoreUpdate from "../pages/productCore/update";
 import Profile from "../pages/profile";
 import PropertyCreate from "../pages/property/create";
 import PropertyList from "../pages/property/list";
@@ -431,29 +428,6 @@ export const routes: route[] = [
     accessKey: "admin_category_view_read",
   },
   // Recent Prices End
-  // ProductCoreCreate Start
-  {
-    component: ProductCoreCreate,
-    user: true,
-    layout: MainLayout,
-    path: "/product-core-create",
-    accessKey: "admin_product_core_create",
-  },
-  {
-    component: ProductCoreList,
-    user: true,
-    layout: MainLayout,
-    path: "/product-core-list",
-    accessKey: "admin_product_cores_read",
-  },
-  {
-    component: ProductCoreUpdate,
-    user: true,
-    layout: MainLayout,
-    path: "/product-core-list/:id",
-    accessKey: "admin_product_core_read",
-  },
-  // ProductCoreCreate End
   // Recent Prices Start
   {
     component: VideoCreate,

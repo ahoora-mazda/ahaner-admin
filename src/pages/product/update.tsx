@@ -104,26 +104,6 @@ const ProductCreate = () => {
                 col: "col-span-12 md:col-span-6",
               },
               {
-                label: "محصول اصلی",
-                name: "product_core_id",
-                type: "selectApi",
-                api: {
-                  keys: ["product_cores"],
-                  sort: (state) => {
-                    return state.product_cores.map((ele: any) => {
-                      return {
-                        value: ele.value,
-                        label: ele.label,
-                        properties: ele.Properties,
-                      };
-                    });
-                  },
-                },
-                cardKey: "1",
-                validation: yup.string().required("محصول اصلی اجباری است"),
-                col: "col-span-12",
-              },
-              {
                 label: "گروه",
                 name: "group_id",
                 type: "selectApi",

@@ -35,9 +35,9 @@ export const groupCreateForm: Form = {
       col: "col-span-12",
     },
     {
-      type: "selectApi",
+      type: "multiSelectApi",
       label: "دسته بندی",
-      name: "category_id",
+      name: "category_ids",
       validation: yup.mixed().required("دسته بندی اجباری است"),
       api: {
         keys: ["categories"],
