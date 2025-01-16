@@ -17,7 +17,10 @@ import { API } from "../../server";
 const ProductCreate = () => {
   const navigate = useNavigate();
   const [properties, setProperties] = useState<any[]>([]);
-
+  const getProperties = async (id: any) => {
+    const { data } = await API.get(`categories/${id}`);
+    setProperties(data.data.Properties);
+  };
   const items: TabsProps["items"] = [
     {
       key: "membershipـright",
@@ -59,19 +62,27 @@ const ProductCreate = () => {
               return {
                 ...state,
                 show_in_homepage: state.show_in_homepage ? "1" : "0",
-                property_values: properties.map((p) => {
-                  return {
-                    property_id: p.id,
-                    property_value: p.value,
-                    test_to : p || "aa"
-                  };
-                }),
+                property_values: properties
+                  .map((p) => {
+                    if (p.value) {
+                      return {
+                        property_id: p.id,
+                        property_value: p.value,
+                      };
+                    }
+                    return false;
+                  })
+                  .filter(Boolean),
               };
             }}
             sortGet={(state) => {
               setProperties(
                 state.Property_Values.map((p: any) => {
-                  return { name: p.Property?.name, id: p?.Property?.id, value: p.value };
+                  return {
+                    name: p.Property?.name,
+                    id: p?.Property?.id,
+                    value: p.value,
+                  };
                 })
               );
               return {
@@ -102,6 +113,23 @@ const ProductCreate = () => {
                 cardKey: "1",
                 help: "انگلیسی وارد کنید و فاصله را با - وارد کنید",
                 col: "col-span-12 md:col-span-6",
+              },
+              {
+                label: "دسته بندی",
+                name: "category_id",
+                validation: yup.string().required("دسته بندی اجباری است"),
+                type: "selectApi",
+                onChange: (e) => {
+                  getProperties(e);
+                },
+                cardKey: "1",
+                col: "col-span-12",
+                api: {
+                  keys: ["categories"],
+                  sort: (state) => {
+                    return state.categories;
+                  },
+                },
               },
               {
                 label: "گروه",
